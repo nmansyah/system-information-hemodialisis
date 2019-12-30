@@ -12,9 +12,10 @@ class PegawaiController extends Controller
 {
     public function __construct()
     {
-      $this->middleware('auth');
-      $this->middleware('pegawai');
+        $this->middleware('auth');
+        $this->middleware('pegawai');
     }
+
     public function index()
     {
         return view('pegawai/indexPegawai');

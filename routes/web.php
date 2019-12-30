@@ -15,22 +15,22 @@
 //     return view('admin/dashboard');
 // });
 
-    Route::get('/', function () {
+Route::get('/', function () {
     return view('guest/home');
-    });
+});
 
-    //Authentikasi
-    Auth::routes();
+//Authentikasi
+Auth::routes();
 
-    //Guest
-    Route::prefix('guest')->group(function () {
+//Guest
+Route::prefix('guest')->group(function () {
     Route::get('/home', 'Guest\HomeController@index')->name('guest.home');
     Route::get('/jadwalDokter', 'Guest\JadwalDokterController@index')->name('guest.jadwalDokter');
     Route::get('/jadwalPerawat', 'Guest\JadwalPerawatController@index')->name('guest.jadwalPerawat');
-    });
+});
 
-    //Admin
-    Route::prefix('admin')->group(function () {
+//Admin
+Route::prefix('admin')->group(function () {
     //index Admin
     Route::get('/indexAdmin', 'Admin\AdminController@index');
 
@@ -138,7 +138,7 @@
     Route::put('/inputPasienTraveling/{id}/update', 'Admin\InputPasienTravelingController@update');
 
 });
-    //Pegawai
-    Route::prefix('pegawai')->group(function () {
+//Pegawai
+Route::prefix('pegawai')->group(function () {
     Route::get('/indexPegawai', 'Pegawai\PegawaiController@index');
 });

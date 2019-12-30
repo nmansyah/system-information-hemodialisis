@@ -36,25 +36,25 @@ class User extends Authenticatable
     // fungsi untuk mengecek apakakah admin atau bukan
     public function isAdmin()
     {
-      if ($this->role==1) {
-        return true;
-      }
-      return false;
+        if ($this->role == 1) {
+            return true;
+        }
+        return false;
     }
 
     public function isPegawai()
     {
-      if ($this->role==2) {
-        return true;
-      }
-      return false;
+        if ($this->role == 2) {
+            return true;
+        }
+        return false;
     }
 
     public function isDok()
     {
-      if ($this->role==3) {
-        return true;
-      }
-      return false;
+        if ($this->role == 3) {
+            return true;
+        }
+        return false;
     }
 }

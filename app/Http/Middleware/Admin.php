@@ -13,8 +13,8 @@ class Admin
     /**
      * Handle an incoming request.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
+     * @param \Illuminate\Http\Request $request
+     * @param \Closure $next
      * @return mixed
      */
     public function handle($request, Closure $next)
@@ -25,12 +25,12 @@ class Admin
         //     "isAdmin()" dari "model user.php"
         if (Auth::check() && Auth::user()->isAdmin()) {
             return $next($request);
-          }else {
-            return redirect('/pegawai');
-          }
-  
-          // bila mau ditampilkan pesan error
-          // throw new \Exception("acces denied", 1);
-  
+        } else {
+            return redirect('/pegawai/indexPegawai');
+        }
+
+        // bila mau ditampilkan pesan error
+        // throw new \Exception("acces denied", 1);
+
     }
 }
