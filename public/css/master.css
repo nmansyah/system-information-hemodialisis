@@ -1,0 +1,127 @@
+  .box-grid > .atas{
+    width: 1000px;
+    min-height: 250px;
+    margin-left: 20px;
+    margin-bottom: 30px;
+    border: solid 1px grey;
+    padding: 10px;
+    border-radius: 1em;
+    margin-top: 80px;
+    font-size: 16px;
+  }
+
+  .box-grid i{
+    padding: 10px;
+  }
+
+  .box-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 20px;
+    gap: 20px;
+  }
+  
+  .box-grid > div {
+    border: 1px solid #333;
+    padding: 10px;
+    border-radius: 1em;
+    font-display: justify;
+  }
+  
+  .box-grid p{
+    text-align: justify;
+    font-style: normal;
+    font-size: 14px;
+  }
+
+  .box-grid h2{
+    text-align: center;
+  }
+
+  .card{
+    display: inline-block !important;
+    margin-right: 20px;
+    margin-bottom: 50px;
+  }
+
+  .tombolAksi{
+    display: inline;
+    background-color: white;
+  }
+
+  
+.loginbox{
+	width: 750px;
+	height: 400px;
+	margin: auto;
+	margin-top: 150px;
+	border-radius: 2em 2em 2em 2em;
+	box-shadow: 1px 1px 10px 0px gray;
+}
+
+.loginbox hr{
+	width: 100px;
+	margin-left: 0px;
+	border: solid gray 1px;
+}
+
+.tombol{
+	width: 100px;
+	height: 30px;
+	background:#bac2d1;
+	border: solid 0px;
+	cursor: pointer;
+	color: #fff;
+	border-radius: 1em 1em 1em 1em;
+	margin: 10px 20px;
+	margin-left: 0px;
+}
+
+form{
+	display: inline;
+}
+
+input{
+	padding: 5px 15px;
+	margin: 15px 0px;
+
+}
+
+.sisia{
+	float: left;
+	background-image: url('../images/pku.jpg');
+	width: 375px;
+	height: 100%;
+	border-radius: 2em 0em 0em 2em;
+}
+
+.sisia div{
+	width: 300px;
+	margin:	auto;
+	margin-top: 100px;
+	height: 300px;
+	
+}
+
+.sisib{
+	float: right;
+	background: solid white;
+	width: 375px;
+	height: 100%;
+	border-radius: 0em 2em 2em 0em;
+}
+
+.sisib div{
+	width: 300px;
+	margin:	auto;
+	height: 100px;
+	
+}
+
+.tombolIn{
+  border-radius: 1em;
+}
+
+  
+  
+  

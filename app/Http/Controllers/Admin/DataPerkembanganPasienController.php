@@ -1,0 +1,29 @@
+<?php
+
+namespace App\Http\Controllers\Admin;
+
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
+use App\Models\User;
+use App\Models\Admin;
+use App\Models\Pasien;
+use App\Models\Perkembangan_Pasien;
+use Auth;
+
+class DataPerkembanganPasienController extends Controller
+{
+    public function index()
+    {
+      $pasien = Pasien::all();
+      $perkembangan_pasien = Perkembangan_Pasien::all();
+      return view('admin/dataPerkembanganPasien', [
+        'pasien' => $pasien,
+        'perkembangan_pasien' => $perkembangan_pasien
+      ]);
+    }
+
+}
+
