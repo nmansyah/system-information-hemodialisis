@@ -20,7 +20,7 @@ class RedirectIfAuthenticated
     {
       if (Auth::guard($guard)->check()) {
         if (Auth::user()->isAdmin()) {
-          return redirect('/admin/indexAdmin');
+          return redirect('/admin');
         }elseif (Auth::user()->isPegawai()) {
           return redirect('/pegawai');
         }else {
