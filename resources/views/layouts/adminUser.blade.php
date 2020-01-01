@@ -52,7 +52,7 @@
                 <img src="{{ asset('images/admin-icon.png') }}" alt="..." class="img-circle profile_img">
               </div>
               <div class="profile_info">
-                <span>Welcome,</span>
+                <span>Selamat Datang,</span>
                 <h2>Admin</h2>
               </div>
             </div>

@@ -15,6 +15,12 @@ use Auth;
 
 class JadwalPerawatController extends Controller
 {
+  public function __construct()
+    {
+      $this->middleware('auth');
+      $this->middleware('admin');
+    }
+
     public function index()
     {
       $perawat= Perawat::all();

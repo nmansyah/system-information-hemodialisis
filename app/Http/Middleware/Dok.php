@@ -22,7 +22,7 @@ class Dok
         if (Auth::check() && Auth::user()->isDok()) {
             return $next($request);
           }else {
-            return redirect('/admin');
+            return redirect('/admin/indexAdmin');
           }
     }
 }

@@ -22,7 +22,7 @@ class Pegawai
         if (Auth::check() && Auth::user()->isPegawai()) {
             return $next($request);
         } else {
-            return redirect('/dokter');
+            return redirect('/dok/indexDokter');
         }
     }
 }

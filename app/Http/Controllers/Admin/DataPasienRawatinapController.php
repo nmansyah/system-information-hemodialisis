@@ -12,8 +12,15 @@ use App\Models\Admin;
 use App\Models\Pasien;
 use App\Models\Pasien_Rawatinap;
 use Auth;
+
 class DataPasienRawatinapController extends Controller
 {
+    public function __construct()
+    {
+      $this->middleware('auth');
+      $this->middleware('admin');
+    }
+
     public function index()
     {
       $pasien = Pasien::all();

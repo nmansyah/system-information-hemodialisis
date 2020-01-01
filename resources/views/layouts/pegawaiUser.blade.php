@@ -41,7 +41,7 @@
         <div class="col-md-3 left_col menu_fixed">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="/pegawai/dashboard" class="site_title"> <img src="{{ asset('images/logo-pku.png') }}" alt="" style="width:30px; height:30px"> <span>HEMODIALISIS</span></a>
+              <a href="/pegawai/halamanUtama" class="site_title"> <img src="{{ asset('images/logo-pku.png') }}" alt="" style="width:30px; height:30px"> <span>HEMODIALISIS</span></a>
             </div>
 
             <div class="clearfix"></div>
@@ -52,7 +52,7 @@
                 <img src="{{ asset('images/admin-icon.png') }}" alt="..." class="img-circle profile_img">
               </div>
               <div class="profile_info">
-                <span>Welcome,</span>
+                <span>Perawat</span>
               </div>
             </div>
             <!-- /menu profile quick info -->
@@ -65,7 +65,7 @@
                 <h3>Menu</h3>
                 <ul class="nav side-menu">
 
-                  <li><a href="/pegawai/dashboard"><i class="fa fa-dashboard"></i>
+                  <li><a href="/pegawai/halamanUtama"><i class="fa fa-dashboard"></i>
                       Halaman Utama 
                     </a>
                   </li>
@@ -85,21 +85,6 @@
                       <li><a href="/pegawai/jadwalPasien">Pasien</a></li>
                       <li><a href="/pegawai/jadwalPerawat">Perawat</a></li>                      
                     </ul>
-                  </li>
- 
-                  <!-- <li><a href="/admin/dataEdukasi"><i class="fa fa-edit"></i>
-                        Kelola Edukasi
-                      </a>
-                  </li> -->
-
-                  <!-- <li><a href="/admin/dataKegiatan"><i class="fa fa-edit"></i>
-                        Kelola Kegiatan
-                      </a>
-                  </li> -->
-                  
-                  <li><a href="/pegawai/dataKehadiranPasien"><i class="fa fa-calendar-o"></i>
-                        Kehadiran Pasien
-                      </a>
                   </li>
 
                   <li><a href="/pegawai/dataPerkembanganPasien"><i class="fa fa-edit"></i> 

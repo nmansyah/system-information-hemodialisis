@@ -14,6 +14,12 @@ use Auth;
 
 class DataKehadiranPasienController extends Controller
 {
+  public function __construct()
+      {
+        $this->middleware('auth');
+        $this->middleware('admin');
+      }
+      
     public function index()
     {
       $kehadiran_pasien = Kehadiran_Pasien::all();
