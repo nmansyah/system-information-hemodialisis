@@ -87,7 +87,7 @@ Route::prefix('admin')->group(function () {
     Route::put('/inputJadwalPerawat/{id}/update', 'Admin\InputJadwalPerawatController@update');
 
     //Perkembangan Pasien
-    Route::get('/dataPerkembanganPasien', 'Admin\DataPerkembanganPasienController@index')->name('data.perkembanganPasien');
+    Route::get('/dataPerkembanganPasien', 'Admin\DataPerkembanganPasienController@index')->name('admin.data.perkembanganPasien');
     Route::get('/inputPerkembanganPasien', 'Admin\InputPerkembanganPasienController@index');
     Route::post('/inputPerkembanganPasien', 'Admin\InputPerkembanganPasienController@store');
     Route::delete('/inputPerkembanganPasien/{id}/delete', 'Admin\InputPerkembanganPasienController@delete')->name('admin.perkembanganPasien.delete');
@@ -103,7 +103,7 @@ Route::prefix('admin')->group(function () {
     Route::put('/inputKehadiranPasien/{id}/update', 'Admin\InputKehadiranPasienController@update');
 
     //Perpindahan Jadwal
-    Route::get('/dataPerpindahJadwal', 'Admin\DataPerpindahJadwalController@index')->name('data.perpindahanJadwal');
+    Route::get('/dataPerpindahJadwal', 'Admin\DataPerpindahJadwalController@index')->name('admin.data.perpindahanJadwal');
     Route::get('/inputPerpindahanJadwal', 'Admin\InputPerpindahJadwalController@index');
     Route::post('/inputPerpindahanJadwal', 'Admin\InputPerpindahJadwalController@store');
     Route::delete('/inputPerpindahanJadwal/{id}/delete', 'Admin\InputPerpindahJadwalController@delete')->name('admin.perpindahanJadwal.delete');
@@ -111,7 +111,7 @@ Route::prefix('admin')->group(function () {
     Route::put('/inputPerpindahanJadwal/{id}/update', 'Admin\InputPerpindahJadwalController@update');
 
     //Pasien Meninggal
-    Route::get('/dataPasienMeninggal', 'Admin\DataPasienMeninggalController@index')->name('data.pasienMeninggal');
+    Route::get('/dataPasienMeninggal', 'Admin\DataPasienMeninggalController@index')->name('admin.data.pasienMeninggal');
     Route::get('/inputPasienMeninggal', 'Admin\InputPasienMeninggalController@index');
     Route::post('/inputPasienMeninggal', 'Admin\InputPasienMeninggalController@store');
     Route::delete('/inputPasienMeninggal/{id}/delete', 'Admin\InputPasienMeninggalController@delete')->name('admin.pasienMeninggal.delete');
@@ -119,7 +119,7 @@ Route::prefix('admin')->group(function () {
     Route::put('/inputPasienMeninggal/{id}/update', 'Admin\InputPasienMeninggalController@update');
 
     //Pasien Rawatinap
-    Route::get('/dataPasienRawatinap', 'Admin\DataPasienRawatinapController@index')->name('data.pasienRawatinap');
+    Route::get('/dataPasienRawatinap', 'Admin\DataPasienRawatinapController@index')->name('admin.data.pasienRawatinap');
     Route::get('/inputPasienRawatinap', 'Admin\InputPasienRawatinapController@index');
     Route::post('/inputPasienRawatinap', 'Admin\InputPasienRawatinapController@store');
     Route::delete('/inputPasienRawatinap/{id}/delete', 'Admin\InputPasienRawatinapController@delete')->name('admin.pasienRawatinap.delete');
@@ -127,7 +127,7 @@ Route::prefix('admin')->group(function () {
     Route::put('/inputPasienRawatinap/{id}/update', 'Admin\InputPasienRawatinapController@update');
 
     //Pasien Traveling
-    Route::get('/dataPasienTraveling', 'Admin\DataPasienTravelingController@index')->name('data.pasienTraveling');
+    Route::get('/dataPasienTraveling', 'Admin\DataPasienTravelingController@index')->name('admin.data.pasienTraveling');
     Route::get('/inputPasienTraveling', 'Admin\InputPasienTravelingController@index');
     Route::post('/inputPasienTraveling', 'Admin\InputPasienTravelingController@store');
     Route::delete('/inputPasienTraveling/{id}/delete', 'Admin\InputPasienTravelingController@delete')->name('admin.pasienTraveling.delete');
@@ -140,22 +140,22 @@ Route::prefix('admin')->group(function () {
 Route::prefix('pegawai')->group(function () {
     //Index Pegawai
     Route::get('/indexPegawai', 'Pegawai\PegawaiController@index');
-   
+
     //Halaman Utama
     Route::get('/halamanUtama', 'Pegawai\DashboardController@index')->name('pegawai.dashboard');
-    
+
     //Data Pasien
     Route::get('/dataPasien', 'Pegawai\DataPasienController@index')->name('data.pasien');
-    
+
     //Jadwal Dokter
     Route::get('/jadwalDokter', 'Pegawai\JadwalDokterController@index')->name('data.jadwalDokter');
-    
+
     //Jadwal Perawat
     Route::get('/jadwalPerawat', 'Pegawai\JadwalPerawatController@index')->name('data.jadwalPerawat');
 
     //Jadwal Pasien
     Route::get('/jadwalPasien', 'Pegawai\JadwalPasienController@index');
-    
+
     //Perkembangan Pasien
     Route::get('/dataPerkembanganPasien', 'Pegawai\DataPerkembanganPasienController@index')->name('data.perkembanganPasien');
     Route::get('/inputPerkembanganPasien', 'Pegawai\InputPerkembanganPasienController@index');
@@ -163,7 +163,7 @@ Route::prefix('pegawai')->group(function () {
     Route::delete('/inputPerkembanganPasien/{id}/delete', 'Pegawai\InputPerkembanganPasienController@delete')->name('pegawai.perkembanganPasien.delete');
     Route::get('/inputPerkembanganPasien/{id}/edit', 'Pegawai\InputPerkembanganPasienController@edit');
     Route::put('/inputPerkembanganPasien/{id}/update', 'Pegawai\InputPerkembanganPasienController@update');
-    
+
     //Perpindahan Jadwal
     Route::get('/dataPerpindahanJadwal', 'Pegawai\DataPerpindahJadwalController@index')->name('data.perpindahanJadwal');
     Route::get('/inputPerpindahanJadwal', 'Pegawai\InputPerpindahJadwalController@index');
@@ -173,13 +173,13 @@ Route::prefix('pegawai')->group(function () {
     Route::put('/inputPerpindahanJadwal/{id}/update', 'Pegawai\InputPerpindahJadwalController@update');
 
     //Pasien Meninggal
-    Route::get('/dataPasienMeninggal', 'Pegawai\DataPasienMeninggalController@index')->name('data.pasienMeninggal');
+    Route::get('/dataPasienMeninggal', 'Pegawai\DataPasienMeninggalController@index')->name('pegawai.data.pasienMeninggal');
     Route::get('/inputPasienMeninggal', 'Pegawai\InputPasienMeninggalController@index');
     Route::post('/inputPasienMeninggal', 'Pegawai\InputPasienMeninggalController@store');
     Route::delete('/inputPasienMeninggal/{id}/delete', 'Pegawai\InputPasienMeninggalController@delete')->name('pegawai.pasienMeninggal.delete');
     Route::get('/inputPasienMeninggal/{id}/edit', 'Pegawai\InputPasienMeninggalController@edit');
     Route::put('/inputPasienMeninggal/{id}/update', 'Pegawai\InputPasienMeninggalController@update');
-    
+
     //Pasien Rawat Inap
     Route::get('/dataPasienRawatinap', 'Pegawai\DataPasienRawatinapController@index')->name('data.pasienRawatinap');
     Route::get('/inputPasienRawatinap', 'Pegawai\InputPasienRawatinapController@index');
@@ -213,5 +213,5 @@ Route::prefix('dok')->group(function () {
     Route::get('/dataPasienTraveling', 'Dok\DataPasienTravelingController@index')->name('data.pasienTraveling');
     //Pasien Rawatinap
     Route::get('/dataPasienRawatinap', 'Dok\DataPasienRawatinapController@index')->name('data.pasienRawatinap');
-    
+
 });
