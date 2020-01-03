@@ -41,7 +41,9 @@
                                     <td>{{ $psn->riwayat }}</td>
                                     <td>{{ $psn->no_hp }}</td>
                                     <td>
-                                    
+                                      <div class="tombolAksi" >
+                                          <a href="/pegawai/{{$psn->id}}/dataAskep" class="btn btn-sm"><i class="fa fa-info"></i></a>
+                                      </div>
                                     </td>
 
                         @php
