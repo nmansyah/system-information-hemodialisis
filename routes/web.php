@@ -91,7 +91,9 @@ Route::prefix('admin')->group(function () {
     Route::put('/inputPerkembanganPasien/{id}/update', 'Admin\InputPerkembanganPasienController@update');
 
     //Kehadiran Pasien
-    Route::get('/dataKehadiranPasien', 'Admin\DataKehadiranPasienController@index')->name('data.kehadiranPasien');
+    Route::get('/dataKehadiranPasien/month', 'Admin\DataKehadiranPasienController@fetch')->name('data.kehadiranPasien');
+    Route::get('/dataKehadiranPasien/month/{month}/year/{year}', 'Admin\DataKehadiranPasienController@show');
+    Route::get('/dataKehadiranPasien', 'Admin\DataKehadiranPasienController@index')->name('data.kehadiranPasiens');
     Route::get('/inputKehadiranPasien', 'Admin\InputKehadiranPasienController@index');
     Route::post('/inputKehadiranPasien', 'Admin\InputKehadiranPasienController@store');
     Route::delete('/inputKehadiranPasien/{id}/delete', 'Admin\InputKehadiranPasienController@delete')->name('admin.kehadiranPasien.delete');
