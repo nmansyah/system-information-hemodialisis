@@ -18,18 +18,20 @@ class DataAskepController extends Controller
 {
     public function __construct()
     {
-      $this->middleware('auth');
-      $this->middleware('pegawai');
+        $this->middleware('auth');
+        $this->middleware('pegawai');
     }
 
 
-    public function index()
+    public function index($pasien_id)
     {
-      $pasien= Pasien::all();
-      $perawat = Perawat::all();
-      return view('pegawai/dataAskep',[
-        'pasien' => $pasien,
-        'perawat' => $perawat
-      ]);
+        $pasien = Pasien::findOrFail($pasien_id);
+        $perawat = Perawat::all();
+        $askep = Askep::where('pasien_id', $pasien_id)->get();
+        return view('pegawai/dataAskep', [
+            'pasien' => $pasien,
+            'perawat' => $perawat,
+            'askep' => $askep
+        ]);
     }
 }

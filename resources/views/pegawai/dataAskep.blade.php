@@ -2,12 +2,12 @@
 
 @section('title', 'Askep Pasien')
 
-@section('content') 
-    <a href="/pegawai/inputAskep"><button type="button" class="btn btn-primary">Tambah Askep</button>
+@section('content')
+    <a href="/pegawai/{{ $pasien->id }}/inputAskep"><button type="button" class="btn btn-primary">Tambah Askep</button>
             <div class="col-md-12 col-sm-6 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Data Askep Pasien </h2>
+                    <h2>Data Askep Pasien {{ ucwords($pasien->nama) }}</h2>
                     <div class="clearfix"></div>
                   </div>
                     <div class="x_content">
@@ -20,15 +20,15 @@
                           <th>No</th>
                           <th>Tanggal</th>
                           <th>No RM</th>
-                          <th>Detail</th>
+                          <th>Aksi</th>
                         </tr>
                       </thead>
                       <tbody>
                       @foreach ($askep as $ask)
                         <tr>
                             <th scope="row">{{ $loop->iteration }}</th>
-                            
-                                    <td>{{ $ask->tanggal }}</td>
+
+                                    <td>{{ $ask->tanggal_pemeriksaan }}</td>
                                     <td>{{ $ask->no_rm }}</td>
                                     <td>
                                       <div class="tombolAksi" >
@@ -44,7 +44,7 @@
                       </tbody>
                     </table>
                     </div>
-                 
+
                 </div>
             </div>
 @endsection
