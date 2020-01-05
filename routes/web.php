@@ -152,6 +152,7 @@ Route::prefix('pegawai')->group(function () {
         Route::put('dataAskep/{askep_id}', 'Pegawai\DataAskepController@update')->name('pegawai.data.askep.pasien.update');
         Route::get('inputAskep', 'Pegawai\InputAskepController@index');
         Route::post('inputAskep', 'Pegawai\InputAskepController@store');
+        Route::delete('dataAskep/{askep_id}/delete', 'Pegawai\DataAskepController@delete')->name('pegawai.data.askep.pasien.delete');
     });
 
     //Jadwal Dokter
