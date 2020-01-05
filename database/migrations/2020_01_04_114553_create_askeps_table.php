@@ -15,7 +15,7 @@ class CreateAskepsTable extends Migration
     {
         Schema::create('askeps', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('no_rm');
+            $table->integer('no_rm')->unique();
             $table->bigInteger('pasien_id')->unsigned();
             $table->foreign('pasien_id')->references('id')->on('pasiens')->onDelete('cascade');
             $table->bigInteger('perawat_id')->unsigned();

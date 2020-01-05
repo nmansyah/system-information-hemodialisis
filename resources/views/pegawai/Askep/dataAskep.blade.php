@@ -32,7 +32,7 @@
                                     <td>{{ $ask->no_rm }}</td>
                                     <td>
                                       <div class="tombolAksi" >
-                                          <a href="/pegawai/Askep" class="btn btn-sm"><i class="fa fa-info"></i></a>
+                                          <a href="{{ route('pegawai.data.askep.pasien.show', ['pasien_id' => $pasien->id, 'task_id' => $ask->id]) }}" class="btn btn-sm"><i class="fa fa-info"></i></a>
                                       </div>
                                     </td>
 

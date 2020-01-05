@@ -146,9 +146,13 @@ Route::prefix('pegawai')->group(function () {
     Route::get('/dataPasien', 'Pegawai\DataPasienController@index')->name('data.pasien');
 
     //Askep
-    Route::get('{pasien_id}/dataAskep', 'Pegawai\DataAskepController@index')->name('pegawai.data.askep');
-    Route::get('{pasien_id}/inputAskep', 'Pegawai\InputAskepController@index');
-    Route::post('{pasien_id}/inputAskep', 'Pegawai\InputAskepController@store');
+    Route::group(['prefix' => '{pasien_id}'], function () {
+        Route::get('dataAskep', 'Pegawai\DataAskepController@index')->name('pegawai.data.askep');
+        Route::get('dataAskep/{askep_id}', 'Pegawai\DataAskepController@show')->name('pegawai.data.askep.pasien.show');
+        Route::put('dataAskep/{askep_id}', 'Pegawai\DataAskepController@update')->name('pegawai.data.askep.pasien.update');
+        Route::get('inputAskep', 'Pegawai\InputAskepController@index');
+        Route::post('inputAskep', 'Pegawai\InputAskepController@store');
+    });
 
     //Jadwal Dokter
     Route::get('/jadwalDokter', 'Pegawai\JadwalDokterController@index')->name('data.jadwalDokter');

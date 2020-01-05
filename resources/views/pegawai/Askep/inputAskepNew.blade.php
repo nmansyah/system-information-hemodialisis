@@ -127,13 +127,13 @@
                     </div>
                     <div class="form-check form-check-inline">
                         <label class="form-check-label">
-                            <input class="form-check-input" type="radio" name="keadaan_umum" value="Sedang" @if(old('keadaan_umum')) checked @endif>
+                            <input class="form-check-input" type="radio" name="keadaan_umum" value="Sedang" @if(old('keadaan_umum') == 'Sedang') checked @endif>
                             Sedang
                         </label>
                     </div>
                     <div class="form-check form-check-inline">
                         <label class="form-check-label">
-                            <input class="form-check-input" type="radio" name="keadaan_umum" value="Buruk" @if(old('keadaan_umum')) checked @endif>
+                            <input class="form-check-input" type="radio" name="keadaan_umum" value="Buruk" @if(old('keadaan_umum') == 'Buruk') checked @endif>
                             Buruk
                         </label>
                     </div>
@@ -145,13 +145,13 @@
                 <div class="col-md-6 col-sm-6 col-xs-12">
                     <div class="form-check form-check-inline">
                         <label class="form-check-label">
-                            <input class="form-check-input" type="radio" name="konjungtiva" value="Tidak Anemis" required @if(old('konjungtiva')) checked @endif>
+                            <input class="form-check-input" type="radio" name="konjungtiva" value="Tidak Anemis" required @if(old('konjungtiva') == 'Tidak Anemis') checked @endif>
                             Tidak Anemis
                         </label>
                     </div>
                     <div class="form-check form-check-inline">
                         <label class="form-check-label">
-                            <input class="form-check-input" type="radio" name="konjungtiva" value="Anemis" @if(old('konjungtiva')) checked @endif>
+                            <input class="form-check-input" type="radio" name="konjungtiva" value="Anemis" @if(old('konjungtiva') == 'Anemis') checked @endif required>
                             Anemis
                         </label>
                     </div>
@@ -241,19 +241,19 @@
                 <div class="col-md-6 col-sm-6 col-xs-12">
                     <div class="form-check form-check-inline">
                         <label class="form-check-label">
-                            <input class="form-check-input" type="radio" name="hd_kateter" value="Subclavia" required @if(old('hd_kateter')) checked @endif>
+                            <input class="form-check-input" type="radio" name="hd_kateter" value="Subclavia" required @if(old('hd_kateter') == 'Subclavia') checked @endif>
                             Subclavia
                         </label>
                     </div>
                     <div class="form-check form-check-inline">
                         <label class="form-check-label">
-                            <input class="form-check-input" type="radio" name="hd_kateter" value="Jugular" @if(old('hd_kateter')) checked @endif>
+                            <input class="form-check-input" type="radio" name="hd_kateter" value="Jugular" @if(old('hd_kateter') == 'Jugular') checked @endif>
                             Jugular
                         </label>
                     </div>
                     <div class="form-check form-check-inline">
                         <label class="form-check-label">
-                            <input class="form-check-input" type="radio" name="hd_kateter" value="Femolar" @if(old('hd_kateter')) checked @endif>
+                            <input class="form-check-input" type="radio" name="hd_kateter" value="Femolar" @if(old('hd_kateter') == 'Femolar') checked @endif>
                             Femoral
                         </label>
                     </div>
@@ -394,7 +394,7 @@
                     </div>
                     <div class="form-check form-check-inline">
                         <label class="form-check-label">
-                            <input class="form-check-input" type="checkbox" name="intervensi_kolaborasi_pemberian_antibiotik" @if(old('intervensi_kolaborasi_pemberian_antibiotik')) checked @endif
+                            <input class="form-check-input" type="checkbox" name="intervensi_kolaborasi_antibiotik" @if(old('intervensi_kolaborasi_antibiotik')) checked @endif
                                    value="true">
                             Pemberian Antibiotik
                         </label>
@@ -431,19 +431,19 @@
                 <div class="col-md-6 col-sm-6 col-xs-12">
                     <div class="form-check form-check-inline">
                         <label class="form-check-label">
-                            <input class="form-check-input" type="radio" name="resep_hd" value="Inisiasi" required @if(old('resep_hd')) checked @endif>
+                            <input class="form-check-input" type="radio" name="resep_hd" value="Inisiasi" required @if(old('resep_hd') == 'Inisiasi') checked @endif>
                             Inisiasi
                         </label>
                     </div>
                     <div class="form-check form-check-inline">
                         <label class="form-check-label">
-                            <input class="form-check-input" type="radio" name="resep_hd" value="Akut" @if(old('resep_hd')) checked @endif>
+                            <input class="form-check-input" type="radio" name="resep_hd" value="Akut" @if(old('resep_hd') == 'Akut') checked @endif>
                             Akut
                         </label>
                     </div>
                     <div class="form-check form-check-inline">
                         <label class="form-check-label">
-                            <input class="form-check-input" type="radio" name="resep_hd" value="Rutin" @if(old('resep_hd')) checked @endif>
+                            <input class="form-check-input" type="radio" name="resep_hd" value="Rutin" @if(old('resep_hd') == 'Rutin') checked @endif>
                             Rutin
                         </label>
                     </div>
