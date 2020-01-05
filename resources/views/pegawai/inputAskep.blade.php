@@ -57,7 +57,7 @@
                 </div>
             </div>
             <div class="item form-group">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="example-text-input" required="required" class="col-2 col-form-label">Jam</label>                
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="example-text-input" required="required" class="col-2 col-form-label">Jam</label>
                 <div class="col-md-6 col-sm-6 col-xs-12">
                 <select class="custom-select" required="required" id="sesi" name="sesi">
                         <option selected>Sesi ..</option>
@@ -148,7 +148,7 @@
                         <input class="form-check-input" type="radio" name="konjungtiva" value="Anemis">
                             Anemis
                         </label>
-                    </div>                    
+                    </div>
                 </div>
             </div>
             <div class="item form-group">
@@ -171,19 +171,19 @@
                         <input class="form-check-input" type="checkbox" name="ekstrimitas" value="Edema">
                             Edema
                         </label>
-                    </div> 
+                    </div>
                     <div class="form-check form-check-inline">
                         <label class="form-check-label">
                         <input class="form-check-input" type="checkbox" name="ekstrimitas" value="Edema Anasarka">
                             Edema Anasarka
                         </label>
-                    </div>     
+                    </div>
                     <div class="form-check form-check-inline">
                         <label class="form-check-label">
                         <input class="form-check-input" type="checkbox" name="ekstrimitas" value="Pucat&Dingin">
                             Pucat&Dingin
                         </label>
-                    </div>              
+                    </div>
                 </div>
             </div>
             <div class="item form-group">
@@ -210,7 +210,7 @@
                     <input id="bb" class="form-control col-md-7 col-xs-12" name="yl" required="required" type="text">
                 </div>
             </div>
-            
+
             <div class="item form-group">
                 <label for="pengkajian" class="control-label col-md-3 col-sm-3 col-xs-12">Akses Vaskular <span class="required">*</span></label>
                 <div class="col-md-6 col-sm-6 col-xs-12">
@@ -294,7 +294,7 @@
             </div>
             <hr>
             <h4>Intervensi Keperawatan (rekapitulasi pre-intra dan post HD) </h4>
-            
+
             <div class="item form-group">
                 <label for="pengkajian" class="control-label col-md-3 col-sm-3 col-xs-12">Intervensi Keperawatan <span class="required">*</span></label>
                 <div class="col-md-6 col-sm-6 col-xs-12">
@@ -498,8 +498,8 @@
                         <input class="form-check-input" type="checkbox" name="heparinisasi" value="LMWH">
                             LMWH
                         </label>
-                    </div>   
-                                     
+                    </div>
+
                 </div>
             </div>
             <div class="item form-group">

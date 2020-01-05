@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Pegawai;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
@@ -35,6 +36,13 @@ class InputAskepController extends Controller
     public function store(Request $request, $pasien_id){
         try {
             $model = new Askep;
+            $validator = Validator::make($request->all(), $model->rules);
+            if ($validator->fails()) {
+                return redirect()->back()
+                    ->with('alert', $validator->errors()->first())
+                    ->withInput(Input::all());
+            }
+
             $model->pasien_id = $pasien_id;
             $model->perawat_id = $request->perawat_id;
             $model->no_rm = $request->no_rm;
@@ -105,7 +113,7 @@ class InputAskepController extends Controller
             }
             return redirect()->route('pegawai.data.askep', ['pasien_id' => $pasien_id]);
         }catch (\Exception $e){
-            return $e->getMessage();
+            return redirect()->back()->with('alert', $e->getMessage());
         }
     }
 
