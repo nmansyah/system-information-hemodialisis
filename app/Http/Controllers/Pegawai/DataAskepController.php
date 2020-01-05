@@ -45,6 +45,14 @@ class DataAskepController extends Controller
         ]);
     }
 
+    // public function delete($askep_id)
+    // {
+    //     $model = DB::table('askeps')->where('id', $id)->delete();
+    //     return redirect()
+    //         ->route('pegawai.data.askep.pasien.delete')
+    //         ->withSuccess('Data Berhasil Dihapuskan.');
+    // }
+
     public function update(Request $request, $pasien_id, $askep_id){
         try {
             $model = Askep::findOrFail($askep_id);
