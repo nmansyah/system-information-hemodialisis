@@ -644,7 +644,7 @@
             <div class="ln_solid"></div>
             <div class="form-group">
                 <div class="col-md-6 col-md-offset-4">
-                    <a class="btn btn-primary" href="{{ route('pegawai.data.askep.pasien.show', [$askep->pasien['id'], $askep->id]) }}">Cancel</a>
+                    <a class="btn btn-primary" href="{{ route('pegawai.data.askep', [$askep->pasien['id']]) }}">Cancel</a>
                     <button id="send" type="submit" name="button" class="btn btn-success">Update</button>
                     {{ csrf_field() }}
                 </div>
