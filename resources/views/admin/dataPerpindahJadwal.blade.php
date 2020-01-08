@@ -22,8 +22,9 @@
                           <th>Nama</th>
                           <th>Tanggal</th>
                           <th>Hari</th>
-                          <th>Sesi</th>      
-                          <th>Aksi</th>                   
+                          <th>Sesi</th>
+                          <th>Edit</th>      
+                          <th>Hapus</th>                   
                         </tr>
                       </thead>
                       <tbody>
@@ -41,10 +42,13 @@
                             <td>{{ $pj->hari1 }}</td>
                             <td>{{ $pj->sesi1 }}</td>
                             <td>
-                              <div class="aksi">
-                                <div class="tombolAksi" >
+                            <div class="tombolAksi" >
                                   <a href="/admin/inputPerpindahanJadwal/{{ $pj->id }}/edit" onclick="return confirm ('Apakah Anda Ingin Merubah Data Ini?')" class="btn btn-sm"><i class="fa fa-edit"></i></a>
                                 </div>
+                            </td>
+                            <td>
+                              <div class="aksi">
+                                
                               <div class="tombolAksi">
                                 <form method="post" action="{{ route('admin.perpindahanJadwal.delete',['id' => $pj->id]) }}">
                                    {{ method_field('DELETE') }}

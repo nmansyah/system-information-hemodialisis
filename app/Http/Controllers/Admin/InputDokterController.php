@@ -37,7 +37,7 @@ class InputDokterController extends Controller
       $dokter->save();
 
       return redirect()
-      ->route('data.dokter')
+      ->route('admin.data.dokter')
       ->withSuccess('Dokter Telah Ditambahkan.');
     }
 
@@ -45,7 +45,7 @@ class InputDokterController extends Controller
     {
       $dokter = DB::table('dokters')->where('id', $id)->delete();
       return redirect()
-      ->route('data.dokter')
+      ->route('admin.data.dokter')
       ->withSuccess('Dokter Berhasil Dihapuskan.');
     }
 
@@ -64,7 +64,7 @@ class InputDokterController extends Controller
         $dokter->no_hp = $request->no_hp;
         $dokter->save();
         return redirect()
-        ->route('data.dokter')
+        ->route('admin.data.dokter')
         ->with('alert-success','Data berhasil diubah!');
     }
 }

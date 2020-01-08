@@ -1,14 +1,14 @@
-@extends('layouts.pegawaiUser')
+@extends('layouts.adminUser')
 
-@section('title', 'Askep Pasien')
+@section('title', 'Kehadiran Pasien')
 
 @section('content')
-    <a href="/pegawai/{{ $pasien->id }}/inputAskep">
-        <button type="button" class="btn btn-primary">Tambah Askep</button>
+    <a href="/admin/{{ $pasien->id }}/inputKehadiran">
+        <button type="button" class="btn btn-primary">Tambah Data</button>
         <div class="col-md-12 col-sm-6 col-xs-12">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>Data Askep Pasien {{ ucwords($pasien->nama) }}</h2>
+                    <h2>Data Kehadiran Pasien</h2>
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
@@ -20,35 +20,34 @@
                         <tr>
                             <th>No</th>
                             <th>Tanggal</th>
-                            <th>No RM</th>
-                            <th>Detail</th>
+                            <th>Kehadiran</th>
+                            <th>Edit</th>
                             <th>Hapus</th>
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach ($askep as $ask)
+                        @foreach ($kehadiran as $khd)
                             <tr>
                                 <th scope="row">{{ $loop->iteration }}</th>
 
-                                <td>{{ $ask->tanggal_pemeriksaan }}</td>
-                                <td>{{ $ask->no_rm }}</td>
+                                <td>{{ $khd->tanggal }}</td>
+                                <td>{{ $khd->kehadiran }}</td>
                                 <td>
-                                    <div class="Aksi">
-                                        <div class="tombolAksi">
-                                            <a href="{{ route('pegawai.data.askep.pasien.show', ['pasien_id' => $pasien->id, 'task_id' => $ask->id]) }}"
-                                                class="btn btn-sm"><i class="fa fa-info"></i></a>
-                                        </div>
+                                <div class="aksi">
+                                    <div class="tombolAksi" >
+                                        <a href="/admin/inputKehadiran/{{ $khd->kehadiran_id }}/edit" onclick="return confirm ('Apakah Anda Ingin Merubah Data Ini?')" class="btn btn-sm"><i class="fa fa-edit"></i></a>
                                     </div>
+                                </div>
                                 </td>
                                 <td>
                                     <div class="Aksi">
                                        <div class="tombolAksi">
                                         <form
-                                            action="{{ route('pegawai.data.askep.pasien.delete', ['pasien_id' => $pasien->id, 'askep_id' => $ask->id]) }}"
+                                            action="{{ route('admin.data.kehadiran.pasien.delete', ['pasien_id' => $pasien->id, 'kehadiran_id' => $khd->id]) }}"
                                             method="post">
                                             @csrf
                                             @method('DELETE')
-                                            <button
+                                            <button onclick="return confirm ('Apakah Anda Ingin Menghapus Data Ini?')"
                                                 type="submit" class="btn btn-sm"><i
                                                     class="fa fa-trash-o"></i></button>
                                         </form>

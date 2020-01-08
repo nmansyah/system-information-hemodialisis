@@ -3,7 +3,7 @@
 @section('title', 'Data Dokter')
 
 @section('content') 
-    <a href="/admin/inputDokter"><button type="button" class="btn btn-primary">Tambah Data</button></a>
+    <a href="/admin/inputDokter"><button type="button" class="btn btn-primary">Tambah Dokter</button></a>
             <div class="col-md-12 col-sm-6 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
@@ -22,7 +22,8 @@
                           <th>Alamat</th>
                           <th>Email</th>
                           <th>Nomor Telepon</th>
-                          <th>Aksi</th>
+                          <th>Edit</th>
+                          <th>Hapus</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -35,10 +36,13 @@
                                     <td>{{ $dk->email }}</td>
                                     <td>{{ $dk->no_hp }}</td>
                                     <td>
-                                        <div class="aksi">
-                                            <div class="tombolAksi" >
+                                    <div class="tombolAksi" >
                                                 <a href="/admin/inputDokter/{{ $dk->id }}/edit" onclick="return confirm ('Apakah Anda Ingin Merubah Data Ini?')" class="btn btn-sm"><i class="fa fa-edit"></i></a>
                                             </div>
+                                    </td>
+                                    <td>
+                                        <div class="aksi">
+                                            
                                             <div class="tombolAksi">
                                                 <form method="post" action="{{ route('admin.dokter.delete',['id' => $dk->id]) }}">
                                                 {{ method_field('DELETE') }}

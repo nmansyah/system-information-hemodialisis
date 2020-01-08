@@ -70,7 +70,7 @@
                     </a>
                   </li>
 
-                  <li><a href="/pegawai/dataPasien"><i class="fa fa-dashboard"></i>
+                  <li><a href="/pegawai/dataPasien"><i class="fa fa-user"></i>
                         Data Pasien 
                     </a>
                   </li>

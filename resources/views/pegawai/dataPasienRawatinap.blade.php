@@ -23,7 +23,8 @@
                           <th>Nomor Telepon</th>
                           <th>Tanggal Masuk</th>
                           <th>Unit/Bangsal</th>
-                          <th>Aksi</th>
+                          <th>Edit</th>
+                          <th>Hapus</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -42,10 +43,13 @@
                             <td>{{ $pr->tanggal }}</td>
                             <td>{{ $pr->unit }}</td>
                             <td>
-                              <div class="aksi">
                               <div class="tombolAksi" >
                                   <a href="/pegawai/inputPasienRawatinap/{{ $pr->id }}/edit" onclick="return confirm ('Apakah Anda Ingin Merubah Data Ini?')" class="btn btn-sm" style="height: 5; weight: 5"><i class="fa fa-edit"></i></a>
                                 </div>
+                            </td>
+                            <td>
+                              <div class="aksi">
+                              
                                 <div class="tombolAksi">
                                     <form method="post" action="{{ route('pegawai.pasienRawatinap.delete',['id' => $pr->id]) }}">
                                        {{ method_field('DELETE') }}

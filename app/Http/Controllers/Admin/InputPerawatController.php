@@ -38,7 +38,7 @@ class InputPerawatController extends Controller
       $perawat->save();
 
       return redirect()
-      ->route('data.perawat')
+      ->route('admin.data.perawat')
       ->withSuccess('Perawat Telah Ditambahkan.');
     }
 
@@ -46,7 +46,7 @@ class InputPerawatController extends Controller
     {
       $perawat = DB::table('perawats')->where('id', $id)->delete();
       return redirect()
-      ->route('data.perawat')
+      ->route('admin.data.perawat')
       ->withSuccess('Perawat Berhasil Dihapuskan.');
     }
 
@@ -66,7 +66,7 @@ class InputPerawatController extends Controller
         $perawat->no_hp = $request->no_hp;
         $perawat->save();
         return redirect()
-        ->route('data.perawat')
+        ->route('admin.data.perawat')
         ->with('alert-success','Data berhasil diubah!');
     }
 }

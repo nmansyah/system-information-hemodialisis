@@ -60,9 +60,8 @@
         <p>Berdakwah melalui pelayanan kesehatan yang berkualitas dengan mengutamakan peningkatan kepuasan pelanggan serta peduli pada kaum dhu’afa. Motto Layananku Ibadahku</p>
     </div>
     <div>
-        <h2>Hemodialisi</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae voluptas beatae soluta excepturi. Corporis minima quas officiis. Nobis vero rerum dolor eius, est perspiciatis inventore reprehenderit necessitatibus dolorem, provident deleniti.</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat recusandae libero ut, asperiores sunt vitae, unde consectetur eaque fuga deserunt repudiandae, quis neque nam aspernatur sed perspiciatis! Autem, ut cumque.</p>
+        <h2>Hemodialisis</h2>
+        <p>Hemodialisis merupakan Pelayanan Unit pada RSU PKU Muhammdiyah Bantul sebagai Unit Unggulan</p>
     </div>
   </div>
 

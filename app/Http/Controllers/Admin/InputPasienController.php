@@ -43,10 +43,12 @@ class InputPasienController extends Controller
       $pasien->sesi1 = $request->sesi1;
       $pasien->hari2 = $request->hari2;
       $pasien->sesi2 = $request->sesi2;
+      $pasien->hari3 = $request->hari3;
+      $pasien->sesi3 = $request->sesi3;
       $pasien->save();
 
       return redirect()
-      ->route('data.pasien')
+      ->route('admin.data.pasien')
       ->withSuccess('Pasien Telah Ditambahkan.');
     }
 
@@ -54,7 +56,7 @@ class InputPasienController extends Controller
     {
       $pasien = DB::table('pasiens')->where('id', $id)->delete();
       return redirect()
-      ->route('data.pasien')
+      ->route('admin.data.pasien')
       ->withSuccess('Dokter Berhasil Dihapuskan.');
     }
 
@@ -78,9 +80,11 @@ class InputPasienController extends Controller
         $pasien->sesi1 = $request->sesi1;
         $pasien->hari2 = $request->hari2;
         $pasien->sesi2 = $request->sesi2;
+        $pasien->hari3 = $request->hari3;
+        $pasien->sesi3 = $request->sesi3;
         $pasien->save();
         return redirect()
-        ->route('data.pasien')
+        ->route('admin.data.pasien')
         ->with('alert-success','Data berhasil diubah!');
     }
 }

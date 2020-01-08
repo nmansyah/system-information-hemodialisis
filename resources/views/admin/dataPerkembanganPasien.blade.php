@@ -25,7 +25,8 @@
                           <th>Ureum</th>
                           <th>Kreatinin</th>
                           <th>Obat</th>
-                          <th>Aksi</th>
+                          <th>Edit</th>
+                          <th>Hapus</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -45,10 +46,13 @@
                             <td>{{ $pp->kreatinin }}</td>
                             <td>{{ $pp->obat}}</td>
                             <td>
-                              <div class="Aksi">
-                                <div class="tombolAksi" >
+                            <div class="tombolAksi" >
                                   <a href="/admin/inputPerkembanganPasien/{{ $pp->id }}/edit" onclick="return confirm ('Apakah Anda Ingin Merubah Data Ini?')" class="btn btn-sm"><i class="fa fa-edit"></i></a>
                                 </div>
+                            </td>
+                            <td>
+                              <div class="Aksi">
+                                
                                 <div class="tombolAksi">
                                     <form method="post" action="{{ route('admin.perkembanganPasien.delete',['id' => $pp->id]) }}">
                                        {{ method_field('DELETE') }}

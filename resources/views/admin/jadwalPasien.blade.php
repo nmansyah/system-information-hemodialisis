@@ -22,6 +22,8 @@
                           <th>Sesi 1</th>
                           <th>Hari 2</th>
                           <th>Sesi 2</th>
+                          <th>Hari 3</th>
+                          <th>Sesi 3</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -34,6 +36,8 @@
                                     <td>{{ $psn->sesi1 }}</td>
                                     <td>{{ $psn->hari2 }}</td>
                                     <td>{{ $psn->sesi2 }}</td>
+                                    <td>{{ $psn->hari3 }}</td>
+                                    <td>{{ $psn->sesi3 }}</td>
                         @php
                             $i++;
                         @endphp

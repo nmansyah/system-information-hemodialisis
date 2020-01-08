@@ -35,7 +35,7 @@ Route::prefix('admin')->group(function () {
     Route::get('/dashboard', 'Admin\DashboardController@index')->name('admin.dashboard');
 
     //Dokter
-    Route::get('/dataDokter', 'Admin\DataDokterController@index')->name('data.dokter');
+    Route::get('/dataDokter', 'Admin\DataDokterController@index')->name('admin.data.dokter');
     Route::get('/inputDokter', 'Admin\InputDokterController@index');
     Route::post('/inputDokter', 'Admin\InputDokterController@store');
     Route::delete('/inputDokter/{id}/delete', 'Admin\InputDokterController@delete')->name('admin.dokter.delete');
@@ -43,15 +43,23 @@ Route::prefix('admin')->group(function () {
     Route::put('/inputDokter/{id}/update', 'Admin\InputDokterController@update');
 
     //Pasien
-    Route::get('/dataPasien', 'Admin\DataPasienController@index')->name('data.pasien');
+    Route::get('/dataPasien', 'Admin\DataPasienController@index')->name('admin.data.pasien');
     Route::get('/inputPasien', 'Admin\InputPasienController@index');
     Route::post('/inputPasien', 'Admin\InputPasienController@store');
     Route::delete('/inputPasien/{id}/delete', 'Admin\InputPasienController@delete')->name('admin.pasien.delete');
     Route::get('/inputPasien/{id}/edit', 'Admin\InputPasienController@edit');
     Route::put('/inputPasien/{id}/update', 'Admin\InputPasienController@update');
 
+    //Kehadiran
+    Route::group(['prefix' => '{pasien_id}'], function () {
+        Route::get('dataKehadiran', 'Admin\DataKehadiranController@index')->name('admin.data.kehadiran');
+        Route::delete('dataKehadiran/{kehadiran_id}/delete', 'Admin\InputKehadiranController@delete')->name('admin.data.kehadiran.pasien.delete');
+        Route::get('inputKehadiran', 'Admin\InputKehadiranController@index');
+        Route::post('inputKehadiran', 'Admin\InputKehadiranController@store');
+    });
+
     //Perawat
-    Route::get('/dataPerawat', 'Admin\DataPerawatController@index')->name('data.perawat');
+    Route::get('/dataPerawat', 'Admin\DataPerawatController@index')->name('admin.data.perawat');
     Route::get('/inputPerawat', 'Admin\InputPerawatController@index');
     Route::post('/inputPerawat', 'Admin\InputPerawatController@store');
     Route::delete('/inputPerawat/{id}/delete', 'Admin\InputPerawatController@delete')->name('admin.perawat.delete');
@@ -64,7 +72,7 @@ Route::prefix('admin')->group(function () {
     // Route::post('/inputJadwalAdmin', 'Admin\InputJadwalAdminController@store');
 
     //Jadwal Dokter
-    Route::get('/jadwalDokter', 'Admin\JadwalDokterController@index')->name('data.jadwalDokter');
+    Route::get('/jadwalDokter', 'Admin\JadwalDokterController@index')->name('admin.data.jadwalDokter');
     Route::get('/inputJadwalDokter', 'Admin\InputJadwalDokterController@index');
     Route::post('/inputJadwalDokter', 'Admin\InputJadwalDokterController@store');
     Route::delete('/inputJadwalDokter/{id}/delete', 'Admin\InputJadwalDokterController@delete')->name('admin.jadwalDokter.delete');
@@ -75,7 +83,7 @@ Route::prefix('admin')->group(function () {
     Route::get('/jadwalPasien', 'Admin\JadwalPasienController@index');
 
     //Jadwal Perawat
-    Route::get('/jadwalPerawat', 'Admin\JadwalPerawatController@index')->name('data.jadwalPerawat');
+    Route::get('/jadwalPerawat', 'Admin\JadwalPerawatController@index')->name('admin.data.jadwalPerawat');
     Route::get('/inputJadwalPerawat', 'Admin\InputJadwalPerawatController@index');
     Route::post('/inputJadwalPerawat', 'Admin\InputJadwalPerawatController@store');
     Route::delete('/inputJadwalPerawat/{id}/delete', 'Admin\InputJadwalPerawatController@delete')->name('admin.jadwalPerawat.delete');
@@ -91,9 +99,9 @@ Route::prefix('admin')->group(function () {
     Route::put('/inputPerkembanganPasien/{id}/update', 'Admin\InputPerkembanganPasienController@update');
 
     //Kehadiran Pasien
-    Route::get('/dataKehadiranPasien/month', 'Admin\DataKehadiranPasienController@fetch')->name('data.kehadiranPasien');
+    Route::get('/dataKehadiranPasien/month', 'Admin\DataKehadiranPasienController@fetch')->name('admin.data.kehadiranPasien');
     Route::get('/dataKehadiranPasien/month/{month}/year/{year}', 'Admin\DataKehadiranPasienController@show');
-    Route::get('/dataKehadiranPasien', 'Admin\DataKehadiranPasienController@index')->name('data.kehadiranPasiens');
+    Route::get('/dataKehadiranPasien', 'Admin\DataKehadiranPasienController@index')->name('admin.data.kehadiranPasiens');
     Route::get('/inputKehadiranPasien', 'Admin\InputKehadiranPasienController@index');
     Route::post('/inputKehadiranPasien', 'Admin\InputKehadiranPasienController@store');
     Route::delete('/inputKehadiranPasien/{id}/delete', 'Admin\InputKehadiranPasienController@delete')->name('admin.kehadiranPasien.delete');
@@ -145,14 +153,22 @@ Route::prefix('pegawai')->group(function () {
     //Data Pasien
     Route::get('/dataPasien', 'Pegawai\DataPasienController@index')->name('data.pasien');
 
-    //Askep
+    //Askep & Kehadiran
     Route::group(['prefix' => '{pasien_id}'], function () {
+        //Askep
         Route::get('dataAskep', 'Pegawai\DataAskepController@index')->name('pegawai.data.askep');
         Route::get('dataAskep/{askep_id}', 'Pegawai\DataAskepController@show')->name('pegawai.data.askep.pasien.show');
         Route::put('dataAskep/{askep_id}', 'Pegawai\DataAskepController@update')->name('pegawai.data.askep.pasien.update');
         Route::get('inputAskep', 'Pegawai\InputAskepController@index');
         Route::post('inputAskep', 'Pegawai\InputAskepController@store');
         Route::delete('dataAskep/{askep_id}/delete', 'Pegawai\DataAskepController@delete')->name('pegawai.data.askep.pasien.delete');
+        //Kehadiran
+        Route::get('dataKehadiran', 'Pegawai\DataKehadiranController@index')->name('pegawai.data.kehadiran');
+        Route::get('inputKehadiran', 'Pegawai\InputKehadiranController@index');
+        Route::post('inputKehadiran', 'Pegawai\InputKehadiranController@store');
+        Route::delete('dataKehadiran/{kehadiran_id}/delete', 'Pegawai\InputKehadiranController@delete')->name('pegawai.data.kehadiran.pasien.delete');
+        Route::get('/inputKehadiran/{kehadiran_id}/edit', 'Pegawai\InputKehadiranController@edit');
+        Route::put('/inputKehadiran/{kehadiran_id}/update', 'Pegawai\InputKehadiranController@update')->name('pegawai.data.kehadiran.pasien.update');
     });
 
     //Jadwal Dokter
@@ -213,6 +229,11 @@ Route::prefix('dok')->group(function () {
     Route::get('/indexDokter', 'Dok\DokController@index');
     //Data Pasien
     Route::get('/dataPasien', 'Dok\DataPasienController@index')->name('data.pasien');
+    // //Askep
+    Route::group(['prefix' => '{pasien_id}'], function () {
+        Route::get('dataAskep', 'Dok\DataAskepController@index')->name('dok.data.dataAskep');
+        Route::get('dataAskep/{askep_id}', 'Dok\DataAskepController@show')->name('dok.data.askep.pasien.show');
+    });
     //Pasien Meninggal
     Route::get('/dataPasienMeninggal', 'Dok\DataPasienMeninggalController@index')->name('data.pasienMeninggal');
     //Perkembangan Pasien

@@ -48,7 +48,7 @@ class InputJadwalPerawatController extends Controller
     $jadwal_perawat->save();
 
     return redirect()
-    ->route('data.jadwalPerawat')
+    ->route('admin.data.jadwalPerawat')
     ->withSuccess('Jadwal Telah Ditambahkan.');
   }
 
@@ -56,7 +56,7 @@ class InputJadwalPerawatController extends Controller
   {
       $jadwal_perawat = DB::table('jadwal_perawats')->where('id', $id)->delete();
       return redirect()
-      ->route('data.jadwalPerawat')
+      ->route('admin.data.jadwalPerawat')
       ->withSuccess('Jadwal Perawat Berhasil Dihapuskan.');
   }
   public function edit($id)
@@ -77,7 +77,7 @@ class InputJadwalPerawatController extends Controller
       $jadwal_perawat ->hari6 = $request->hari6;
       $jadwal_perawat ->save();
       return redirect()
-      ->route('data.jadwalPerawat')
+      ->route('admin.data.jadwalPerawat')
       ->with('alert-success','Data berhasil diubah!');
   }
 }

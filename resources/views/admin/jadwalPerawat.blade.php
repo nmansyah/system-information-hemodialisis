@@ -3,7 +3,7 @@
 @section('title', 'Jadwal Perawat')
 
 @section('content') 
-<a href="/admin/inputJadwalPerawat"><button type="button" class="btn btn-primary">Tambah Data</button></a>
+<a href="/admin/inputJadwalPerawat"><button type="button" class="btn btn-primary">Tambah Jadwal</button></a>
             <div class="col-md-12 col-sm-6 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">

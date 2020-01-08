@@ -23,7 +23,8 @@
                           <th>Bulan</th>
                           <th>Jumlah Pasien Hadir</th>
                           <th>Jumlah Pasien Tidak Hadir</th>
-                          <th>Aksi</th>
+                          <th>Edit</th>
+                          <th>Hapus</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -33,12 +34,14 @@
                                     <td>{{ $kp->bulan }}</td>
                                     <td>{{ $kp->hadir }}</td>
                                     <td>{{ $kp->tdk_hadir }}</td>
-                                    
                                     <td>
-                                        <div class="aksi">
-                                            <div class="tombolAksi" >
+                                    <div class="tombolAksi" >
                                                 <a href="/admin/inputKehadiranPasien/{{ $kp->id }}/edit" onclick="return confirm ('Apakah Anda Ingin Merubah Data Ini?')" class="btn btn-sm"><i class="fa fa-edit"></i></a>
                                             </div>
+                                    </td>
+                                    <td>
+                                        <div class="aksi">
+                                            
                                             <div class="tombolAksi">
                                                 <form method="post" action="{{ route('admin.kehadiranPasien.delete',['id' => $kp->id]) }}">
                                                 {{ method_field('DELETE') }}

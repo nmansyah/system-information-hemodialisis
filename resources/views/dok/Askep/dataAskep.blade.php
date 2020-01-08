@@ -1,10 +1,8 @@
-@extends('layouts.pegawaiUser')
+@extends('layouts.dokUser')
 
 @section('title', 'Askep Pasien')
 
 @section('content')
-    <a href="/pegawai/{{ $pasien->id }}/inputAskep">
-        <button type="button" class="btn btn-primary">Tambah Askep</button>
         <div class="col-md-12 col-sm-6 col-xs-12">
             <div class="x_panel">
                 <div class="x_title">
@@ -21,8 +19,7 @@
                             <th>No</th>
                             <th>Tanggal</th>
                             <th>No RM</th>
-                            <th>Detail</th>
-                            <th>Hapus</th>
+                            <th>Aksi</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -35,23 +32,8 @@
                                 <td>
                                     <div class="Aksi">
                                         <div class="tombolAksi">
-                                            <a href="{{ route('pegawai.data.askep.pasien.show', ['pasien_id' => $pasien->id, 'task_id' => $ask->id]) }}"
-                                                class="btn btn-sm"><i class="fa fa-info"></i></a>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="Aksi">
-                                       <div class="tombolAksi">
-                                        <form
-                                            action="{{ route('pegawai.data.askep.pasien.delete', ['pasien_id' => $pasien->id, 'askep_id' => $ask->id]) }}"
-                                            method="post">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button
-                                                type="submit" class="btn btn-sm"><i
-                                                    class="fa fa-trash-o"></i></button>
-                                        </form>
+                                            <a href="{{ route('dok.data.askep.pasien.show', ['pasien_id' => $pasien->id, 'task_id' => $ask->id]) }}"
+                                               class="btn btn-sm"><i class="fa fa-info"></i></a>
                                         </div>
                                     </div>
                                 </td>

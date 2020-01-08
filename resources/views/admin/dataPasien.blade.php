@@ -3,7 +3,7 @@
 @section('title', 'Data Pasien')
 
 @section('content') 
-      <a href="/admin/inputPasien"><button type="button" class="btn btn-primary">Tambah Data</button></a>
+      <a href="/admin/inputPasien"><button type="button" class="btn btn-primary">Tambah Pasien</button></a>
             <div class="col-md-12 col-sm-6 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
@@ -25,7 +25,9 @@
                           <th>Asuransi</th>
                           <th>Riwayat Penyakit</th>
                           <th>Nomor Telepon</th>
-                          <th>Aksi</th>
+                          <th>Kehadiran</th>
+                          <th>Edit</th>
+                          <th>Haspus</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -41,10 +43,18 @@
                                     <td>{{ $psn->riwayat }}</td>
                                     <td>{{ $psn->no_hp }}</td>
                                     <td>
+                                    <div class="tombolAksi" >
+                                          <a href="/admin/{{$psn->id}}/dataKehadiran" class="btn btn-sm"><i class="fa fa-info"></i></a>
+                                      </div>
+                                    </td>
+                                    <td>
+                                        <div class="tombolAksi" >
+                                            <a href="/admin/inputPasien/{{ $psn->id }}/edit" onclick="return confirm ('Apakah Anda Ingin Merubah Data Ini?')" class="btn btn-sm"><i class="fa fa-edit"></i></a>
+                                        </div>
+                                    </td>
+                                    <td>
                                     <div class="aksi">
-                                            <div class="tombolAksi" >
-                                                <a href="/admin/inputPasien/{{ $psn->id }}/edit" onclick="return confirm ('Apakah Anda Ingin Merubah Data Ini?')" class="btn btn-sm"><i class="fa fa-edit"></i></a>
-                                            </div>
+                                            
                                             <div class="tombolAksi">
                                                 <form method="post" action="{{ route('admin.pasien.delete',['id' => $psn->id]) }}">
                                                 {{ method_field('DELETE') }}

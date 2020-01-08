@@ -22,7 +22,8 @@
                           <th>Alamat</th>
                           <th>Nomor Telepon</th>
                           <th>Tanggal Meninggal</th>
-                          <th>Aksi</th>
+                          <th>Edit</th>
+                          <th>Hapus</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -40,10 +41,13 @@
                             <td>{{ $pm->no_hp }}</td>
                             <td>{{ $pm->tanggal }}</td>
                             <td>
-                              <div class="aksi">
-                                <div class="tombolAksi" >
+                            <div class="tombolAksi" >
                                     <a href="/admin/inputPasienMeninggal/{{ $pm->id }}/edit" onclick="return confirm ('Apakah Anda Ingin Merubah Data Ini?')" class="btn btn-sm"><i class="fa fa-edit"></i></a>
                                 </div>
+                            </td>
+                            <td>
+                              <div class="aksi">
+                                
                                 <div class="tombolAksi">
                                     <form method="post" action="{{ route('admin.pasienMeninggal.delete',['id' => $pm->id]) }}">
                                        {{ method_field('DELETE') }}

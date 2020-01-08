@@ -113,10 +113,10 @@
                                 </a>
                             </li>
 
-                            <li><a href="/admin/dataPerkembanganPasien"><i class="fa fa-edit"></i>
+                            <!-- <li><a href="/admin/dataPerkembanganPasien"><i class="fa fa-edit"></i>
                                     Kondisi Pasien Bulanan
                                 </a>
-                            </li>
+                            </li> -->
 
                             <li><a href="/admin/dataPerpindahJadwal"><i class="fa fa-calendar"></i>
                                     Perpindahan Jadwal

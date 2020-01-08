@@ -39,7 +39,7 @@ class InputKehadiranPasienController extends Controller
       
 
       return redirect()
-      ->route('data.kehadiranPasien')
+      ->route('admin.data.kehadiranPasien')
       ->withSuccess('Presensi Telah Ditambahkan.');
     }
 
@@ -47,7 +47,7 @@ class InputKehadiranPasienController extends Controller
     {
       $kehadiran_pasien = DB::table('kehadiran_pasiens')->where('id', $id)->delete();
       return redirect()
-      ->route('data.kehadiranPasien')
+      ->route('admin.data.kehadiranPasien')
       ->withSuccess('Kehadiran Pasien Berhasil Dihapuskan.');
     }
 
@@ -65,7 +65,7 @@ class InputKehadiranPasienController extends Controller
         $kehadiran_pasien->tdk_hadir = $request->tdk_hadir;
         $kehadiran_pasien->save();
         return redirect()
-        ->route('data.kehadiranPasien')
+        ->route('admin.data.kehadiranPasien')
         ->with('alert-success','Data berhasil diubah!');
     }
 }

@@ -35,7 +35,7 @@ class InputJadwalAdminController extends Controller
       $jadwalAdmin->save();
 
       return redirect()
-      ->route('data.jadwalAdmin')
+      ->route('admin.data.jadwalAdmin')
       ->withSuccess('Jadwal Telah Ditambahkan.');
     }
 }
