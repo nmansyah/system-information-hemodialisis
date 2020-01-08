@@ -22,7 +22,7 @@ class InputKehadiranController extends Controller
         $this->middleware('pegawai');
     }
 
-    public function index($pasien_id)
+    public function index($pasien_id, $kehadiran_id)
     {
         $pasien = Pasien::findOrFail($pasien_id);
         return view('pegawai/Kehadiran/inputKehadiran', [
@@ -46,33 +46,37 @@ class InputKehadiranController extends Controller
     }
 
     public function delete($pasien_id, $id)
-     {
-         $model = Kehadiran::findOrFail($id);
-         if (!$model->delete()){
-             return redirect()->back()->with('alert', 'Gagal menghapus ');
-         }
-         $pasien = Pasien::findOrFail($pasien_id);
-         return redirect()
-             ->route('pegawai.data.kehadiran', $pasien->id)
-             ->withSuccess('Data Berhasil Dihapuskan.');
-     }
-
-     public function edit($pasien_id, $id)
     {
-        $kehadiran = DB::table('kehadirans')->where('kehadiran_id', $kehadiran_id)->first();
-        return view('/pegawai/Kehadiran/editKehadiran', ['kehadiran' => $kehadiran]);
+        $model = Kehadiran::findOrFail($id);
+        if (!$model->delete()) {
+            return redirect()->back()->with('alert', 'Gagal menghapus ');
+        }
+        $pasien = Pasien::findOrFail($pasien_id);
+        return redirect()
+            ->route('pegawai.data.kehadiran', $pasien->id)
+            ->withSuccess('Data Berhasil Dihapuskan.');
+    }
+
+    public function edit($pasien_id, $id)
+    {
+        $pasien = Pasien::findOrFail($pasien_id);
+        $kehadiran = DB::table('kehadirans')->where('id', $id)->first();
+        return view('/pegawai/Kehadiran/editKehadiran', [
+                'kehadiran' => $kehadiran,
+                'pasien' => $pasien
+            ]
+        );
     }
 
     public function update(Request $request, $pasien_id, $kehadiran_id)
     {
-        $kehadiran = Kehadiran::where('id', $id)->first();
-        $kehadiran->pasien_id = $pasien;
+        $kehadiran = Kehadiran::where('id', $kehadiran_id)->first();
         $kehadiran->tanggal = $request->tanggal;
         $kehadiran->kehadiran = $request->kehadiran;
         $kehadiran->save();
 
         return redirect()
-            ->route('pegawai.data.kehadiran', $pasien->id)
+            ->route('pegawai.data.kehadiran', $pasien_id)
             ->with('alert-success', 'Data berhasil diubah!');
     }
 }

@@ -169,7 +169,7 @@ Route::prefix('pegawai')->group(function () {
         Route::post('inputKehadiran', 'Pegawai\InputKehadiranController@store');
         Route::delete('dataKehadiran/{kehadiran_id}/delete', 'Pegawai\InputKehadiranController@delete')->name('pegawai.data.kehadiran.pasien.delete');
         Route::get('/inputKehadiran/{kehadiran_id}/edit', 'Pegawai\InputKehadiranController@edit');
-        Route::put('/inputKehadiran/{kehadiran_id}/update', 'Pegawai\InputKehadiranController@update')->name('pegawai.data.kehadiran.pasien.update');
+        Route::put('/inputKehadiran/{kehadiran_id}', 'Pegawai\InputKehadiranController@update')->name('pegawai.data.kehadiran.pasien.update');
     });
 
     //Jadwal Dokter

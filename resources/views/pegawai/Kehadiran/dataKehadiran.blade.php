@@ -33,24 +33,27 @@
                                 <td>{{ $khd->tanggal }}</td>
                                 <td>{{ $khd->kehadiran }}</td>
                                 <td>
-                                <div class="aksi">
-                                    <div class="tombolAksi" >
-                                        <a href="/pegawai/inputKehadiran/{{ $khd->kehadiran_id }}/edit" onclick="return confirm ('Apakah Anda Ingin Merubah Data Ini?')" class="btn btn-sm"><i class="fa fa-edit"></i></a>
+                                    <div class="aksi">
+                                        <div class="tombolAksi">
+                                            <a href="/pegawai/{{ $pasien->id }}/inputKehadiran/{{ $khd->id }}/edit"
+                                               onclick="return confirm ('Apakah Anda Ingin Merubah Data Ini?')"
+                                               class="btn btn-sm"><i class="fa fa-edit"></i></a>
+                                        </div>
                                     </div>
-                                </div>
                                 </td>
                                 <td>
                                     <div class="Aksi">
-                                       <div class="tombolAksi">
-                                        <form
-                                            action="{{ route('pegawai.data.kehadiran.pasien.delete', ['pasien_id' => $pasien->id, 'kehadiran_id' => $khd->id]) }}"
-                                            method="post">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button onclick="return confirm ('Apakah Anda Ingin Menghapus Data Ini?')"
-                                                type="submit" class="btn btn-sm"><i
-                                                    class="fa fa-trash-o"></i></button>
-                                        </form>
+                                        <div class="tombolAksi">
+                                            <form
+                                                action="{{ route('pegawai.data.kehadiran.pasien.delete', ['pasien_id' => $pasien->id, 'kehadiran_id' => $khd->id]) }}"
+                                                method="post">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button
+                                                    onclick="return confirm ('Apakah Anda Ingin Menghapus Data Ini?')"
+                                                    type="submit" class="btn btn-sm"><i
+                                                        class="fa fa-trash-o"></i></button>
+                                            </form>
                                         </div>
                                     </div>
                                 </td>
