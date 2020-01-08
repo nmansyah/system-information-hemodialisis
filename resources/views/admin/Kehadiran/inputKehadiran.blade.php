@@ -6,9 +6,8 @@
     <div class="x_content">
         @include('layouts.alert')
         <form class="form-horizontal form-label-left"
-              action="/admin/{{ $pasien->id }}/inputKehadiran/{{ $kehadiran->id }}" method="post" value="post"
+              action="/admin/{{ $pasien->id }}/inputKehadiran" method="post" value="post"
               novalidate>
-            @method('put')
             <span class="section">Masukkan Kehadiran</span>
             <div class="item form-group">
                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="tanggal">Tanggal <span
@@ -16,7 +15,7 @@
                 </label>
                 <div class="col-md-6 col-sm-6 col-xs-12">
                     <input id="tanggal" type="date" data-date="" data-date-format="DD MM YYYY" name="tanggal"
-                           class="optional form-control col-md-7 col-xs-12" value="{{ $kehadiran->tanggal }}">
+                           class="optional form-control col-md-7 col-xs-12">
                 </div>
             </div>
             <div class="item form-group">
@@ -24,8 +23,9 @@
                         class="required">*</span></label>
                 <div class="col-8 col-md-4">
                     <select class="custom-select" required="required" id="kehadiran" name="kehadiran">
-                        <option @if($kehadiran->kehadiran == 'Hadir') selected @endif value="Hadir">Hadir</option>
-                        <option @if($kehadiran->kehadiran == 'Tidak Hadir') selected @endif value="Tidak Hadir">Tidak
+                        <option selected>Pilih ...</option>
+                        <option value="Hadir">Hadir</option>
+                        <option value="Tidak Hadir">Tidak
                             Hadir
                         </option>
                     </select>

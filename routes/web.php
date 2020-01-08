@@ -52,9 +52,10 @@ Route::prefix('admin')->group(function () {
 
     //Kehadiran
     Route::group(['prefix' => '{pasien_id}'], function () {
+        Route::get('/inputKehadiran', 'Admin\InputKehadiranController@index');
         Route::get('dataKehadiran', 'Admin\DataKehadiranController@index')->name('admin.data.kehadiran');
         Route::delete('dataKehadiran/{kehadiran_id}/delete', 'Admin\InputKehadiranController@delete')->name('admin.data.kehadiran.pasien.delete');
-        Route::get('inputKehadiran/{kehadiran_id}/edit', 'Admin\InputKehadiranController@index');
+        Route::get('inputKehadiran/{kehadiran_id}/edit', 'Admin\InputKehadiranController@edit');
         Route::put('inputKehadiran/{kehadiran_id}', 'Admin\InputKehadiranController@update');
         Route::post('inputKehadiran', 'Admin\InputKehadiranController@store');
     });

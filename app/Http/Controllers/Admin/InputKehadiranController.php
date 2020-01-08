@@ -22,11 +22,21 @@ class InputKehadiranController extends Controller
         $this->middleware('admin');
     }
 
-    public function index($pasien_id, $kehadiran_id)
+    public function index($pasien_id)
+    {
+//        $kehadiran = Kehadiran::findOrFail($kehadiran_id);
+        $pasien = Pasien::findOrFail($pasien_id);
+        return view('admin/Kehadiran/inputKehadiran', [
+            'pasien' => $pasien,
+//            'kehadiran' => $kehadiran
+        ]);
+    }
+
+    public function edit($pasien_id, $kehadiran_id)
     {
         $kehadiran = Kehadiran::findOrFail($kehadiran_id);
         $pasien = Pasien::findOrFail($pasien_id);
-        return view('admin/Kehadiran/inputKehadiran', [
+        return view('admin/Kehadiran/editKehadiran', [
             'pasien' => $pasien,
             'kehadiran' => $kehadiran
         ]);
