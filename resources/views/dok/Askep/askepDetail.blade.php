@@ -6,11 +6,7 @@
 
     <div class="x_content">
         @include('layouts.alert')
-        <form class="form-horizontal form-label-left"
-              action="{{ route('dok.data.askep.pasien.update', [$askep->pasien['id'], $askep->id]) }}" method="post"
-              value="post"
-              novalidate>
-            @method('PUT')
+        <div class="form-horizontal form-label-left">
             <span class="section">Catatan Terintegrasi Hemodialisis</span>
             <span class="section">A. IDENTITAS KLIEN</span>
 
@@ -642,12 +638,6 @@
             </div>
 
             <div class="ln_solid"></div>
-            <div class="form-group">
-                <div class="col-md-6 col-md-offset-4">
-                    <a class="btn btn-primary" href="{{ route('dok.data.askep', [$askep->pasien['id']]) }}">Cancel</a>
-                    {{ csrf_field() }}
-                </div>
-            </div>
-        </form>
+        </div>
     </div>
 @endsection
