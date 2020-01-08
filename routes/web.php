@@ -55,7 +55,8 @@ Route::prefix('admin')->group(function () {
         Route::get('dataKehadiran', 'Admin\DataKehadiranController@index')->name('admin.data.kehadiran');
         Route::delete('dataKehadiran/{kehadiran_id}/delete', 'Admin\InputKehadiranController@delete')->name('admin.data.kehadiran.pasien.delete');
         Route::get('inputKehadiran/{kehadiran_id}/edit', 'Admin\InputKehadiranController@index');
-        Route::put('inputKehadiran/{kehadiran_id}', 'Admin\InputKehadiranController@update');
+        Route::put('inputKehadiran/{kehadiran_id}', 'Admin\InputKehadiranController@update')->name('admin.data.kehadiran.pasien.update');
+        Route::get('inputKehadiran', 'Admin\InputKehadiranController@index');
         Route::post('inputKehadiran', 'Admin\InputKehadiranController@store');
     });
 

@@ -22,7 +22,7 @@ class InputKehadiranController extends Controller
         $this->middleware('pegawai');
     }
 
-    public function index($pasien_id, $kehadiran_id)
+    public function index($pasien_id, $id)
     {
         $pasien = Pasien::findOrFail($pasien_id);
         return view('pegawai/Kehadiran/inputKehadiran', [
