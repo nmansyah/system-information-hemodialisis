@@ -22,11 +22,13 @@ class InputKehadiranController extends Controller
         $this->middleware('admin');
     }
 
-    public function index($pasien_id)
+    public function index($pasien_id, $kehadiran_id)
     {
+        $kehadiran = Kehadiran::findOrFail($kehadiran_id);
         $pasien = Pasien::findOrFail($pasien_id);
         return view('admin/Kehadiran/inputKehadiran', [
-            'pasien' => $pasien
+            'pasien' => $pasien,
+            'kehadiran' => $kehadiran
         ]);
     }
 
@@ -46,14 +48,25 @@ class InputKehadiranController extends Controller
     }
 
     public function delete($pasien_id, $id)
-     {
-         $model = Kehadiran::findOrFail($id);
-         if (!$model->delete()){
-             return redirect()->back()->with('alert', 'Gagal menghapus ');
-         }
-         $pasien = Pasien::findOrFail($pasien_id);
-         return redirect()
-             ->route('admin.data.kehadiran', $pasien->id)
-             ->withSuccess('Data Berhasil Dihapuskan.');
-     }
+    {
+        $model = Kehadiran::findOrFail($id);
+        if (!$model->delete()) {
+            return redirect()->back()->with('alert', 'Gagal menghapus ');
+        }
+        $pasien = Pasien::findOrFail($pasien_id);
+        return redirect()
+            ->route('admin.data.kehadiran', $pasien->id)
+            ->withSuccess('Data Berhasil Dihapuskan.');
+    }
+
+    public function update(Request $request, $pasien_id, $kehadiran_id)
+    {
+        $kehadiran = Kehadiran::findOrFail($kehadiran_id);
+        $kehadiran->tanggal = $request->tanggal;
+        $kehadiran->kehadiran = $request->kehadiran;
+        if (!$kehadiran->save()) {
+            return redirect()->back()->with('error', 'Failed to update');
+        }
+        return redirect()->route('admin.data.kehadiran', $pasien_id);
+    }
 }
