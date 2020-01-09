@@ -14,11 +14,7 @@
         <tbody>
         @foreach ($pasienSenin as $psn)
             <tr>
-                @if($psn->hari1 == 'Senin' || $psn->hari2 == 'Senin' || $psn->hari3 == 'Senin')
-                    <td>{{ ( $psn->sesi1 == 'Sesi 1' ? $psn->nama : 'Kosong') }}</td>
-                    <td>{{ ( $psn->sesi2 == 'Sesi 2' ? $psn->nama : 'Kosong') }}</td>
-                    <td>{{ ( $psn->sesi3 == 'Sesi 3' ? $psn->nama : 'Kosong') }}</td>
-            @endif
+                {{ pembagianJadwalHarian($psn, 'Senin') }}
             @php
                 $i++;
             @endphp
