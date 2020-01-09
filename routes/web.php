@@ -182,6 +182,13 @@ Route::prefix('pegawai')->group(function () {
     //Jadwal Pasien
     Route::get('/jadwalPasien', 'Pegawai\JadwalPasienController@index');
 
+    //jadwal pasien harian
+    Route::resources([
+        'jadwalPasienHarian' => 'Pegawai\PegawaiJadwalPasienHarianController',
+    ], [
+        'as' => 'pegawai'
+    ]);
+
     //Perkembangan Pasien
     Route::get('/dataPerkembanganPasien', 'Pegawai\DataPerkembanganPasienController@index')->name('pegawai.data.perkembanganPasien');
     Route::get('/inputPerkembanganPasien', 'Pegawai\InputPerkembanganPasienController@index');
