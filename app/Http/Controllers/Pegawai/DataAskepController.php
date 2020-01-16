@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Pegawai;
 
+use PDF;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Input;
@@ -43,6 +44,17 @@ class DataAskepController extends Controller
             'askep' => $model,
             'perawat' => $perawat
         ]);
+    }
+
+    public function printAskep($pasien_id, $askep_id){
+        $model = Askep::findOrFail($askep_id);
+        $perawat = Perawat::all();
+
+        $pdf = PDF::loadView('pegawai.Askep.printAskep', [
+            'askep' => $model,
+            'perawat' => $perawat
+        ])->setPaper('a4', 'landscape');
+        return $pdf->stream();
     }
 
      public function delete($pasien_id, $id)

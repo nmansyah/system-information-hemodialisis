@@ -27,7 +27,6 @@ class RedirectIfAuthenticated
                 return redirect('/dok');
             }
         }
-        // dd('no');
         return $next($request);
     }
 }

@@ -12,8 +12,8 @@
 
     <title>@yield('title')</title>
 
-    <link href="path/to/select2.min.css" rel="stylesheet"/>
-    <script src="path/to/select2.min.js"></script>
+{{--    <link href="path/to/select2.min.css" rel="stylesheet"/>--}}
+{{--    <script src="path/to/select2.min.js"></script>--}}
 
     <!-- Bootstrap -->
     <link href="{{URL::asset('vendors/bootstrap/dist/css/bootstrap.min.css')}}" rel="stylesheet">
@@ -212,5 +212,6 @@
 <!-- Custom Theme Scripts -->
 <script src="{{URL::asset('build/js/custom.min.js')}}"></script>
 @include('layouts.logoutConfirm')
+@yield('script')
 </body>
 </html>
