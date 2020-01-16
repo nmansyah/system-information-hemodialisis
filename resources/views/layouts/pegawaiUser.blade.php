@@ -108,9 +108,18 @@
                                 </a>
                             </li>
 
-                            <li><a href="/pegawai/dataPasienTraveling"><i class="fa fa-user"></i>
+                            <!-- <li><a href="/pegawai/dataPasienTraveling"><i class="fa fa-user"></i>
                                     Data Pasien Traveling
                                 </a>
+                            </li> -->
+                            <li><a><i class="fa fa-users"></i>
+                                    Data Pasien Traveling
+                                    <span class="fa fa-chevron-down"></span>
+                                </a>
+                                <ul class="nav child_menu">
+                                    <li><a href="/pegawai/dataPasienTravelingSementara">Sementara</a></li>
+                                    <li><a href="/pegawai/dataPasienTraveling">Tetap</a></li>
+                                </ul>
                             </li>
 
                             <li><a href="/pegawai/dataPasienRawatinap"><i class="fa fa-user"></i>

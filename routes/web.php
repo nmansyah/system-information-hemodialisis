@@ -134,6 +134,14 @@ Route::prefix('admin')->group(function () {
     Route::get('/inputPasienRawatinap/{id}/edit', 'Admin\InputPasienRawatinapController@edit');
     Route::put('/inputPasienRawatinap/{id}/update', 'Admin\InputPasienRawatinapController@update');
 
+    //Pasien Traveling Sementara
+    Route::get('/dataPasienTravelingSementara', 'Admin\InputPasienTravelingSementaraController@show')->name('admin.data.pasienTravelingSementara');
+    Route::get('/inputPasienTravelingSementara', 'Admin\InputPasienTravelingSementaraController@index');
+    Route::post('/inputPasienTravelingSementara', 'Admin\InputPasienTravelingSementaraController@store');
+    Route::delete('/inputPasienTravelingSementara/{id}/delete', 'Admin\InputPasienTravelingSementaraController@delete')->name('admin.pasienTravelingSementara.delete');
+    Route::get('/inputPasienTravelingSementara/{id}/edit', 'Admin\InputPasienTravelingSementaraController@edit');
+    Route::put('/inputPasienTravelingSementara/{id}/update', 'Admin\InputPasienTravelingSementaraController@update');
+
     //Pasien Traveling
     Route::get('/dataPasienTraveling', 'Admin\DataPasienTravelingController@index')->name('admin.data.pasienTraveling');
     Route::get('/inputPasienTraveling', 'Admin\InputPasienTravelingController@index');
@@ -220,6 +228,14 @@ Route::prefix('pegawai')->group(function () {
     Route::delete('/inputPasienRawatinap/{id}/delete', 'Pegawai\InputPasienRawatinapController@delete')->name('pegawai.pasienRawatinap.delete');
     Route::get('/inputPasienRawatinap/{id}/edit', 'Pegawai\InputPasienRawatinapController@edit');
     Route::put('/inputPasienRawatinap/{id}/update', 'Pegawai\InputPasienRawatinapController@update');
+
+    //Pasien Traveling Sementara
+    Route::get('/dataPasienTravelingSementara', 'Pegawai\InputPasienTravelingSementaraController@show')->name('pegawai.data.pasienTravelingSementara');
+    Route::get('/inputPasienTravelingSementara', 'Pegawai\InputPasienTravelingSementaraController@index');
+    Route::post('/inputPasienTravelingSementara', 'Pegawai\InputPasienTravelingSementaraController@store');
+    Route::delete('/inputPasienTravelingSementara/{id}/delete', 'Pegawai\InputPasienTravelingSementaraController@delete')->name('pegawai.pasienTravelingSementara.delete');
+    Route::get('/inputPasienTravelingSementara/{id}/edit', 'Pegawai\InputPasienTravelingSementaraController@edit');
+    Route::put('/inputPasienTravelingSementara/{id}/update', 'Pegawai\InputPasienTravelingSementaraController@update');
 
     //Pasien Traveling
     Route::get('/dataPasienTraveling', 'Pegawai\DataPasienTravelingController@index')->name('pegawai.data.pasienTraveling');

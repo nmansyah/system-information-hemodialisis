@@ -3,9 +3,17 @@
 @section('title', 'Dashboard')
 
 @section('chart')
+
 <div class="col-md-6 col-sm-6 col-xs-12">
   <div class="x_panel">
     <div id="chartMeninggal">
+    </div>
+  </div>
+</div>
+
+<div class="col-md-6 col-sm-6 col-xs-12">
+  <div class="x_panel">
+    <div id="chartPindah">
     </div>
   </div>
 </div>
@@ -17,13 +25,16 @@
   </div>
 </div>
 
-<div class="col-md-12 col-sm-6 col-xs-12">
+<div class="col-md-6 col-sm-6 col-xs-12">
     <div class="x_panel">
         <div id="chartRawatinap">
         </div>
     </div>
 </div>
   <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
   <script>
     Highcharts.chart('chartMeninggal', {
         chart: {
@@ -71,7 +82,7 @@
   </script>
 
   <script>
-    Highcharts.chart('chartTraveling', {
+    Highcharts.chart('chartPindah', {
         chart: {
             type: 'column'
         },

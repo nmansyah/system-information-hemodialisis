@@ -132,6 +132,15 @@
                                     Data Pasien Traveling
                                 </a>
                             </li>
+                            <li><a><i class="fa fa-users"></i>
+                                    Data Pasien Traveling
+                                    <span class="fa fa-chevron-down"></span>
+                                </a>
+                                <ul class="nav child_menu">
+                                    <li><a href="/admin/dataPasienTravelingSementara">Sementara</a></li>
+                                    <li><a href="/admin/dataPasienTraveling">Tetap</a></li>
+                                </ul>
+                            </li>
 
                             <li><a href="/admin/dataPasienRawatinap"><i class="fa fa-user"></i>
                                     Data Pasien Rawat Inap

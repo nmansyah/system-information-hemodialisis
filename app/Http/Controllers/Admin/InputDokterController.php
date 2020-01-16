@@ -38,7 +38,7 @@ class InputDokterController extends Controller
 
       return redirect()
       ->route('admin.data.dokter')
-      ->withSuccess('Dokter Telah Ditambahkan.');
+      ->withSuccess('alert-success','Dokter Telah Ditambahkan.');
     }
 
     public function delete($id)
