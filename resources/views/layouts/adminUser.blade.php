@@ -167,8 +167,7 @@
                         </li> -->
                         <li class="">
                             <a href="{{ route('logout') }}"
-                               onclick="event.preventDefault();
-                                     document.getElementById('logout-form').submit();">
+                               onclick="keluar(event)">
                                 <i class="fa fa-sign-out"></i>
                                 {{ __('Keluar') }}
                             </a>
@@ -232,5 +231,6 @@
 <script src="{{URL::asset('vendors/pdfmake/build/vfs_fonts.js')}}"></script>
 <!-- Custom Theme Scripts -->
 <script src="{{URL::asset('build/js/custom.min.js')}}"></script>
+@include('layouts.logoutConfirm')
 </body>
 </html>
