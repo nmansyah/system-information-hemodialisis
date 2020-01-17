@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -38,8 +39,18 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    // public function logout(Request $request) {
-    //     Auth::logout();
-    //     return redirect('/guest');
-    // }
+    public function redirectPath()
+    {
+        session()->flash('success', 'Login berhasil');
+        if (Auth::user()->isPegawai()) {
+            $this->redirectTo = '/pegawai/indexPegawai';
+        }
+        if (Auth::user()->isDok()){
+            $this->redirectTo = '/dok/indexDokter';
+        }
+        if (method_exists($this, 'redirectTo')) {
+            return $this->redirectTo();
+        }
+        return property_exists($this, 'redirectTo') ? $this->redirectTo : '/home';
+    }
 }
