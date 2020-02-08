@@ -87,14 +87,14 @@
                                 <ul class="nav child_menu">
                                     <!-- <li><a href="/admin/jadwalAdmin">Admin</a></li> -->
                                     <li><a href="/pegawai/jadwalDokter">Dokter</a></li>
-                                    <li><a href="/pegawai/jadwalPasien">Pasien</a></li>
+                                    <!-- <li><a href="/pegawai/jadwalPasien">Pasien</a></li> -->
                                     <li><a href="{{ route('pegawai.jadwalPasienHarian.index') }}">Pasien Harian</a></li>
                                     <li><a href="/pegawai/jadwalPerawat">Perawat</a></li>
                                 </ul>
                             </li>
 
                             <li><a href="/pegawai/dataPerkembanganPasien"><i class="fa fa-edit"></i>
-                                    Kondisi Pasien Bulanan
+                                    Perkembangan Bulanan
                                 </a>
                             </li>
 
@@ -113,7 +113,7 @@
                                 </a>
                             </li> -->
                             <li><a><i class="fa fa-users"></i>
-                                    Data Pasien Traveling
+                                    Data Pasien Pindah
                                     <span class="fa fa-chevron-down"></span>
                                 </a>
                                 <ul class="nav child_menu">

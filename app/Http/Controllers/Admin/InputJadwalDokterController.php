@@ -21,6 +21,16 @@ class InputJadwalDokterController extends Controller
       $this->middleware('admin');
     }
 
+    public function show()
+    {
+      $dokter= Dokter::all();
+      $jadwal_dokter = Jadwal_Dokter::all();
+      return view('admin/jadwalDokter', [
+        'dokter' => $dokter,
+        'jadwal_dokter' => $jadwal_dokter
+      ]);
+    }
+
     public function index()
     {
       $dokter= Dokter::all();

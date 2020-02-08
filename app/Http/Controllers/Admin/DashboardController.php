@@ -69,6 +69,24 @@ class DashboardController extends Controller
 
       $traveling = $traveling->count();
 
+      $travelingsementara = DB::table('pasien_travel_sementaras')->whereYear('created_at', '=', $years[2])->get();
+      $travelingsementara1 = DB::table('pasien_travel_sementaras')->whereYear('created_at', '=', $years[1])->get();
+      $travelingsementara2 = DB::table('pasien_travel_sementaras')->whereYear('created_at', '=', $years[0])->get();
+
+      if($travelingsementara1->count() > 0){
+        $travelingsementara1 = $travelingsementara1->count();
+      } else {
+        $travelingsementara1 = 0;
+      }
+
+      if($travelingsementara2->count() > 0){
+        $travelingsementara2 = $travelingsementara2->count();
+      } else {
+        $travelingsementara2 = 0;
+      }
+
+      $travelingsementara = $travelingsementara->count();
+
       $rawatinap = DB::table('pasien_rawatinaps')->whereYear('created_at', '=', $years[2])->get();
       $rawatinap1 = DB::table('pasien_rawatinaps')->whereYear('created_at', '=', $years[1])->get();
       $rawatinap2 = DB::table('pasien_rawatinaps')->whereYear('created_at', '=', $years[0])->get();
@@ -96,6 +114,9 @@ class DashboardController extends Controller
         'traveling' => $traveling,
         'traveling1' => $traveling1,
         'traveling2' => $traveling2,
+        'travelingsementara' => $travelingsementara,
+        'travelingsementara1' => $travelingsementara1,
+        'travelingsementara2' => $travelingsementara2,
         'rawatinap' => $rawatinap,
         'rawatinap1' => $rawatinap1,
         'rawatinap2' => $rawatinap2        

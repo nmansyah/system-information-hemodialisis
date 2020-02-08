@@ -20,6 +20,14 @@ class InputPerawatController extends Controller
       $this->middleware('admin');
     }
 
+    public function show()
+    {
+      $perawat = Perawat::all();
+      return view('admin/dataPerawat',[
+        'perawat' => $perawat
+      ]);
+    }
+
     public function index()
     {
       return view('admin/inputPerawat');

@@ -20,6 +20,14 @@ class InputDokterController extends Controller
       $this->middleware('admin');
     }
 
+    public function show()
+    {
+      $dokter = Dokter::all();
+      return view('admin/dataDokter',[
+        'dokter' => $dokter
+      ]);
+    }
+
     public function index()
     {
       return view('admin/inputDokter');

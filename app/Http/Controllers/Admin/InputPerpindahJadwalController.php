@@ -21,6 +21,16 @@ class InputPerpindahJadwalController extends Controller
         $this->middleware('admin');
     }
 
+    public function show()
+    {
+      $pasien = Pasien::all();
+      $perpindahan_jadwal = Perpindahan_Jadwal::all();
+      return view('admin/dataPerpindahJadwal', [
+        'pasien' => $pasien, 
+        'perpindahan_jadwal' => $perpindahan_jadwal
+      ]);
+    }
+
     public function index()
     {
         $pasien = Pasien::all();

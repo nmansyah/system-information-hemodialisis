@@ -93,7 +93,8 @@
                                 <ul class="nav child_menu">
                                     <!-- <li><a href="/admin/jadwalAdmin">Admin</a></li> -->
                                     <li><a href="/admin/jadwalDokter">Dokter</a></li>
-                                    <li><a href="/admin/jadwalPasien">Pasien</a></li>
+                                    <!-- <li><a href="/admin/jadwalPasien">Pasien</a></li> -->
+                                    <li><a href="{{ route('admin.jadwalPasienHarian.index') }}">Pasien Harian</a></li>
                                     <li><a href="/admin/jadwalPerawat">Perawat</a></li>
                                 </ul>
                             </li>
@@ -108,15 +109,15 @@
                                 </a>
                             </li> -->
 
-                            <li><a href="/admin/dataKehadiranPasien/month"><i class="fa fa-calendar-o"></i>
+                            <!-- <li><a href="/admin/dataKehadiranPasien/month"><i class="fa fa-calendar-o"></i>
                                     Kehadiran Pasien
                                 </a>
-                            </li>
-
-                            <!-- <li><a href="/admin/dataPerkembanganPasien"><i class="fa fa-edit"></i>
-                                    Kondisi Pasien Bulanan
-                                </a>
                             </li> -->
+
+                            <li><a href="/admin/dataPerkembanganPasien"><i class="fa fa-edit"></i>
+                                    Perkembangan Bulanan
+                                </a>
+                            </li>
 
                             <li><a href="/admin/dataPerpindahJadwal"><i class="fa fa-calendar"></i>
                                     Perpindahan Jadwal
@@ -128,12 +129,12 @@
                                 </a>
                             </li>
 
-                            <li><a href="/admin/dataPasienTraveling"><i class="fa fa-user"></i>
+                            <!-- <li><a href="/admin/dataPasienTraveling"><i class="fa fa-user"></i>
                                     Data Pasien Traveling
                                 </a>
-                            </li>
+                            </li> -->
                             <li><a><i class="fa fa-users"></i>
-                                    Data Pasien Traveling
+                                    Data Pasien Pindah
                                     <span class="fa fa-chevron-down"></span>
                                 </a>
                                 <ul class="nav child_menu">

@@ -21,6 +21,16 @@ class InputPasienRawatinapController extends Controller
         $this->middleware('admin');
     }
 
+    public function show()
+    {
+      $pasien = Pasien::all();
+      $pasien_rawatinap = Pasien_Rawatinap::all();
+      return view('admin/dataPasienRawatinap', [
+        'pasien' => $pasien, 
+        'pasien_rawatinap' => $pasien_rawatinap
+      ]);
+    }
+
     public function index()
     {
         $pasien = Pasien::all();

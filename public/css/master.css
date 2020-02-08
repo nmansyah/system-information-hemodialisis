@@ -47,6 +47,7 @@
   .tombolAksi{
     display: inline;
     background-color: white;
+    float:center;
   }
 
   

@@ -7,7 +7,7 @@
             <div class="col-md-12 col-sm-6 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Data Pasien Traveling Sementara</h2>
+                    <h2>Data Pasien Pindah Sementara / Traveling</h2>
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
@@ -45,14 +45,12 @@
                             <td>{{ $pts->tanggal_selesai }}</td>
                             <td>{{ $pts->tujuan }}</td>
                             <td>
-                            <div class="" >
+                            <div class="tombolAksi" >
                                   <a href="/pegawai/inputPasienTravelingSementara/{{ $pts->id }}/edit" onclick="return confirm ('Apakah Anda Ingin Merubah Data Ini?')" class="btn btn-sm" style="height: 10; weight: 10"><i class="fa fa-edit"></i></a>
                                 </div>
                             </td>
                             <td>
-                              <div class="row">
-                                
-                                <div class="tombolAksi">
+                             <div class="tombolAksi">
                                     <form method="post" action="{{ route('pegawai.pasienTravelingSementara.delete',['id' => $pts->id]) }}">
                                        {{ method_field('DELETE') }}
                                     <button onclick="return confirm ('Apakah Anda Ingin Menghapus Data Ini?')" type="submit" class="btn btn-sm" style="height: 5; weight: 5"><i class="fa fa-trash-o"></i></button>

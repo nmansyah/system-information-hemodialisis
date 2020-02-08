@@ -21,6 +21,16 @@ class InputJadwalPerawatController extends Controller
       $this->middleware('admin');
     }
 
+    public function show()
+    {
+      $perawat= Perawat::all();
+      $jadwal_perawat = Jadwal_Perawat::all();
+      return view('admin/jadwalPerawat', [
+        'perawat' => $perawat,
+        'jadwal_perawat' => $jadwal_perawat
+      ]);
+    }
+
   public function index()
   {
     $perawat= Perawat::all();

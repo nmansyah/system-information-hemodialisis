@@ -21,6 +21,16 @@ class InputPerkembanganPasienController extends Controller
         $this->middleware('pegawai');
     }
 
+    public function show()
+    {
+      $pasien = Pasien::all();
+      $perkembangan_pasien = Perkembangan_Pasien::all();
+      return view('pegawai/dataPerkembanganPasien', [
+        'pasien' => $pasien,
+        'perkembangan_pasien' => $perkembangan_pasien
+      ]);
+    }
+
     public function index()
     {
         $pasien = Pasien::all();

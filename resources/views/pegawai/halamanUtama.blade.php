@@ -91,7 +91,7 @@
             enabled: false
         },
         title: {
-            text: 'Monitoring Pasien Traveling'
+            text: 'Monitoring Pasien Pindah'
         },
         
         xAxis: {

@@ -19,7 +19,13 @@ class InputPasienController extends Controller
     $this->middleware('auth');
     $this->middleware('admin');
   }
-
+  public function show()
+  {
+    $pasien= Pasien::all();
+    return view('admin/dataPasien',[
+      'pasien' => $pasien
+    ]);
+  }
 
     public function index()
     {

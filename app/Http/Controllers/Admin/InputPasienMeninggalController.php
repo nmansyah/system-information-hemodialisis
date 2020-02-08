@@ -21,6 +21,17 @@ class InputPasienMeninggalController extends Controller
         $this->middleware('admin');
     }
 
+    public function show()
+    {
+      $pasien= Pasien::all();
+      $pasien_meninggal= Pasien_Meninggal::all();
+      return view('admin/dataPasienMeninggal', [
+        'pasien' => $pasien, 
+        'pasien_meninggal' => $pasien_meninggal
+      ]);
+
+    }
+
     public function index()
     {
         $pasien = Pasien::all();

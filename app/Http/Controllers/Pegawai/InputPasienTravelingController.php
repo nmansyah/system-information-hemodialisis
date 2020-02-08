@@ -21,6 +21,16 @@ class InputPasienTravelingController extends Controller
         $this->middleware('pegawai');
     }
 
+    public function show()
+    {
+      $pasien = Pasien::all();
+      $pasien_traveling = Pasien_Travel::all();
+      return view('pegawai/dataPasienTraveling', [
+        'pasien' => $pasien, 
+        'pasien_traveling' => $pasien_traveling
+      ]);
+    }
+
     public function index()
     {
         $pasien = Pasien::all();

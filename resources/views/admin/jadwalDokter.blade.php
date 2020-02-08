@@ -26,7 +26,8 @@
                           <th>Kamis</th>
                           <th>Jumat</th>
                           <th>Sabtu</th>
-                          <th>Aksi</th>
+                          <th>Edit</th>
+                          <th>Hapus</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -47,10 +48,14 @@
                                     <td>{{ $jd->hari5 }}</td>
                                     <td>{{ $jd->hari6 }}</td>
                                     <td>
+                                    <div class="aksi">
+                                        <div class="tombolAksi">
+                                        <a href="/admin/inputJadwalDokter/{{ $jd->id }}/edit" onclick="return confirm ('Apakah Anda Ingin Merubah Data Ini?')" class="btn btn-sm"><i class="fa fa-edit"></i></a>
+                                        </div>
+                                    </div>
+                                    </td>
+                                    <td>
                                         <div class="aksi">
-                                            <div class="tombolAksi" >
-                                                <a href="/admin/inputJadwalDokter/{{ $jd->id }}/edit" onclick="return confirm ('Apakah Anda Ingin Merubah Data Ini?')" class="btn btn-sm"><i class="fa fa-edit"></i></a>
-                                            </div>
                                             <div class="tombolAksi">
                                                 <form method="post" action="{{ route('admin.jadwalDokter.delete',['id' => $jd->id]) }}">
                                                 {{ method_field('DELETE') }}
