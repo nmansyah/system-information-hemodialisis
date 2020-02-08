@@ -21,8 +21,8 @@ class InputPasienController extends Controller
   }
   public function show()
   {
-    $pasien= Pasien::all();
-    return view('admin/dataPasien',[
+      $pasien= Pasien::all();
+      return view('admin/dataPasien',[
       'pasien' => $pasien
     ]);
   }
