@@ -105,6 +105,7 @@ Route::prefix('admin')->group(function () {
     Route::delete('/inputPerkembanganPasien/{id}/delete', 'Admin\InputPerkembanganPasienController@delete')->name('admin.perkembanganPasien.delete');
     Route::get('/inputPerkembanganPasien/{id}/edit', 'Admin\InputPerkembanganPasienController@edit');
     Route::put('/inputPerkembanganPasien/{id}/update', 'Admin\InputPerkembanganPasienController@update');
+    Route::get('/data-perkembangan-pasien/{pasien_id}', 'Admin\DataPerkembanganPasienController@show')->name('admin.data.perkembangan.pasien.show');
 
     //Kehadiran Pasien
     Route::get('/dataKehadiranPasien/month', 'Admin\DataKehadiranPasienController@fetch')->name('admin.data.kehadiranPasien');
