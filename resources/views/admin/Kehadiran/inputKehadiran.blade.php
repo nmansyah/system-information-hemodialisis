@@ -23,7 +23,6 @@
                         class="required">*</span></label>
                 <div class="col-8 col-md-4">
                     <select class="custom-select" required="required" id="kehadiran" name="kehadiran">
-                        <option selected>Pilih ...</option>
                         <option value="Hadir">Hadir</option>
                         <option value="Tidak Hadir">Tidak
                             Hadir
@@ -45,6 +44,7 @@
                         {{ csrf_field() }}
                     </div>
                 </div>
+            </div>
         </form>
     </div>
 @endsection
