@@ -12,9 +12,6 @@
 
     <title>@yield('title')</title>
 
-    <link href="path/to/select2.min.css" rel="stylesheet"/>
-    <script src="path/to/select2.min.js"></script>
-
     <!-- Bootstrap -->
     <link href="{{URL::asset('vendors/bootstrap/dist/css/bootstrap.min.css')}}" rel="stylesheet">
     <!-- Font Awesome -->
@@ -241,6 +238,7 @@
 <script src="{{URL::asset('vendors/pdfmake/build/vfs_fonts.js')}}"></script>
 <!-- Custom Theme Scripts -->
 <script src="{{URL::asset('build/js/custom.min.js')}}"></script>
+@yield('jsScript')
 @include('layouts.logoutConfirm')
 </body>
 </html>

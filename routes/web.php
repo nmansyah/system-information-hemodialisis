@@ -105,6 +105,7 @@ Route::prefix('admin')->group(function () {
     Route::delete('/inputPerkembanganPasien/{id}/delete', 'Admin\InputPerkembanganPasienController@delete')->name('admin.perkembanganPasien.delete');
     Route::get('/inputPerkembanganPasien/{id}/edit', 'Admin\InputPerkembanganPasienController@edit');
     Route::put('/inputPerkembanganPasien/{id}/update', 'Admin\InputPerkembanganPasienController@update');
+    Route::get('/data-perkembangan-pasien/{pasien_id}', 'Admin\DataPerkembanganPasienController@show')->name('admin.data.perkembangan.pasien.show');
 
     //Kehadiran Pasien
     Route::get('/dataKehadiranPasien/month', 'Admin\DataKehadiranPasienController@fetch')->name('admin.data.kehadiranPasien');
@@ -139,6 +140,7 @@ Route::prefix('admin')->group(function () {
     Route::delete('/inputPasienRawatinap/{id}/delete', 'Admin\InputPasienRawatinapController@delete')->name('admin.pasienRawatinap.delete');
     Route::get('/inputPasienRawatinap/{id}/edit', 'Admin\InputPasienRawatinapController@edit');
     Route::put('/inputPasienRawatinap/{id}/update', 'Admin\InputPasienRawatinapController@update');
+    Route::put('/pasien-rawat-inap/{id}/chek-out', 'Admin\AdminDataPasienRawatInapCheckout')->name('admin.pasien.rawat.inap.check.out');
 
     //Pasien Traveling Sementara
     Route::get('/dataPasienTravelingSementara', 'Admin\InputPasienTravelingSementaraController@show')->name('admin.data.pasienTravelingSementara');

@@ -8,17 +8,16 @@
 
             <form class="form-horizontal form-label-left" action="/admin/inputPerkembanganPasien" method="post" value="post" novalidate>
             <span class="section">Masukkan Data Perkembangan Pasien</span>
-            
+
             <div class="item form-group">
                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nama">Nama Pasien <span class="required">*</span>
                 </label>
                 <div class="col-md-6 col-sm-6 col-xs-12">
-                <select class="form-control select2" name="nama">
-                  <option>Pilih Pasien..</option>
-                  @foreach($pasien as $psn)
-                  <option value="{{$psn->id}}">{{$psn->nama}}</option>
-                  @endforeach
-                </select>
+                    <select name="nama" class="form-control select2">
+                        @foreach($pasien as $p)
+                            <option value="{{ $p->id }}">{{ $p->nama }}</option>
+                        @endforeach
+                    </select>
                 </div>
             </div>
            <div class="item form-group">
@@ -53,7 +52,12 @@
                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="obat">Obat <span class="required">*</span>
                 </label>
                 <div class="col-md-6 col-sm-6 col-xs-12">
-                <input type="text" id="obat" name="obat" required="required" class="form-control col-md-7 col-xs-12">
+                    <select class="form-control select2" multiple="multiple" name="obat[]">
+                        @foreach($medicines as $medicine)
+                            <option value="{{ $medicine->name }}">{{ $medicine->name }}</option>
+                        @endforeach
+                    </select>
+
                 </div>
             </div>
             <div class="ln_solid"></div>
@@ -66,5 +70,12 @@
             </div>
             </form>
         </div>
+@endsection
 
+@section('jsScript')
+    <script>
+        $(document).ready(function () {
+            $('.select2').select2()
+        })
+    </script>
 @endsection

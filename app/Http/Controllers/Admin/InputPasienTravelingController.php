@@ -26,7 +26,7 @@ class InputPasienTravelingController extends Controller
       $pasien = Pasien::all();
       $pasien_traveling = Pasien_Travel::all();
       return view('admin/dataPasienTraveling', [
-        'pasien' => $pasien, 
+        'pasien' => $pasien,
         'pasien_traveling' => $pasien_traveling
       ]);
     }
@@ -41,9 +41,7 @@ class InputPasienTravelingController extends Controller
 
     public function store(Request $request)
     {
-        $pasien = new Pasien;
         $pasien_traveling = new Pasien_Travel;
-
         $pasien_traveling->pasien_id = $request->nama;
         $pasien_traveling->alamat = $request->alamat;
         $pasien_traveling->no_hp = $request->no_hp;
