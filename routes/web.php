@@ -140,6 +140,7 @@ Route::prefix('admin')->group(function () {
     Route::delete('/inputPasienRawatinap/{id}/delete', 'Admin\InputPasienRawatinapController@delete')->name('admin.pasienRawatinap.delete');
     Route::get('/inputPasienRawatinap/{id}/edit', 'Admin\InputPasienRawatinapController@edit');
     Route::put('/inputPasienRawatinap/{id}/update', 'Admin\InputPasienRawatinapController@update');
+    Route::put('/pasien-rawat-inap/{id}/chek-out', 'Admin\AdminDataPasienRawatInapCheckout')->name('admin.pasien.rawat.inap.check.out');
 
     //Pasien Traveling Sementara
     Route::get('/dataPasienTravelingSementara', 'Admin\InputPasienTravelingSementaraController@show')->name('admin.data.pasienTravelingSementara');
