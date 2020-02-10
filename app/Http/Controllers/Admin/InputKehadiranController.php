@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Carbon\Carbon;
+use foo\bar;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Input;
@@ -24,11 +26,12 @@ class InputKehadiranController extends Controller
 
     public function index($pasien_id)
     {
-//        $kehadiran = Kehadiran::findOrFail($kehadiran_id);
         $pasien = Pasien::findOrFail($pasien_id);
+        if ($pasien->is_died()){
+            return redirect()->back()->with('alert', 'Cannot add attendance coz pasien was died');
+        }
         return view('admin/Kehadiran/inputKehadiran', [
             'pasien' => $pasien,
-//            'kehadiran' => $kehadiran
         ]);
     }
 
@@ -44,12 +47,11 @@ class InputKehadiranController extends Controller
 
     public function store(Request $request, $pasien_id)
     {
-        $pasien = new Pasien;
         $kehadiran = new Kehadiran;
-
         $kehadiran->pasien_id = $pasien_id;
         $kehadiran->tanggal = $request->tanggal;
         $kehadiran->kehadiran = $request->kehadiran;
+        $kehadiran->sesi = $request->sesi;
         $kehadiran->save();
 
         return redirect()

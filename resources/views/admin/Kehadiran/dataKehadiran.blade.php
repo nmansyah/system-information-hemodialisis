@@ -11,6 +11,7 @@
                     <h2>Data Kehadiran Pasien</h2>
                     <div class="clearfix"></div>
                 </div>
+                @include('layouts.alert')
                 <div class="x_content">
                     @php
                         $i=1;

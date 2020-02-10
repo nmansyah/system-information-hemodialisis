@@ -19,6 +19,17 @@
                 </div>
             </div>
             <div class="item form-group">
+                <label class="control-label col-md-3">Sesi</label>
+                <div class="col-8 col-md-4">
+                    <select class="custom-select" required="required" name="sesi">
+                        <option value="Kosong" selected>Sesi ..</option>
+                        <option value="Sesi 1">Sesi 1</option>
+                        <option value="Sesi 2">Sesi 2</option>
+                        <option value="Sesi 3">Sesi 3</option>
+                    </select>
+                </div>
+            </div>
+            <div class="item form-group">
                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="kehadiran">Kehadiran <span
                         class="required">*</span></label>
                 <div class="col-8 col-md-4">
