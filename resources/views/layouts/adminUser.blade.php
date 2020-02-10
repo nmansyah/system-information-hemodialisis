@@ -90,7 +90,7 @@
                                 <ul class="nav child_menu">
                                     <!-- <li><a href="/admin/jadwalAdmin">Admin</a></li> -->
                                     <li><a href="/admin/jadwalDokter">Dokter</a></li>
-                                    
+
                                     <li><a href="/admin/jadwalPerawat">Perawat</a></li>
                                 </ul>
                             </li>
@@ -99,9 +99,9 @@
                                     <span class="fa fa-chevron-down"></span>
                                 </a>
                                 <ul class="nav child_menu">
-                                    
+
                                     <li><a href="{{ route('admin.jadwalPasienHarian.index') }}">Pasien Harian</a></li>
-                                    <li><a href="#">Status Kehadiran</a></li>
+                                    <li><a href="{{ route('admin.status.kehadiran.index') }}">Status Kehadiran</a></li>
                                 </ul>
                             </li>
 
