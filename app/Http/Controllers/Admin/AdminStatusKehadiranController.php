@@ -20,7 +20,7 @@ class AdminStatusKehadiranController extends Controller
             ->where('tanggal', Carbon::today())
             ->with('pasien')->get();
 
-        return view('admin.StatusKehadiran.index', [
+        return view('admin.Jadwal.StatusKehadiran.index', [
             'kehadiranSesi1' => $kehadiranSesi1,
             'kehadiranSesi2' => $kehadiranSesi2,
             'kehadiranSesi3' => $kehadiranSesi3

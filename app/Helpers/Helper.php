@@ -23,3 +23,11 @@ function pembagianJadwalHarian($pasien, $hari){
         echo '<td>Kosong</td>';
     }
 }
+
+function pembagianJadwalHarianPerHari($pasien, $sesi, $i){
+    if( $pasien->sesi1 == $sesi || $pasien->sesi2 == $sesi || $pasien->sesi3 == $sesi ){
+        echo '<tr> <th scope="row">'.$i.'</th> <td>'.$pasien->nama.'</td>
+                <td>'.$pasien->kehadiran.'</td>
+            </tr>';
+    }
+}

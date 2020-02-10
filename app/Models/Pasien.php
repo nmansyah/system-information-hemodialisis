@@ -19,6 +19,14 @@ class Pasien extends Model
         return $this->hasOne(Pasien_Meninggal::class, 'pasien_id');
     }
 
+    public function pasienRawatInap(){
+        return $this->hasOne(Pasien_Rawatinap::class, 'pasien_id');
+    }
+
+    public function isInpatient(){
+        return $this->pasienRawatInap()->exists();
+    }
+
     public function is_died(){
         return $this->pasienMeninggal()->exists();
     }

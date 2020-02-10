@@ -18,3 +18,10 @@
         </div>
     </div>
 @endsection
+@section('jsScript')
+    <script>
+        $(document).ready(function () {
+            $('.dataTable').dataTable();
+        })
+    </script>
+@endsection

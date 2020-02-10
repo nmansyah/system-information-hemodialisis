@@ -14,11 +14,11 @@
             @endphp
             <h3>{{ date('d M Y', strtotime($now)) }}</h3>
             <div class="x_content">
-                @include('admin.StatusKehadiran.Pieces.sesi1')
+                @include('admin.Jadwal.StatusKehadiran.Pieces.sesi1')
                 <br>
-                @include('admin.StatusKehadiran.Pieces.sesi2')
+                @include('admin.Jadwal.StatusKehadiran.Pieces.sesi2')
                 <br>
-                @include('admin.StatusKehadiran.Pieces.sesi3')
+                @include('admin.Jadwal.StatusKehadiran.Pieces.sesi3')
             </div>
         </div>
     </div>
