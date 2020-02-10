@@ -60,6 +60,11 @@ Route::prefix('admin')->group(function () {
         Route::post('inputKehadiran', 'Admin\InputKehadiranController@store');
     });
 
+    //status kehadiran
+    Route::group(['prefix' => 'status-kehadiran'], function () {
+        Route::get('/', 'Admin\AdminStatusKehadiranController@index')->name('admin.status.kehadiran.index');
+    });
+
     //Perawat
     Route::get('/dataPerawat', 'Admin\InputPerawatController@show')->name('admin.data.perawat');
     Route::get('/inputPerawat', 'Admin\InputPerawatController@index');
