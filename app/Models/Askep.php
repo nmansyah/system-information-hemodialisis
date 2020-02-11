@@ -9,7 +9,6 @@ class Askep extends Model
     protected $table = 'askeps';
 
     public $rules = [
-        'no_rm' => 'required|numeric',
         'tanggal_pemeriksaan' => 'required',
         'sesi' => 'required',
         'hemodialisa_number' => 'required',
@@ -18,18 +17,18 @@ class Askep extends Model
         'konjungtiva' => 'required',
     ];
 
-    public function isDuplicateRM($no_rm, $action){
-        $askep = Askep::where('no_rm', $no_rm)->first();
-        if (is_null($askep)){
-            return false;
-        }
-        if ($action == 'update'){
-            if ($askep->id == $this->id){
-                return false;
-            }
-        }
-        return true;
-    }
+//    public function isDuplicateRM($no_rm, $action){
+//        $askep = Askep::where('no_rm', $no_rm)->first();
+//        if (is_null($askep)){
+//            return false;
+//        }
+//        if ($action == 'update'){
+//            if ($askep->id == $this->id){
+//                return false;
+//            }
+//        }
+//        return true;
+//    }
 
     public function pasien()
     {
@@ -43,7 +42,6 @@ class Askep extends Model
     public function populate($request, $pasien_id){
         $this->pasien_id = $pasien_id;
         $this->perawat_id = $request->perawat_id;
-        $this->no_rm = $request->no_rm;
         $this->tanggal_pemeriksaan = $request->tanggal_pemeriksaan;
         $this->sesi = $request->sesi;
         $this->hemodialisa_number = $request->hemodialisa_number;

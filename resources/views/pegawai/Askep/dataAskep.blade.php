@@ -20,7 +20,7 @@
                         <tr>
                             <th>No</th>
                             <th>Tanggal</th>
-                            <th>No RM</th>
+                            <th>No CM</th>
                             <th>Detail</th>
                             <th>Hapus</th>
                         </tr>
@@ -31,7 +31,7 @@
                                 <th scope="row">{{ $loop->iteration }}</th>
 
                                 <td>{{ $ask->tanggal_pemeriksaan }}</td>
-                                <td>{{ $ask->no_rm }}</td>
+                                <td>{{ $pasien->no_cm }}</td>
                                 <td>
                                     <div class="Aksi">
                                         <div class="tombolAksi">

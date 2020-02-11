@@ -43,11 +43,11 @@ class InputAskepController extends Controller
                     ->withInput(Input::all());
             }
 
-            if ($model->isDuplicateRM($request->no_rm, 'store')){
-                return redirect()->back()
-                    ->with('alert', 'No rm sudah terpakai')
-                    ->withInput(Input::all());
-            }
+//            if ($model->isDuplicateRM($request->no_rm, 'store')){
+//                return redirect()->back()
+//                    ->with('alert', 'No rm sudah terpakai')
+//                    ->withInput(Input::all());
+//            }
 
             $res = $model->populate($request, $pasien_id);
             if (is_string($res)){
