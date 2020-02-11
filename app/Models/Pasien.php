@@ -24,7 +24,12 @@ class Pasien extends Model
     }
 
     public function isInpatient(){
-        return $this->pasienRawatInap()->exists();
+        if ($this->pasienRawatInap()->exists()){
+            if (is_null($this->pasienRawatInap['check_out_time'])){
+                return true;
+            }
+        }
+        return false;
     }
 
     public function is_died(){
