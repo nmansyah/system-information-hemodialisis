@@ -24,10 +24,11 @@ function pembagianJadwalHarian($pasien, $hari){
     }
 }
 
-function pembagianJadwalHarianPerHari($pasien, $sesi, $i){
-    if( $pasien->sesi1 == $sesi || $pasien->sesi2 == $sesi || $pasien->sesi3 == $sesi ){
+function pembagianJadwalHarianPerSesi($pasien, $sesi, $hari, $i){
+    if ( ($pasien->sesi1 == $sesi && $pasien->hari1 == $hari) || ($pasien->sesi2 == $sesi && $pasien->hari2 == $hari) || ($pasien->sesi3 == $sesi && $pasien->hari3 == $hari) ){
         echo '<tr> <th scope="row">'.$i.'</th> <td>'.$pasien->nama.'</td>
                 <td>'.$pasien->kehadiran.'</td>
             </tr>';
+        $i += 1;
     }
 }

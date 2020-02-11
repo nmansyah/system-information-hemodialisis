@@ -10,17 +10,25 @@
         </tr>
         </thead>
         <tbody>
-        @foreach ($pasienSabtu as $psn)
-            @if( $psn->sesi1 == 'Sesi 1' || $psn->sesi2 == 'Sesi 1' || $psn->sesi3 == 'Sesi 1' )
+        @php
+            $i = 1;
+            $sesi = 'Sesi 1';
+            $hari = 'Sabtu';
+        @endphp
+        @foreach ($pasienSabtu as $pasien)
+            @if( ($pasien->sesi1 == $sesi && $pasien->hari1 == $hari) || ($pasien->sesi2 == $sesi && $pasien->hari2 == $hari) || ($pasien->sesi3 == $sesi && $pasien->hari3 == $hari) )
                 <tr>
-                    <th scope="row">{{ $loop->iteration }}</th>
-                    <td>{{ $psn->nama }}</td>
-                    @if($psn->isInPatient())
+                    <th>{{ $i }}</th>
+                    <td>{{ $pasien->nama }}</td>
+                    @if($pasien->isInPatient())
                         <td><span class="label label-success">Rawat Inap</span></td>
                     @else
                         <td><span class="label"></span></td>
                     @endif
                 </tr>
+                @php
+                    $i += 1;
+                @endphp
             @endif
         @endforeach
         </tbody>
@@ -36,17 +44,24 @@
         </tr>
         </thead>
         <tbody>
-        @foreach ($pasienSabtu as $psn)
-            @if( $psn->sesi1 == 'Sesi 2' || $psn->sesi2 == 'Sesi 2' || $psn->sesi3 == 'Sesi 2' )
+        @php
+            $i = 1;
+            $sesi = 'Sesi 2';
+        @endphp
+        @foreach ($pasienSabtu as $pasien)
+            @if( ($pasien->sesi1 == $sesi && $pasien->hari1 == $hari) || ($pasien->sesi2 == $sesi && $pasien->hari2 == $hari) || ($pasien->sesi3 == $sesi && $pasien->hari3 == $hari) )
                 <tr>
-                    <th scope="row">{{ $loop->iteration }}</th>
-                    <td>{{ $psn->nama }}</td>
-                    @if($psn->isInPatient())
+                    <th>{{ $i }}</th>
+                    <td>{{ $pasien->nama }}</td>
+                    @if($pasien->isInPatient())
                         <td><span class="label label-success">Rawat Inap</span></td>
                     @else
                         <td><span class="label"></span></td>
                     @endif
                 </tr>
+                @php
+                    $i += 1;
+                @endphp
             @endif
         @endforeach
         </tbody>
@@ -62,17 +77,24 @@
         </tr>
         </thead>
         <tbody>
-        @foreach ($pasienSabtu as $psn)
-            @if( $psn->sesi1 == 'Sesi 3' || $psn->sesi2 == 'Sesi 3' || $psn->sesi3 == 'Sesi 3' )
+        @php
+            $i = 1;
+            $sesi = 'Sesi 3';
+        @endphp
+        @foreach ($pasienSabtu as $pasien)
+            @if( ($pasien->sesi1 == $sesi && $pasien->hari1 == $hari) || ($pasien->sesi2 == $sesi && $pasien->hari2 == $hari) || ($pasien->sesi3 == $sesi && $pasien->hari3 == $hari) )
                 <tr>
-                    <th scope="row">{{ $loop->iteration }}</th>
-                    <td>{{ $psn->nama }}</td>
-                    @if($psn->isInPatient())
+                    <th>{{ $i }}</th>
+                    <td>{{ $pasien->nama }}</td>
+                    @if($pasien->isInPatient())
                         <td><span class="label label-success">Rawat Inap</span></td>
                     @else
                         <td><span class="label"></span></td>
                     @endif
                 </tr>
+                @php
+                    $i += 1;
+                @endphp
             @endif
         @endforeach
         </tbody>
