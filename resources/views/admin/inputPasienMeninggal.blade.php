@@ -10,13 +10,13 @@
             <span class="section">Masukkan Data Pasien Meninggal</span>
 
             <div class="item form-group">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nama">Nama Pasien <span
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nama">Nama | No CM Pasien<span
                         class="required">*</span>
                 </label>
                 <div class="col-md-6 col-sm-6 col-xs-12">
                     <select class="form-control select2" name="nama">
                         @foreach($pasien as $psn)
-                            <option value="{{$psn->id}}">{{$psn->nama}}</option>
+                            <option value="{{$psn->id}}">{{$psn->nama .' | '. $psn->no_cm}}</option>
                         @endforeach
                     </select>
                 </div>
