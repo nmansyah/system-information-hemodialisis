@@ -36,6 +36,9 @@ class InputPasienController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            'no_cm' => 'required|unique:pasiens',
+        ]);
 
         $pasien = new Pasien;
         $pasien->no_cm = $request->no_cm;
@@ -45,12 +48,12 @@ class InputPasienController extends Controller
         $pasien->no_hp = $request->no_hp;
         $pasien->usia = $request->usia;
         $pasien->riwayat = $request->riwayat;
-        if ($request->asuransi == 'Lain - lain'){
-            if (is_null($request->asuransi_text)){
+        if ($request->asuransi == 'Lain - lain') {
+            if (is_null($request->asuransi_text)) {
                 return redirect()->back()->with('alert', 'Field asuransi cant be blank');
             }
             $pasien->asuransi = $request->asuransi_text;
-        }else{
+        } else {
             $pasien->asuransi = $request->asuransi;
         }
         $pasien->hari1 = $request->hari1;
@@ -59,7 +62,7 @@ class InputPasienController extends Controller
         $pasien->sesi2 = $request->sesi2;
         $pasien->hari3 = $request->hari3;
         $pasien->sesi3 = $request->sesi3;
-        if (!$pasien->save()){
+        if (!$pasien->save()) {
             return redirect()->back()->with('alert', 'Failed to store data');
         }
 
@@ -84,7 +87,16 @@ class InputPasienController extends Controller
 
     public function update(Request $request, $id)
     {
+        $model = Pasien::where('no_cm', $request->no_cm)->get();
+        if ($model->count() > 1) {
+            return redirect()->back()->with('alert', 'no cm must be uniq');
+        }
         $pasien = Pasien::where('id', $id)->first();
+        if (!is_null($model)) {
+            if ($pasien->no_cm != $model[0]->no_cm) {
+                return redirect()->back()->with('alert', 'no cm must be uniq');
+            }
+        }
         $pasien->no_cm = $request->no_cm;
         $pasien->nama = $request->nama;
         $pasien->usia = $request->usia;

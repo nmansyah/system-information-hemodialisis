@@ -14,8 +14,11 @@
                         class="required">*</span>
                 </label>
                 <div class="col-md-6 col-sm-6 col-xs-12">
-                    <input type="number" id="no_cm" name="no_cm" required="required"
+                    <input type="number" id="no_cm" name="no_cm" required="required" value="{{ old('no_cm') }}"
                            class="form-control col-md-7 col-xs-12">
+                    @if($errors->has('no_cm'))
+                        <p>{{ $errors->first('no_cm') }}</p>
+                    @endif
                 </div>
             </div>
             <div class="item form-group">
@@ -86,7 +89,8 @@
                         @endforeach
                     </select>
                     <br>
-                    <input placeholder="Mohon isi asuransi anda" class="form-control col-md-7 col-xs-12 asuransi-text-input" name="asuransi_text" type="text">
+                    <input placeholder="Mohon isi asuransi anda"
+                           class="form-control col-md-7 col-xs-12 asuransi-text-input" name="asuransi_text" type="text">
                 </div>
             </div>
             <div class="item form-group">
