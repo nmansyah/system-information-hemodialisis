@@ -183,6 +183,7 @@ Route::prefix('pegawai')->group(function () {
         Route::get('dataAskep/{askep_id}', 'Pegawai\DataAskepController@show')->name('pegawai.data.askep.pasien.show');
         Route::put('dataAskep/{askep_id}', 'Pegawai\DataAskepController@update')->name('pegawai.data.askep.pasien.update');
         Route::get('dataAskep/{askep_id}/print', 'Pegawai\DataAskepController@printAskep')->name('pegawai.data.askep.pasien.print');
+        Route::get('dataAskep/{askep_id}/print/tes', 'Pegawai\DataAskepController@tes')->name('pegawai.data.askep.pasien.print.tes');
         Route::get('inputAskep', 'Pegawai\InputAskepController@index');
         Route::post('inputAskep', 'Pegawai\InputAskepController@store');
         Route::delete('dataAskep/{askep_id}/delete', 'Pegawai\DataAskepController@delete')->name('pegawai.data.askep.pasien.delete');

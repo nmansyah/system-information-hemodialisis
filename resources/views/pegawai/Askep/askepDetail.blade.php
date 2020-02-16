@@ -48,15 +48,6 @@
                               class="form-control col-md-7 col-xs-12">{{ $askep->pasien['alamat'] }}</textarea>
                 </div>
             </div>
-            <div class="item form-group">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="no_rm">Nomor RM <span
-                        class="required">*</span>
-                </label>
-                <div class="col-md-6 col-sm-6 col-xs-12">
-                    <input type="number" id="no_rm" name="no_rm" required="required"
-                           class="form-control col-md-7 col-xs-12" value="{{ $askep->no_rm }}">
-                </div>
-            </div>
 
             <div class="item form-group">
                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="tanggal">Tanggal Pemeriksaan<span

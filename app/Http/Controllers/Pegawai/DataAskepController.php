@@ -50,11 +50,26 @@ class DataAskepController extends Controller
         $model = Askep::findOrFail($askep_id);
         $perawat = Perawat::all();
 
+//        $dompdf = new PDF();
+//        $html = $this->loadView('pegawai.Askep.printAskep', [
+//            'askep' => $model,
+//            'perawat' => $perawat
+//        ])->setPaper('a4', 'landscape');
+//        $html .= '<link type="text/css" href="/absolute/path/to/pdf.css" rel="stylesheet" />';
+//        $dompdf->loadHtml($html);
+//        $pdf = PDF::loadHTML('<h1 style="color:red">Test</h1>');
+//        return $pdf->stream();
         $pdf = PDF::loadView('pegawai.Askep.printAskep', [
             'askep' => $model,
             'perawat' => $perawat
-        ])->setPaper('a4', 'landscape');
+        ])->setPaper('A4', 'potrait');
         return $pdf->stream();
+    }
+
+    public function tes($pasien_id, $askep_id){
+        $model = Askep::findOrFail($askep_id);
+        $perawat = Perawat::all();
+        return view('pegawai.Askep.printAskep3', ['askep' => $model, 'perawat' => $perawat]);
     }
 
      public function delete($pasien_id, $id)
@@ -76,12 +91,6 @@ class DataAskepController extends Controller
             if ($validator->fails()) {
                 return redirect()->back()
                     ->with('alert', $validator->errors()->first())
-                    ->withInput(Input::all());
-            }
-
-            if ($model->isDuplicateRM($request->no_rm, 'update')){
-                return redirect()->back()
-                    ->with('alert', 'No rm sudah terpakai')
                     ->withInput(Input::all());
             }
 
