@@ -16,50 +16,63 @@ class PegawaiJadwalPasienHarianController extends Controller
      */
     public function index()
     {
-        $pasienSenin = Pasien::where('hari1', 'Senin')
-            ->orWhere('hari2', 'Senin')
-            ->orWhere('hari3', 'Senin')
+        $pasienSenin = Pasien::whereDoesntHave('pasienMeninggal')
+            ->whereDoesntHave('pasienTraveling')
+            ->where(function ($q) {
+                $q->where('hari1', 'Senin')
+                    ->orWhere('hari2', 'Senin')
+                    ->orWhere('hari3', 'Senin');
+            })
             ->get();
-        $pasienSenin = $pasienSenin->filter(function ($val, $key) {
-           return !$val->is_died();
-        });
-        $pasienSelasa = Pasien::where('hari1', 'Selasa')
-            ->orWhere('hari2', 'Selasa')
-            ->orWhere('hari3', 'Selasa')
+//        $pasienSenin = $pasienSenin->filter(function ($val, $key) {
+//           return !$val->is_died();
+//        });
+        $pasienSelasa = Pasien::whereDoesntHave('pasienMeninggal')
+            ->whereDoesntHave('pasienTraveling')
+            ->where(function ($q) {
+                $q->where('hari1', 'Selasa')
+                    ->orWhere('hari2', 'Selasa')
+                    ->orWhere('hari3', 'Selasa');
+            })
             ->get();
-        $pasienSelasa = $pasienSelasa->filter(function ($val, $key) {
-            return !$val->is_died();
-        });
-        $pasienRabu = Pasien::where('hari1', 'Rabu')
-            ->orWhere('hari2', 'Rabu')
-            ->orWhere('hari3', 'Rabu')
-            ->get();
-        $pasienRabu = $pasienRabu->filter(function ($val, $key) {
-            return !$val->is_died();
-        });
-        $pasienKamis = Pasien::where('hari1', 'Kamis')
-            ->orWhere('hari2', 'Kamis')
-            ->orWhere('hari3', 'Kamis')
-            ->get();
-        $pasienKamis = $pasienKamis->filter(function ($val, $key) {
-            return !$val->is_died();
-        });
-        $pasienJumat = Pasien::where('hari1', 'Jumat')
-            ->orWhere('hari2', 'Jumat')
-            ->orWhere('hari3', 'Jumat')
-            ->get();
-        $pasienJumat = $pasienJumat->filter(function ($val, $key) {
-            return !$val->is_died();
-        });
-        $pasienSabtu = Pasien::where('hari1', 'Sabtu')
-            ->orWhere('hari2', 'Sabtu')
-            ->orWhere('hari3', 'Sabtu')
-            ->get();
-        $pasienSabtu = $pasienSabtu->filter(function ($val, $key) {
-            return !$val->is_died();
-        });
 
-        return view('admin.Jadwal.PasienHarian.index', [
+        $pasienRabu = Pasien::whereDoesntHave('pasienMeninggal')
+            ->whereDoesntHave('pasienTraveling')
+            ->where(function ($q) {
+                $q->where('hari1', 'Rabu')
+                    ->orWhere('hari2', 'Rabu')
+                    ->orWhere('hari3', 'Rabu');
+            })
+            ->get();
+
+        $pasienKamis = Pasien::whereDoesntHave('pasienMeninggal')
+            ->whereDoesntHave('pasienTraveling')
+            ->where(function ($q) {
+                $q->where('hari1', 'Kamis')
+                    ->orWhere('hari2', 'Kamis')
+                    ->orWhere('hari3', 'Kamis');
+            })
+            ->get();
+
+        $pasienJumat = Pasien::whereDoesntHave('pasienMeninggal')
+            ->whereDoesntHave('pasienTraveling')
+            ->where(function ($q) {
+                $q->where('hari1', 'Jumat')
+                    ->orWhere('hari2', 'Jumat')
+                    ->orWhere('hari3', 'Jumat');
+            })
+            ->get();
+
+        $pasienSabtu = Pasien::whereDoesntHave('pasienMeninggal')
+            ->whereDoesntHave('pasienTraveling')
+            ->where(function ($q) {
+                $q->where('hari1', 'Sabtu')
+                    ->orWhere('hari2', 'Sabtu')
+                    ->orWhere('hari3', 'Sabtu');
+            })
+            ->get();
+
+        return view('pegawai.Jadwal.PasienHarian.index', [
             'pasienSenin' => $pasienSenin,
             'pasienSelasa' => $pasienSelasa,
             'pasienRabu' => $pasienRabu,
@@ -82,7 +95,7 @@ class PegawaiJadwalPasienHarianController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -93,7 +106,7 @@ class PegawaiJadwalPasienHarianController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -104,7 +117,7 @@ class PegawaiJadwalPasienHarianController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -115,8 +128,8 @@ class PegawaiJadwalPasienHarianController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -127,7 +140,7 @@ class PegawaiJadwalPasienHarianController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

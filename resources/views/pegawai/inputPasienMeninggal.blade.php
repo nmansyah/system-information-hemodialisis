@@ -51,7 +51,8 @@
             <div class="ln_solid"></div>
             <div class="form-group">
                 <div class="col-md-6 col-md-offset-4">
-                    <button type="submit" class="btn btn-primary" onclick="location.href='/pegawai/dataPasienMeninggal'">
+                    <button type="submit" class="btn btn-primary"
+                            onclick="location.href='/pegawai/dataPasienMeninggal'">
                         Cancel
                     </button>
                     <button id="send" type="submit" class="btn btn-success"
@@ -68,7 +69,7 @@
         </form>
     </div>
 @endsection
-@section('jsScript')
+@section('script')
     <script type="text/javascript">
         $(document).ready(function () {
             $('.select2').select2();

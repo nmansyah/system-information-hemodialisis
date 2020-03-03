@@ -29,6 +29,9 @@ class InputKehadiranController extends Controller
         if ($pasien->is_died()) {
             return redirect()->back()->with('alert', 'Pasien telah meninggal');
         }
+        if($pasien->pasienTraveling()->exists()){
+            return redirect()->back()->with('alert', 'Pasien telah pindah');
+        }
         return view('pegawai/Kehadiran/inputKehadiran', [
             'pasien' => $pasien
         ]);

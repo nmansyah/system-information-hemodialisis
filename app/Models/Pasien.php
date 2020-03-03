@@ -23,6 +23,10 @@ class Pasien extends Model
         return $this->hasOne(Pasien_Rawatinap::class, 'pasien_id');
     }
 
+    public function pasienTraveling(){
+        return $this->hasOne(PasienTraveling::class, 'pasien_id');
+    }
+
     public function isInpatient(){
         if ($this->pasienRawatInap()->exists()){
             if (is_null($this->pasienRawatInap['check_out_time'])){
