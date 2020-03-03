@@ -23,17 +23,18 @@ class InputPasienRawatinapController extends Controller
 
     public function show()
     {
-      $pasien = Pasien::all();
-      $pasien_rawatinap = Pasien_Rawatinap::all();
-      return view('pegawai/dataPasienRawatinap', [
-        'pasien' => $pasien, 
-        'pasien_rawatinap' => $pasien_rawatinap
-      ]);
+        $pasien = Pasien::all();
+        $pasien_rawatinap = Pasien_Rawatinap::all();
+        return view('pegawai/dataPasienRawatinap', [
+            'pasien' => $pasien,
+            'pasien_rawatinap' => $pasien_rawatinap
+        ]);
     }
 
     public function index()
     {
-        $pasien = Pasien::all();
+        $pasien = Pasien::whereDoesntHave('pasienMeninggal')
+            ->whereDoesntHave('pasienTraveling')->get();
         return view('pegawai/inputPasienRawatinap', [
             'pasien' => $pasien
         ]);
