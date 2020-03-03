@@ -23,18 +23,19 @@ class InputPasienMeninggalController extends Controller
 
     public function show()
     {
-      $pasien= Pasien::all();
-      $pasien_meninggal= Pasien_Meninggal::all();
-      return view('admin/dataPasienMeninggal', [
-        'pasien' => $pasien, 
-        'pasien_meninggal' => $pasien_meninggal
-      ]);
+        $pasien = Pasien::all();
+        $pasien_meninggal = Pasien_Meninggal::all();
+        return view('admin/dataPasienMeninggal', [
+            'pasien' => $pasien,
+            'pasien_meninggal' => $pasien_meninggal
+        ]);
 
     }
 
     public function index()
     {
-        $pasien = Pasien::all();
+        $pasien = Pasien::whereDoesntHave('pasienMeninggal')
+            ->whereDoesntHave('pasienTraveling')->get();
         return view('admin/inputPasienMeninggal', [
             'pasien' => $pasien
         ]);

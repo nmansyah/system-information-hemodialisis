@@ -72,7 +72,7 @@
         </div>
 @endsection
 
-@section('jsScript')
+@section('script')
     <script>
         $(document).ready(function () {
             $('.select2').select2()

@@ -23,17 +23,18 @@ class InputPasienTravelingController extends Controller
 
     public function show()
     {
-      $pasien = Pasien::all();
-      $pasien_traveling = Pasien_Travel::all();
-      return view('admin/dataPasienTraveling', [
-        'pasien' => $pasien,
-        'pasien_traveling' => $pasien_traveling
-      ]);
+        $pasien = Pasien::all();
+        $pasien_traveling = Pasien_Travel::all();
+        return view('admin/dataPasienTraveling', [
+            'pasien' => $pasien,
+            'pasien_traveling' => $pasien_traveling
+        ]);
     }
 
     public function index()
     {
-        $pasien = Pasien::all();
+        $pasien = Pasien::whereDoesntHave('pasienMeninggal')
+            ->whereDoesntHave('pasienTraveling')->get();
         return view('admin/inputPasienTraveling', [
             'pasien' => $pasien
         ]);

@@ -34,7 +34,8 @@ class InputPerkembanganPasienController extends Controller
 
     public function index()
     {
-        $pasien = Pasien::all();
+        $pasien = Pasien::whereDoesntHave('pasienMeninggal')
+            ->whereDoesntHave('pasienTraveling')->get();
         $medicines = Medicine::all();
         return view('admin/inputPerkembanganPasien', [
             'pasien' => $pasien,

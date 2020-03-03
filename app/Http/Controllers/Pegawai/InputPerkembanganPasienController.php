@@ -24,17 +24,18 @@ class InputPerkembanganPasienController extends Controller
 
     public function show()
     {
-      $pasien = Pasien::all();
-      $perkembangan_pasien = Perkembangan_Pasien::all();
-      return view('pegawai/dataPerkembanganPasien', [
-        'pasien' => $pasien,
-        'perkembangan_pasien' => $perkembangan_pasien
-      ]);
+        $pasien = Pasien::all();
+        $perkembangan_pasien = Perkembangan_Pasien::all();
+        return view('pegawai/dataPerkembanganPasien', [
+            'pasien' => $pasien,
+            'perkembangan_pasien' => $perkembangan_pasien
+        ]);
     }
 
     public function index()
     {
-        $pasien = Pasien::all();
+        $pasien = Pasien::whereDoesntHave('pasienMeninggal')
+            ->whereDoesntHave('pasienTraveling')->get();
         $medicines = Medicine::all();
         return view('pegawai/inputPerkembanganPasien', [
             'pasien' => $pasien,
