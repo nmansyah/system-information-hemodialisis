@@ -30,7 +30,7 @@ class InputPasienController extends Controller
 
     public function index()
     {
-        $insurances = ['BPI', 'BPJS', 'PRUDENTIAL', 'MANDIRI', 'Lain - lain'];
+        $insurances = ['BPI', 'BPJS Mandiri', 'Lain - lain'];
         return view('admin/inputPasien', ['insurances' => $insurances]);
     }
 
@@ -46,7 +46,7 @@ class InputPasienController extends Controller
         $pasien->jenis_kelamin = $request->jenis_kelamin;
         $pasien->alamat = $request->alamat;
         $pasien->no_hp = $request->no_hp;
-        $pasien->usia = $request->usia;
+        $pasien->tgl_lahir = $request->tgl_lahir;
         $pasien->riwayat = $request->riwayat;
         if ($request->asuransi == 'Lain - lain') {
             if (is_null($request->asuransi_text)) {
@@ -99,7 +99,7 @@ class InputPasienController extends Controller
         }
         $pasien->no_cm = $request->no_cm;
         $pasien->nama = $request->nama;
-        $pasien->usia = $request->usia;
+        $pasien->tgl_lahir = $request->tgl_lahir;
         $pasien->alamat = $request->alamat;
         $pasien->asuransi = $request->asuransi;
         $pasien->riwayat = $request->riwayat;

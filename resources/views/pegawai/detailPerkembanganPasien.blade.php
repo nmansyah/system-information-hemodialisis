@@ -1,4 +1,4 @@
-@extends('layouts.adminUser')
+@extends('layouts.pegawaiUser')
 
 @section('title', 'Data Perkembangan Pasien '.ucwords($dataPerkembanganPasiens[0]->pasien['name']))
 

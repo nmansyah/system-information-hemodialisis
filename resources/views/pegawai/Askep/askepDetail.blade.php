@@ -7,7 +7,7 @@
     <div class="x_content">
         @include('layouts.alert')
         <a target="_blank" class="btn btn-warning" href="{{ route('pegawai.data.askep.pasien.print', [$askep->pasien['id'], $askep->id]) }}"><i class="fa fa-print"></i> Print Html</a>
-        <button onclick="printAskep()" class="btn btn-primary print"><i class="fa fa-print"></i> Print Screen</button>
+        <!-- <button onclick="printAskep()" class="btn btn-primary print"><i class="fa fa-print"></i> Print Screen</button> -->
         <form class="form-horizontal form-label-left"
               action="{{ route('pegawai.data.askep.pasien.update', [$askep->pasien['id'], $askep->id]) }}" method="post"
               value="post"
@@ -25,11 +25,11 @@
                 </div>
             </div>
             <div class="item form-group">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nama">Umur <span
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="tgl_lahir">Tanggal Lahir <span
                         class="required">*</span>
                 </label>
                 <div class="col-md-6 col-sm-6 col-xs-12">
-                    <input type="text" class="form-control" readonly value="{{ ucwords($askep->pasien['usia']) }}">
+                    <input type="date" class="form-control" readonly value="{{ ucwords($askep->pasien['tgl_lahir']) }}">
                 </div>
             </div>
             <div class="form-group">

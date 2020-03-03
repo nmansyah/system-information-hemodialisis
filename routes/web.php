@@ -212,6 +212,11 @@ Route::prefix('pegawai')->group(function () {
         'as' => 'pegawai'
     ]);
 
+    //status kehadiran
+    Route::group(['prefix' => 'status-kehadiran'], function () {
+        Route::get('/', 'Pegawai\PegawaiStatusKehadiranController@index')->name('pegawai.status.kehadiran.index');
+    });
+
     //Perkembangan Pasien
     Route::get('/dataPerkembanganPasien', 'Pegawai\InputPerkembanganPasienController@show')->name('pegawai.data.perkembanganPasien');
     Route::get('/inputPerkembanganPasien', 'Pegawai\InputPerkembanganPasienController@index');
@@ -219,6 +224,7 @@ Route::prefix('pegawai')->group(function () {
     Route::delete('/inputPerkembanganPasien/{id}/delete', 'Pegawai\InputPerkembanganPasienController@delete')->name('pegawai.perkembanganPasien.delete');
     Route::get('/inputPerkembanganPasien/{id}/edit', 'Pegawai\InputPerkembanganPasienController@edit');
     Route::put('/inputPerkembanganPasien/{id}/update', 'Pegawai\InputPerkembanganPasienController@update');
+    Route::get('/data-perkembangan-pasien/{pasien_id}', 'Pegawai\DataPerkembanganPasienController@show')->name('pegawai.data.perkembangan.pasien.show');
 
     //Perpindahan Jadwal
     Route::get('/dataPerpindahJadwal', 'Pegawai\InputPerpindahJadwalController@show')->name('pegawai.data.perpindahanJadwal');
@@ -243,6 +249,7 @@ Route::prefix('pegawai')->group(function () {
     Route::delete('/inputPasienRawatinap/{id}/delete', 'Pegawai\InputPasienRawatinapController@delete')->name('pegawai.pasienRawatinap.delete');
     Route::get('/inputPasienRawatinap/{id}/edit', 'Pegawai\InputPasienRawatinapController@edit');
     Route::put('/inputPasienRawatinap/{id}/update', 'Pegawai\InputPasienRawatinapController@update');
+    Route::put('/pasien-rawat-inap/{id}/chek-out', 'Pegawai\PegawaiDataPasienRawatInapCheckout')->name('pegawai.pasien.rawat.inap.check.out');
 
     //Pasien Traveling Sementara
     Route::get('/dataPasienTravelingSementara', 'Pegawai\InputPasienTravelingSementaraController@show')->name('pegawai.data.pasienTravelingSementara');

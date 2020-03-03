@@ -1,6 +1,6 @@
 @extends('layouts.adminUser')
 
-@section('title', 'Input Pasien Meninggal')
+@section('title', 'Input Perkembangan Pasien')
 
 @section('content')
 

@@ -24,7 +24,7 @@
                         <th>No CM</th>
                         <th>Nama</th>
                         <th>Alamat</th>
-                        <th>Usia</th>
+                        <th>Tanggal Lahir</th>
                         <th>Asuransi</th>
                         <th>Riwayat Penyakit</th>
                         <th>Nomor Telepon</th>
@@ -42,7 +42,7 @@
                             <td>{{ $psn->no_cm }}</td>
                             <td>{{ $psn->nama }}</td>
                             <td>{{ $psn->alamat }}</td>
-                            <td>{{ $psn->usia }}</td>
+                            <td>{{ $psn->tgl_lahir }}</td>
                             <td>{{ $psn->asuransi }}</td>
                             <td>{{ $psn->riwayat }}</td>
                             <td>{{ $psn->no_hp }}</td>

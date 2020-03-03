@@ -12,6 +12,7 @@ use App\Models\User;
 use App\Models\Pegawai;
 use App\Models\Pasien;
 use App\Models\Kehadiran;
+use App\Models\Kehadiran_Pasien;
 use Auth;
 
 class InputKehadiranController extends Controller
@@ -30,53 +31,44 @@ class InputKehadiranController extends Controller
         ]);
     }
 
-    public function store(Request $request, $pasien_id)
+    public function store(Request $request)
     {
-        $pasien = new Pasien;
-        $kehadiran = new Kehadiran;
+      $kehadiran_pasien = new Kehadiran_Pasien;
+      
+      $kehadiran_pasien->bulan = $request->bulan;
+      $kehadiran_pasien->hadir = $request->hadir;
+      $kehadiran_pasien->tdk_hadir = $request->tdk_hadir;
+      $kehadiran_pasien->save();
 
-        $kehadiran->pasien_id = $pasien_id;
-        $kehadiran->tanggal = $request->tanggal;
-        $kehadiran->kehadiran = $request->kehadiran;
-        $kehadiran->save();
-
-        return redirect()
-            ->route('pegawai.data.kehadiran', ['pasien_id' => $pasien_id])
-            ->withSuccess('Kehadiran Telah Ditambahkan.');
+      return redirect()
+      ->route('pegawai.data.kehadiranPasien')
+      ->withSuccess('Presensi Telah Ditambahkan.');
     }
 
-    public function delete($pasien_id, $id)
+    public function delete($id)
     {
-        $model = Kehadiran::findOrFail($id);
-        if (!$model->delete()) {
-            return redirect()->back()->with('alert', 'Gagal menghapus ');
-        }
-        $pasien = Pasien::findOrFail($pasien_id);
-        return redirect()
-            ->route('pegawai.data.kehadiran', $pasien->id)
-            ->withSuccess('Data Berhasil Dihapuskan.');
+      $kehadiran_pasien = DB::table('kehadiran_pasiens')->where('id', $id)->delete();
+      return redirect()
+      ->route('pegawai.data.kehadiranPasien')
+      ->withSuccess('Kehadiran Pasien Berhasil Dihapuskan.');
     }
 
-    public function edit($pasien_id, $id)
+
+    public function edit($id)
     {
-        $pasien = Pasien::findOrFail($pasien_id);
-        $kehadiran = DB::table('kehadirans')->where('id', $id)->first();
-        return view('/pegawai/Kehadiran/editKehadiran', [
-                'kehadiran' => $kehadiran,
-                'pasien' => $pasien
-            ]
-        );
+      $kehadiran_pasien = DB::table('kehadiran_pasiens')->where('id', $id)->first();
+      return view('/pegawai/editKehadiranPasien', ['kehadiran_pasien' => $kehadiran_pasien]);
     }
 
-    public function update(Request $request, $pasien_id, $kehadiran_id)
+    public function update(Request $request, $id)
     {
-        $kehadiran = Kehadiran::where('id', $kehadiran_id)->first();
-        $kehadiran->tanggal = $request->tanggal;
-        $kehadiran->kehadiran = $request->kehadiran;
-        $kehadiran->save();
-
+        $kehadiran_pasien = Kehadiran_Pasien::where('id',$id)->first();
+        $kehadiran_pasien->bulan = $request->bulan;
+        $kehadiran_pasien->hadir = $request->hadir;
+        $kehadiran_pasien->tdk_hadir = $request->tdk_hadir;
+        $kehadiran_pasien->save();
         return redirect()
-            ->route('pegawai.data.kehadiran', $pasien_id)
-            ->with('alert-success', 'Data berhasil diubah!');
+        ->route('pegawai.data.kehadiranPasien')
+        ->with('alert-success','Data berhasil diubah!');
     }
 }

@@ -3,12 +3,6 @@
 @section('title', 'Input Pasien Rawat Inap')
 
 @section('content')
-        <script type="text/javascript">
-            $(document).ready(function(){
-            $('.select2').select2();
-            // $('.js-example-basic-multiple').select2();
-            });
-        </script>
 
         <div class="x_content">
 
@@ -20,9 +14,8 @@
                 </label>
                 <div class="col-md-6 col-sm-6 col-xs-12">
                 <select class="form-control select2" name="nama">
-                  <option>Pilih Pasien..</option>
                   @foreach($pasien as $pas)
-                  <option value="{{$pas->id}}">{{$pas->nama}}</option>
+                     <option value="{{$pas->id}}">{{$pas->nama}}</option>
                   @endforeach
                 </select>
                 </div>
@@ -35,7 +28,7 @@
                 </div>
             </div>
             <div class="item form-group">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="no_hp">Nomor Telepon <span class="required">*</span>
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="no_hp">Nomor Telepon <span class="required"></span>
                 </label>
                 <div class="col-md-6 col-sm-6 col-xs-12">
                 <input type="number" id="no_hp" name="no_hp" required="required" class="form-control col-md-7 col-xs-12">
@@ -63,6 +56,18 @@
                 {{ csrf_field() }}
                 </div>
             </div>
+            <br>
+            <hr>
+            <p>Keterangan</p>
+            <p>* : Isian Wajib Diisi</p>
+            <p>Tidak ada bintang dapat dikosongkan</p>
             </form>
         </div>
+@endsection
+@section('jsScript')
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.select2').select2();
+        });
+    </script>
 @endsection

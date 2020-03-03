@@ -4,12 +4,11 @@
 
 @section('content')
     <div class="x_content">
-
+        @include('layouts.alert')
         <form class="form-horizontal form-label-left"
-              action="/pegawai/{{ $pasien->id }}/inputKehadiran/{{$kehadiran->id}}" method="post" value="post"
+              action="/pegawai/{{ $pasien->id }}/inputKehadiran/{{ $kehadiran->id }}" method="post" value="post"
               novalidate>
-            {{ csrf_field() }}
-            @method('PUT')
+            @method('put')
             <span class="section">Masukkan Kehadiran</span>
             <div class="item form-group">
                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="tanggal">Tanggal <span

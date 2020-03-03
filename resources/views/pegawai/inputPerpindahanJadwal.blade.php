@@ -14,7 +14,6 @@
                 </label>
                 <div class="col-md-6 col-sm-6 col-xs-12">
                 <select class="form-control select2" name="nama">
-                  <option>Pilih Pasien..</option>
                   @foreach($pasien as $psn)
                   <option value="{{$psn->id}}">{{$psn->nama}}</option>
                   @endforeach
@@ -61,6 +60,14 @@
             </div>
         </form>
     </div>
+@endsection
+
+@section('jsScript')
+    <script>
+        $(document).ready(function () {
+            $('.select2').select2()
+        })
+    </script>
 @endsection
 
 

@@ -20,7 +20,7 @@
                         <tr>
                             <th>No</th>
                             <th>Tanggal</th>
-                            <th>No CM</th>
+                            <th>No RM</th>
                             <th>Detail</th>
                             <th>Hapus</th>
                         </tr>

@@ -63,11 +63,11 @@
                 </div>
             </div>
             <div class="item form-group">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="usia">Usia <span class="required">*</span>
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="tgl_lahir">Tanggal Lahir <span class="required">*</span>
                 </label>
                 <div class="col-md-6 col-sm-6 col-xs-12">
-                    <input type="number" id="usia" name="usia" required="required" data-validate-minmax="1,100"
-                           value="{{ $pasien->usia }}" class="form-control col-md-7 col-xs-12">
+                    <input type="date" id="tgl_lahir" name="tgl_lahir" required="required"
+                           value="{{ $pasien->tgl_lahir }}" class="form-control col-md-7 col-xs-12">
                 </div>
             </div>
             <div class="item form-group">

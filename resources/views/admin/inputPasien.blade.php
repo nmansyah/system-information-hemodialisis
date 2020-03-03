@@ -32,14 +32,12 @@
             <div class="form-group">
                 <label class="control-label col-md-3 col-sm-3 col-xs-12">Jenis Kelamin</label>
                 <div class="col-md-6 col-sm-6 col-xs-12">
-                    <div id="jenkel" class="btn-group" data-toggle="buttons">
-                        <label class="btn btn-default" data-toggle-class="btn-primary"
-                               data-toggle-passive-class="btn-default">
-                            <input type="radio" name="jenis_kelamin" value="male"> &nbsp; Male &nbsp;
+                    <div id="jenkel">
+                        <label>
+                            <input type="radio" name="jenis_kelamin" value="Laki-laki"> &nbsp; Laki-Laki &nbsp;
                         </label>
-                        <label class="btn btn-primary" data-toggle-class="btn-primary"
-                               data-toggle-passive-class="btn-default">
-                            <input type="radio" name="jenis_kelamin" value="female"> Female
+                        <label>
+                            <input type="radio" name="jenis_kelamin" value="Perempuan"> Perempuan
                         </label>
                     </div>
                 </div>
@@ -63,11 +61,10 @@
                 </div>
             </div>
             <div class="item form-group">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="usia">Usia <span class="required">*</span>
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="tgl_lahir">Tanggal Lahir <span class="required">*</span>
                 </label>
                 <div class="col-md-6 col-sm-6 col-xs-12">
-                    <input type="number" id="usia" name="usia" required="required" data-validate-minmax="1,100"
-                           class="form-control col-md-7 col-xs-12">
+                <input id="tgl_lahir" type="date" data-date="" data-date-format="DD MM YYYY" name="tgl_lahir" data-validate-length-range="5,20" class="optional form-control col-md-7 col-xs-12">
                 </div>
             </div>
             <div class="item form-group">
@@ -95,7 +92,7 @@
             </div>
             <div class="item form-group">
                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="example-text-input" required="required"
-                       class="col-2 col-form-label">Jadwal</label>
+                       class="col-2 col-form-label">Jadwal 1</label>
                 <div class="col-8 col-md-2">
                     <select class="custom-select" required="required" id="hari1" name="hari1">
                         <option value="Kosong" selected>Hari 1</option>
@@ -118,7 +115,7 @@
             </div>
             <div class="item form-group">
                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="example-text-input"
-                       class="col-2 col-form-label">Jadwal</label>
+                       class="col-2 col-form-label">Jadwal 2</label>
                 <div class="col-8 col-md-2">
                     <select class="custom-select" id="hari2" name="hari2">
                         <option value="Kosong" selected>Hari 2</option>
@@ -141,7 +138,7 @@
             </div>
             <div class="item form-group">
                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="example-text-input"
-                       class="col-2 col-form-label">Jadwal</label>
+                       class="col-2 col-form-label">Jadwal 3</label>
                 <div class="col-8 col-md-2">
                     <select class="custom-select" id="hari3" name="hari3">
                         <option value="Kosong" selected>Hari 3</option>
@@ -162,6 +159,7 @@
                     </select>
                 </div>
             </div>
+            
             <div class="ln_solid"></div>
             <div class="form-group">
                 <div class="col-md-6 col-md-offset-4">
@@ -173,6 +171,11 @@
                     {{ csrf_field() }}
                 </div>
             </div>
+            <br>
+            <hr>
+            <p>Keterangan</p>
+            <p>* : Isian Wajib Diisi</p>
+            <p>Tidak ada bintang dapat dikosongkan</p>
         </form>
     </div>
 @endsection

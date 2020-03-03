@@ -65,8 +65,8 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label class="col-form-label">Umur <span class="required">*</span></label>
-                                        <textarea class="form-control col-xs-4" readonly>{{ $askep->pasien['usia'] }}</textarea>
+                                        <label class="col-form-label">Tanggal Lahir <span class="required">*</span></label>
+                                        <textarea class="form-control col-xs-4" readonly>{{ $askep->pasien['tgl_lahir'] }}</textarea>
                                     </div>
 
                                     <div class="form-group">
@@ -85,7 +85,7 @@
                                     </div>
 
                                     <div class="item form-group">
-                                        <label class="col-form-label" for="no_rm">Nomor CM
+                                        <label class="col-form-label" for="no_rm">Nomor RM
                                             <span
                                                 class="required">*</span>
                                         </label>

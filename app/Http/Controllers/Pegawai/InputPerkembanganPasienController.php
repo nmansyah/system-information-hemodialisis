@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Pegawai;
 
+use App\Models\Medicine;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
@@ -34,22 +35,23 @@ class InputPerkembanganPasienController extends Controller
     public function index()
     {
         $pasien = Pasien::all();
+        $medicines = Medicine::all();
         return view('pegawai/inputPerkembanganPasien', [
-            'pasien' => $pasien
+            'pasien' => $pasien,
+            'medicines' => $medicines
         ]);
     }
 
     public function store(Request $request)
     {
-        $pasien = new Pasien;
+        $obats = implode(',', $request->obat);
         $perkembangan_pasien = new Perkembangan_Pasien;
         $perkembangan_pasien->pasien_id = $request->nama;
-
         $perkembangan_pasien->tanggal = $request->tanggal;
         $perkembangan_pasien->hb = $request->hb;
         $perkembangan_pasien->ureum = $request->ureum;
         $perkembangan_pasien->kreatinin = $request->kreatinin;
-        $perkembangan_pasien->obat = $request->obat;
+        $perkembangan_pasien->obat = $obats;
         $perkembangan_pasien->save();
 
         return redirect()

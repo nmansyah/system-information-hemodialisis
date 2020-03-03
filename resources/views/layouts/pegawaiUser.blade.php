@@ -88,8 +88,18 @@
                                     <!-- <li><a href="/admin/jadwalAdmin">Admin</a></li> -->
                                     <li><a href="/pegawai/jadwalDokter">Dokter</a></li>
                                     <!-- <li><a href="/pegawai/jadwalPasien">Pasien</a></li> -->
-                                    <li><a href="{{ route('pegawai.jadwalPasienHarian.index') }}">Pasien Harian</a></li>
+                                    
                                     <li><a href="/pegawai/jadwalPerawat">Perawat</a></li>
+                                </ul>
+                            </li>
+                            <li><a><i class="fa fa-calendar"></i>
+                                    Jadwal Pasien
+                                    <span class="fa fa-chevron-down"></span>
+                                </a>
+                                <ul class="nav child_menu">
+
+                                    <li><a href="{{ route('pegawai.jadwalPasienHarian.index') }}">Pasien Harian</a></li>
+                                    <li><a href="{{ route('pegawai.status.kehadiran.index') }}">Status Kehadiran</a></li>
                                 </ul>
                             </li>
 
