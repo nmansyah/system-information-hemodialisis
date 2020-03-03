@@ -23,17 +23,18 @@ class InputPerpindahJadwalController extends Controller
 
     public function show()
     {
-      $pasien = Pasien::all();
-      $perpindahan_jadwal = Perpindahan_Jadwal::all();
-      return view('pegawai/dataPerpindahJadwal', [
-        'pasien' => $pasien, 
-        'perpindahan_jadwal' => $perpindahan_jadwal
-      ]);
+        $pasien = Pasien::all();
+        $perpindahan_jadwal = Perpindahan_Jadwal::all();
+        return view('pegawai/dataPerpindahJadwal', [
+            'pasien' => $pasien,
+            'perpindahan_jadwal' => $perpindahan_jadwal
+        ]);
     }
 
     public function index()
     {
-        $pasien = Pasien::all();
+        $pasien = Pasien::whereDoesntHave('pasienMeninggal')
+            ->whereDoesntHave('pasienTraveling')->get();
         return view('pegawai/inputPerpindahanJadwal', [
             'pasien' => $pasien
         ]);
