@@ -27,8 +27,11 @@ class InputKehadiranController extends Controller
     public function index($pasien_id)
     {
         $pasien = Pasien::findOrFail($pasien_id);
-        if ($pasien->is_died()){
-            return redirect()->back()->with('alert', 'Cannot add attendance coz pasien was died');
+        if ($pasien->is_died()) {
+            return redirect()->back()->with('alert', 'Pasien telah meninggal');
+        }
+        if ($pasien->pasienTraveling()->exists()) {
+            return redirect()->back()->with('alert', 'Pasien telah pindah');
         }
         return view('admin/Kehadiran/inputKehadiran', [
             'pasien' => $pasien,

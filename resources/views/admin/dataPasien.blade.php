@@ -28,7 +28,7 @@
                         <th>Asuransi</th>
                         <th>Riwayat Penyakit</th>
                         <th>Nomor Telepon</th>
-                        <th>Status Meniggal</th>
+                        <th>Status</th>
                         <th>Kehadiran</th>
                         <th>Edit</th>
                         <th>Haspus</th>
@@ -48,6 +48,8 @@
                             <td>{{ $psn->no_hp }}</td>
                             @if($psn->is_died())
                                 <td><span class="label label-danger">Meninggal</span></td>
+                            @elseif($psn->pasienTraveling()->exists())
+                                <td><span class="label label-warning">Pindah</span></td>
                             @else
                                 <td><span class="label label-success">Hidup</span></td>
                             @endif
