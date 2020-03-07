@@ -24,9 +24,6 @@ class AdminJadwalPasienHarianController extends Controller
                     ->orWhere('hari3', 'Senin');
             })
             ->get();
-//        $pasienSenin = $pasienSenin->filter(function ($val, $key) {
-//           return !$val->is_died();
-//        });
         $pasienSelasa = Pasien::whereDoesntHave('pasienMeninggal')
             ->whereDoesntHave('pasienTraveling')
             ->where(function ($q) {

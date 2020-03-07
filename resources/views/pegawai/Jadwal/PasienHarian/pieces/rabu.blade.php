@@ -22,12 +22,14 @@
                     <td>{{ $pasien->nama }}</td>
                     @if($pasien->isInPatient())
                         <td><span class="label label-success">Rawat Inap</span></td>
+                    @elseif($pasien->isInTraveling())
+                        <td><span class="label label-success">Traveling</span></td>
                     @else
                         <td><span class="label"></span></td>
                     @endif
                 </tr>
                 @php
-                $i += 1;
+                    $i += 1;
                 @endphp
             @endif
         @endforeach
@@ -45,8 +47,8 @@
         </thead>
         <tbody>
         @php
-        $i = 1;
-            $sesi = 'Sesi 2';
+            $i = 1;
+                $sesi = 'Sesi 2';
         @endphp
         @foreach ($pasienRabu as $pasien)
             @if( ($pasien->sesi1 == $sesi && $pasien->hari1 == $hari) || ($pasien->sesi2 == $sesi && $pasien->hari2 == $hari) || ($pasien->sesi3 == $sesi && $pasien->hari3 == $hari) )
@@ -55,12 +57,14 @@
                     <td>{{ $pasien->nama }}</td>
                     @if($pasien->isInPatient())
                         <td><span class="label label-success">Rawat Inap</span></td>
+                    @elseif($pasien->isInTraveling())
+                        <td><span class="label label-success">Traveling</span></td>
                     @else
                         <td><span class="label"></span></td>
                     @endif
                 </tr>
                 @php
-                $i += 1;
+                    $i += 1;
                 @endphp
             @endif
         @endforeach
@@ -88,6 +92,8 @@
                     <td>{{ $pasien->nama }}</td>
                     @if($pasien->isInPatient())
                         <td><span class="label label-success">Rawat Inap</span></td>
+                    @elseif($pasien->isInTraveling())
+                        <td><span class="label label-success">Traveling</span></td>
                     @else
                         <td><span class="label"></span></td>
                     @endif

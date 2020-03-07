@@ -22,6 +22,8 @@
                     <td>{{ $pasien->nama }}</td>
                     @if($pasien->isInPatient())
                         <td><span class="label label-success">Rawat Inap</span></td>
+                    @elseif($pasien->isInTraveling())
+                        <td><span class="label label-success">Traveling</span></td>
                     @else
                         <td><span class="label"></span></td>
                     @endif
@@ -55,6 +57,8 @@
                     <td>{{ $pasien->nama }}</td>
                     @if($pasien->isInPatient())
                         <td><span class="label label-success">Rawat Inap</span></td>
+                    @elseif($pasien->isInTraveling())
+                        <td><span class="label label-success">Traveling</span></td>
                     @else
                         <td><span class="label"></span></td>
                     @endif
@@ -88,6 +92,8 @@
                     <td>{{ $pasien->nama }}</td>
                     @if($pasien->isInPatient())
                         <td><span class="label label-success">Rawat Inap</span></td>
+                    @elseif($pasien->isInTraveling())
+                        <td><span class="label label-success">Traveling</span></td>
                     @else
                         <td><span class="label"></span></td>
                     @endif
