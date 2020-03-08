@@ -21,7 +21,7 @@
                     <th>{{ $i }}</th>
                     <td>{{ $pasien->nama }}</td>
                     @if($pasien->isInPatient())
-                        <td><span class="label label-success">Rawat Inap</span></td>
+                        <td><span class="label label-success">Rawat Inap {{ $pasien->getUnitPatient() }}</span></td>
                     @elseif($pasien->isInTraveling())
                         <td><span class="label label-success">Traveling</span></td>
                     @else
@@ -70,7 +70,7 @@
                     <th>{{ $i }}</th>
                     <td>{{ $pasien->nama }}</td>
                     @if($pasien->isInPatient())
-                        <td><span class="label label-success">Rawat Inap</span></td>
+                        <td><span class="label label-success">Rawat Inap {{ $pasien->getUnitPatient() }}</span></td>
                     @elseif($pasien->isInTraveling())
                         <td><span class="label label-success">Traveling</span></td>
                     @else
@@ -119,7 +119,7 @@
                     <th>{{ $i }}</th>
                     <td>{{ $pasien->nama }}</td>
                     @if($pasien->isInPatient())
-                        <td><span class="label label-success">Rawat Inap</span></td>
+                        <td><span class="label label-success">Rawat Inap {{ $pasien->getUnitPatient() }}</span></td>
                     @elseif($pasien->isInTraveling())
                         <td><span class="label label-success">Traveling</span></td>
                     @else

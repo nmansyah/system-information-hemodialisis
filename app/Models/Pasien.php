@@ -63,4 +63,8 @@ class Pasien extends Model
         return $this->hasOne(Pasien_Meninggal::class, 'pasien_id');
     }
 
+    public function getUnitPatient(){
+        return $this->pasienRawatInap['unit'];
+    }
+
 }
