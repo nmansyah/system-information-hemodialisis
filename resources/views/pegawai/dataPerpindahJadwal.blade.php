@@ -22,9 +22,10 @@
                           <th>Nama</th>
                           <th>Tanggal</th>
                           <th>Hari</th>
-                          <th>Sesi</th>  
-                          <th>Edit</th>    
-                          <th>Hapus</th>                   
+                          <th>Sesi</th>
+                            <th>Status</th>
+                          <th>Edit</th>
+                          <th>Hapus</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -37,10 +38,11 @@
                                 <td>{{ $psn->nama }}</td>
                               @endif
                             @endforeach
-                            
+
                             <td>{{ $pj->tanggal }}</td>
                             <td>{{ $pj->hari1 }}</td>
                             <td>{{ $pj->sesi1 }}</td>
+                            <td>{{ ($pj->is_active ? 'Active' : 'Inactive') }}</td>
                             <td>
                                 <div class="tombolAksi" >
                                   <a href="/pegawai/inputPerpindahanJadwal/{{ $pj->id }}/edit" onclick="return confirm ('Apakah Anda Ingin Merubah Data Ini?')" class="btn btn-sm"><i class="fa fa-edit"></i></a>
@@ -48,7 +50,7 @@
                             </td>
                             <td>
                               <div class="aksi">
-                                
+
                               <div class="tombolAksi">
                                 <form method="post" action="{{ route('pegawai.perpindahanJadwal.delete',['id' => $pj->id]) }}">
                                    {{ method_field('DELETE') }}

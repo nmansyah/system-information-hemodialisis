@@ -128,7 +128,7 @@ Route::prefix('admin')->group(function () {
     Route::get('/inputPerpindahanJadwal', 'Admin\InputPerpindahJadwalController@index');
     Route::post('/inputPerpindahanJadwal', 'Admin\InputPerpindahJadwalController@store');
     Route::delete('/inputPerpindahanJadwal/{id}/delete', 'Admin\InputPerpindahJadwalController@delete')->name('admin.perpindahanJadwal.delete');
-    Route::get('/inputPerpindahanJadwal/{id}/edit', 'Admin\InputPerpindahJadwalController@edit');
+    Route::get('/inputPerpindahanJadwal/{id}/edit', 'Admin\InputPerpindahJadwalController@edit')->name('admin.perpindahanJadwal.edit');
     Route::put('/inputPerpindahanJadwal/{id}/update', 'Admin\InputPerpindahJadwalController@update');
 
     //Pasien Meninggal
@@ -234,7 +234,7 @@ Route::prefix('pegawai')->group(function () {
     Route::get('/inputPerpindahanJadwal', 'Pegawai\InputPerpindahJadwalController@index');
     Route::post('/inputPerpindahanJadwal', 'Pegawai\InputPerpindahJadwalController@store');
     Route::delete('/inputPerpindahanJadwal/{id}/delete', 'Pegawai\InputPerpindahJadwalController@delete')->name('pegawai.perpindahanJadwal.delete');
-    Route::get('/inputPerpindahanJadwal/{id}/edit', 'Pegawai\InputPerpindahJadwalController@edit');
+    Route::get('/inputPerpindahanJadwal/{id}/edit', 'Pegawai\InputPerpindahJadwalController@edit')->name('pegawai.perpindahanJadwal.edit');
     Route::put('/inputPerpindahanJadwal/{id}/update', 'Pegawai\InputPerpindahJadwalController@update');
 
     //Pasien Meninggal

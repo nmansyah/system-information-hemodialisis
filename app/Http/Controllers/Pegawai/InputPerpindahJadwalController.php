@@ -42,18 +42,30 @@ class InputPerpindahJadwalController extends Controller
 
     public function store(Request $request)
     {
-        $pasien = new Pasien;
-        $perpindahan_jadwal = new Perpindahan_Jadwal;
-
-        $perpindahan_jadwal->pasien_id = $request->nama;
-        $perpindahan_jadwal->tanggal = $request->tanggal;
-        $perpindahan_jadwal->hari1 = $request->hari1;
-        $perpindahan_jadwal->sesi1 = $request->sesi1;
-        $perpindahan_jadwal->save();
-
-        return redirect()
-            ->route('pegawai.data.perpindahanJadwal')
-            ->withSuccess('Jadwal Telah Dipindahkan.');
+        try {
+            $pasien = Pasien::find($request->nama);
+            if( ($pasien->sesi1 == $request->old_session && $pasien->hari1 == $request->old_day) ||
+                ($pasien->sesi2 == $request->old_session && $pasien->hari2 == $request->old_day) ||
+                ($pasien->sesi3 == $request->old_session && $pasien->hari3 == $request->old_day) )
+            {
+                $perpindahan_jadwal = new Perpindahan_Jadwal;
+                $perpindahan_jadwal->pasien_id = $request->nama;
+                $perpindahan_jadwal->tanggal = $request->tanggal;
+                $perpindahan_jadwal->old_day = $request->old_day;
+                $perpindahan_jadwal->old_session = $request->old_session;
+                $perpindahan_jadwal->hari1 = $request->hari1;
+                $perpindahan_jadwal->sesi1 = $request->sesi1;
+                if (!$perpindahan_jadwal->save()){
+                    throw new \Exception('Failed to save reschedule data');
+                }
+                return redirect()
+                    ->route('pegawai.data.perpindahanJadwal')
+                    ->withSuccess('Jadwal Telah Dipindahkan.');
+            }
+            throw new \Exception('Data hari dan sesi sebelumnya tidak valid');
+        }catch (\Exception $e){
+            return redirect()->back()->with('alert', $e->getMessage());
+        }
     }
 
     public function delete($id)
@@ -76,6 +88,9 @@ class InputPerpindahJadwalController extends Controller
         $perpindahan_jadwal->tanggal = $request->tanggal;
         $perpindahan_jadwal->hari1 = $request->hari1;
         $perpindahan_jadwal->sesi1 = $request->sesi1;
+        $perpindahan_jadwal->old_day = $request->old_day;
+        $perpindahan_jadwal->old_session = $request->old_session;
+        $perpindahan_jadwal->is_active = $request->status;
         $perpindahan_jadwal->save();
         return redirect()
             ->route('pegawai.data.perpindahanJadwal')

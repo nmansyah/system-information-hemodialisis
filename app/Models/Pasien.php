@@ -16,6 +16,13 @@ class Pasien extends Model
         );
     }
 
+    public function perpindahanJadwals(){
+        return $this->hasMany(
+            PerpindahanJadwal::class,
+            'pasien_id'
+        );
+    }
+
     public function pasienTraveling()
     {
         return $this->hasOne(PasienTraveling::class, 'pasien_id');
@@ -34,6 +41,19 @@ class Pasien extends Model
     public function pasienRawatInap()
     {
         return $this->hasOne(Pasien_Rawatinap::class, 'pasien_id');
+    }
+
+    public function isReschedule($day, $session){
+        $pj = PerpindahanJadwal::where('pasien_id', $this->id)
+            ->where('old_day', $day)
+            ->where('old_session', $session)
+            ->where('is_active', true)
+            ->first();
+
+        if (is_null($pj)){
+            return false;
+        }
+        return $pj;
     }
 
     public function isIntraveling()

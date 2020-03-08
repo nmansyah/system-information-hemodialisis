@@ -7,6 +7,7 @@
             <th>#</th>
             <th>Nama</th>
             <th>Status</th>
+            <th>Pindah Jadwal</th>
             <th style="max-width: 10px">Kehadiran</th>
         </tr>
         </thead>
@@ -20,12 +21,24 @@
                 <tr>
                     <th>{{ $i }}</th>
                     <td>{{ $pasien->nama }}</td>
+
                     @if($pasien->isInPatient())
                         <td><span class="label label-success">Rawat Inap {{ $pasien->getUnitPatient() }}</span></td>
                     @elseif($pasien->isInTraveling())
                         <td><span class="label label-success">Traveling</span></td>
                     @else
                         <td><span class="label"></span></td>
+                    @endif
+
+                    @php
+                        $pj = $pasien->isReschedule($hari, $sesi);
+                    @endphp
+                    @if($pj)
+                        <td><a href="{{ route('pegawai.perpindahanJadwal.edit', $pj->id) }}"><span
+                                    class="label label-warning">Pindah ke hari {{ $pj->hari1 }} sesi ke-{{ $pj->sesi1 }}</span></a>
+                        </td>
+                    @else
+                        <td><span class="label label-default">False</span></td>
                     @endif
 
                     @if($pasien->isInTraveling() || $pasien->isInPatient())
@@ -56,6 +69,7 @@
             <th>#</th>
             <th>Nama</th>
             <th>Status</th>
+            <th>Pindah Jadwal</th>
             <th style="max-width: 10px">Kehadiran</th>
         </tr>
         </thead>
@@ -75,6 +89,15 @@
                         <td><span class="label label-success">Traveling</span></td>
                     @else
                         <td><span class="label"></span></td>
+                    @endif
+
+                    @php
+                        $pj = $pasien->isReschedule($hari, $sesi);
+                    @endphp
+                    @if($pj)
+                        <td><a href="{{ route('pegawai.perpindahanJadwal.edit', $pj->id) }}"><span class="label label-warning">Pindah ke hari {{ $pj->hari1 }} sesi ke-{{ $pj->sesi1 }}</span></a></td>
+                    @else
+                        <td><span class="label label-default">False</span></td>
                     @endif
 
                     @if($pasien->isInTraveling() || $pasien->isInPatient())
@@ -105,6 +128,7 @@
             <th>#</th>
             <th>Nama</th>
             <th>Status</th>
+            <th>Pindah Jadwal</th>
             <th style="max-width: 10px">Kehadiran</th>
         </tr>
         </thead>
@@ -124,6 +148,15 @@
                         <td><span class="label label-success">Traveling</span></td>
                     @else
                         <td><span class="label"></span></td>
+                    @endif
+
+                    @php
+                        $pj = $pasien->isReschedule($hari, $sesi);
+                    @endphp
+                    @if($pj)
+                        <td><a href="{{ route('pegawai.perpindahanJadwal.edit', $pj->id) }}"><span class="label label-warning">Pindah ke hari {{ $pj->hari1 }} sesi ke-{{ $pj->sesi1 }}</span></a></td>
+                    @else
+                        <td><span class="label label-default">False</span></td>
                     @endif
 
                     @if($pasien->isInTraveling() || $pasien->isInPatient())
