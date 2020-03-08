@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Pegawai;
 
 use App\Models\Pasien;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
@@ -24,9 +25,6 @@ class PegawaiJadwalPasienHarianController extends Controller
                     ->orWhere('hari3', 'Senin');
             })
             ->get();
-//        $pasienSenin = $pasienSenin->filter(function ($val, $key) {
-//           return !$val->is_died();
-//        });
         $pasienSelasa = Pasien::whereDoesntHave('pasienMeninggal')
             ->whereDoesntHave('pasienTraveling')
             ->where(function ($q) {
@@ -72,13 +70,46 @@ class PegawaiJadwalPasienHarianController extends Controller
             })
             ->get();
 
+        $now = Carbon::now()->dayOfWeek;
+        switch ($now) {
+            case 2;
+                $day = 'Selasa';
+                break;
+            case 3:
+                $day = 'Rabu';
+                break;
+            case 4:
+                $day = 'Kamis';
+                break;
+            case 5:
+                $day = 'Jumat';
+                break;
+            case 6:
+                $day = 'Sabtu';
+                break;
+            default:
+                $day = 'Senin';
+                break;
+        }
+
+        $patients = Pasien::whereDoesntHave('pasienMeninggal')
+            ->whereDoesntHave('pasienTraveling')
+            ->where(function ($q) use ($day) {
+                $q->where('hari1', $day)
+                    ->orWhere('hari2', $day)
+                    ->orWhere('hari3', $day);
+            })
+            ->get();
+
         return view('pegawai.Jadwal.PasienHarian.index', [
             'pasienSenin' => $pasienSenin,
             'pasienSelasa' => $pasienSelasa,
             'pasienRabu' => $pasienRabu,
             'pasienKamis' => $pasienKamis,
             'pasienJumat' => $pasienJumat,
-            'pasienSabtu' => $pasienSabtu
+            'pasienSabtu' => $pasienSabtu,
+            'patiensts' => $patients,
+            'hari' => $day
         ]);
     }
 

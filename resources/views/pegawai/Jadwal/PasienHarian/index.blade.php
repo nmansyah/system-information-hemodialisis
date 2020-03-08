@@ -8,13 +8,15 @@
             <div class="x_title">
                 <h2>Jadwal Harian Pasien</h2>
                 <div class="clearfix"></div>
+                @include('layouts.alert')
             </div>
-            @include('admin.Jadwal.PasienHarian.pieces.senin')
-            @include('admin.Jadwal.PasienHarian.pieces.selasa')
-            @include('admin.Jadwal.PasienHarian.pieces.rabu')
-            @include('admin.Jadwal.PasienHarian.pieces.kamis')
-            @include('admin.Jadwal.PasienHarian.pieces.jumat')
-            @include('admin.Jadwal.PasienHarian.pieces.sabtu')
+            @include('pegawai.Jadwal.PasienHarian.pieces.today')
+            {{--            @include('admin.Jadwal.PasienHarian.pieces.senin')--}}
+            {{--            @include('admin.Jadwal.PasienHarian.pieces.selasa')--}}
+            {{--            @include('admin.Jadwal.PasienHarian.pieces.rabu')--}}
+            {{--            @include('admin.Jadwal.PasienHarian.pieces.kamis')--}}
+            {{--            @include('admin.Jadwal.PasienHarian.pieces.jumat')--}}
+            {{--            @include('admin.Jadwal.PasienHarian.pieces.sabtu')--}}
         </div>
     </div>
 @endsection

@@ -195,6 +195,7 @@ Route::prefix('pegawai')->group(function () {
         Route::delete('dataKehadiran/{kehadiran_id}/delete', 'Pegawai\InputKehadiranController@delete')->name('pegawai.data.kehadiran.pasien.delete');
         Route::get('/inputKehadiran/{kehadiran_id}/edit', 'Pegawai\InputKehadiranController@edit');
         Route::put('/inputKehadiran/{kehadiran_id}', 'Pegawai\InputKehadiranController@update')->name('pegawai.data.kehadiran.pasien.update');
+        Route::post('attendances/{sesi}', 'Pegawai\PegawaiAttendanceController@store')->name('pegawai.attendances.store');
     });
 
     //Jadwal Dokter
