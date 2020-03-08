@@ -49,15 +49,19 @@
                             <td>{{ $pts->tanggal_selesai }}</td>
                             <td>{{ $pts->tujuan }}</td>
                             <td>
-                                <form method="post"
-                                      action="{{ route('admin.pasien.temporary.travelings.check.in', $pts->id) }}">
-                                    {{ method_field('put') }}
-                                    <button
-                                        onclick="return confirm ('Apakah anda ingin mengubah status pasien ini?')"
-                                        type="submit" class="btn btn-sm" style="height: 5; weight: 5"><i
-                                            class="fa fa-sign-in"></i></button>
-                                    {{ csrf_field() }}
-                                </form>
+                                @if($pts->is_active)
+                                    <form method="post"
+                                          action="{{ route('admin.pasien.temporary.travelings.check.in', $pts->id) }}">
+                                        {{ method_field('put') }}
+                                        <button
+                                            onclick="return confirm ('Apakah anda ingin mengubah status pasien ini?')"
+                                            type="submit" class="btn btn-sm" style="height: 5; weight: 5"><i
+                                                class="fa fa-sign-in"></i></button>
+                                        {{ csrf_field() }}
+                                    </form>
+                                @else
+                                    Sudah kembali
+                                @endif
                             </td>
                             <td>
                                 <div class="tombolAksi">
