@@ -17,18 +17,18 @@ class InputPasienTravelingSementaraController extends Controller
 {
     public function __construct()
     {
-      $this->middleware('auth');
-      $this->middleware('pegawai');
+        $this->middleware('auth');
+        $this->middleware('pegawai');
     }
 
     public function show()
     {
-      $pasien = Pasien::all();
-      $pasien_traveling_sementara = Travel_Sementara::all();
-      return view('pegawai/dataPasienTravelingSementara', [
-        'pasien' => $pasien, 
-        'pasien_traveling_sementara' => $pasien_traveling_sementara
-      ]);
+        $pasien = Pasien::all();
+        $pasien_traveling_sementara = Travel_Sementara::where('is_active', true)->get();
+        return view('pegawai/dataPasienTravelingSementara', [
+            'pasien' => $pasien,
+            'pasien_traveling_sementara' => $pasien_traveling_sementara
+        ]);
     }
 
     public function index()

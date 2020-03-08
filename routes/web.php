@@ -155,6 +155,7 @@ Route::prefix('admin')->group(function () {
     Route::delete('/inputPasienTravelingSementara/{id}/delete', 'Admin\InputPasienTravelingSementaraController@delete')->name('admin.pasienTravelingSementara.delete');
     Route::get('/inputPasienTravelingSementara/{id}/edit', 'Admin\InputPasienTravelingSementaraController@edit');
     Route::put('/inputPasienTravelingSementara/{id}/update', 'Admin\InputPasienTravelingSementaraController@update');
+    Route::put('/pasien-temporary-traveling/{id}/chek-in', 'PasienTemporaryTravelingCheckIn')->name('admin.pasien.temporary.travelings.check.in');
 
     //Pasien Traveling
     Route::get('/dataPasienTraveling', 'Admin\InputPasienTravelingController@show')->name('admin.data.pasienTraveling');
@@ -260,6 +261,7 @@ Route::prefix('pegawai')->group(function () {
     Route::delete('/inputPasienTravelingSementara/{id}/delete', 'Pegawai\InputPasienTravelingSementaraController@delete')->name('pegawai.pasienTravelingSementara.delete');
     Route::get('/inputPasienTravelingSementara/{id}/edit', 'Pegawai\InputPasienTravelingSementaraController@edit');
     Route::put('/inputPasienTravelingSementara/{id}/update', 'Pegawai\InputPasienTravelingSementaraController@update');
+    Route::put('/pasien-temporary-traveling/{id}/chek-in', 'PasienTemporaryTravelingCheckIn')->name('pegawai.pasien.temporary.travelings.check.in');
 
     //Pasien Traveling
     Route::get('/dataPasienTraveling', 'Pegawai\InputPasienTravelingController@show')->name('pegawai.data.pasienTraveling');

@@ -2,13 +2,14 @@
 
 @section('title', 'Data Pasien Traveling Sementara')
 
-@section('content') 
+@section('content')
     <a href="/pegawai/inputPasienTravelingSementara"><button type="button" class="btn btn-primary">Tambah Data</button></a>
             <div class="col-md-12 col-sm-6 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
                     <h2>Data Pasien Pindah Sementara / Traveling</h2>
                     <div class="clearfix"></div>
+                      @include('layouts.alert')
                   </div>
                   <div class="x_content">
                   @php
@@ -24,6 +25,7 @@
                           <th>Tanggal Mulai</th>
                           <th>Tanggal Kembali</th>
                           <th>Tujuan</th>
+                            <th>Status</th>
                           <th>Edit</th>
                           <th>Hapus</th>
                         </tr>
@@ -38,12 +40,23 @@
                                 <td>{{ $psn->nama }}</td>
                               @endif
                             @endforeach
-                            
+
                             <td>{{ $pts->alamat }}</td>
                             <td>{{ $pts->no_hp }}</td>
                             <td>{{ $pts->tanggal_mulai }}</td>
                             <td>{{ $pts->tanggal_selesai }}</td>
                             <td>{{ $pts->tujuan }}</td>
+                            <td>
+                                <form method="post"
+                                      action="{{ route('pegawai.pasien.temporary.travelings.check.in', $pts->id) }}">
+                                    {{ method_field('put') }}
+                                    <button
+                                        onclick="return confirm ('Apakah anda ingin mengubah status pasien ini?')"
+                                        type="submit" class="btn btn-sm" style="height: 5; weight: 5"><i
+                                            class="fa fa-sign-in"></i></button>
+                                    {{ csrf_field() }}
+                                </form>
+                            </td>
                             <td>
                             <div class="tombolAksi" >
                                   <a href="/pegawai/inputPasienTravelingSementara/{{ $pts->id }}/edit" onclick="return confirm ('Apakah Anda Ingin Merubah Data Ini?')" class="btn btn-sm" style="height: 10; weight: 10"><i class="fa fa-edit"></i></a>
