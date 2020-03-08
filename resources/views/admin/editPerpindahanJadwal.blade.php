@@ -30,7 +30,7 @@
                         <option value="{{ ($perpindahan_jadwal->is_active ? 1 : 0) }}"
                                 selected>{{ ($perpindahan_jadwal->is_active ? 'Active' : 'Inactive') }}</option>
                         <option
-                            value="{{ ($perpindahan_jadwal->is_active ? False : true) }}">{{ ($perpindahan_jadwal->is_active ? 'Inactive' : 'Active') }}</option>
+                            value="{{ ($perpindahan_jadwal->is_active ? 0 : 1) }}">{{ ($perpindahan_jadwal->is_active ? 'Inactive' : 'Active') }}</option>
                     </select>
                 </div>
             </div>
