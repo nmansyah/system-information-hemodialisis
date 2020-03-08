@@ -58,6 +58,7 @@ Route::prefix('admin')->group(function () {
         Route::get('inputKehadiran/{kehadiran_id}/edit', 'Admin\InputKehadiranController@edit');
         Route::put('inputKehadiran/{kehadiran_id}', 'Admin\InputKehadiranController@update');
         Route::post('inputKehadiran', 'Admin\InputKehadiranController@store');
+        Route::post('attendances/{sesi}', 'Admin\AdminAttendanceController@store')->name('admin.attendances.store');
     });
 
     //status kehadiran
@@ -285,7 +286,7 @@ Route::prefix('dok')->group(function () {
     Route::get('/dataPasienMeninggal', 'Dok\DataPasienMeninggalController@index')->name('data.pasienMeninggal');
     //Perkembangan Pasien
     Route::get('/dataPerkembanganPasien', 'Dok\DataPerkembanganPasienController@index')->name('data.perkembanganPasien');
-     //Pasien Traveling
+    //Pasien Traveling
     Route::get('/dataPasienTraveling', 'Dok\DataPasienTravelingController@index')->name('data.pasienTraveling');
     //Pasien Rawatinap
     Route::get('/dataPasienRawatinap', 'Dok\DataPasienRawatinapController@index')->name('data.pasienRawatinap');
