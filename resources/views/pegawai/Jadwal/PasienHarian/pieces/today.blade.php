@@ -16,7 +16,7 @@
             $i = 1;
             $sesi = 'Sesi 1';
         @endphp
-        @foreach ($pasienSenin as $pasien)
+        @foreach ($patients as $pasien)
             @if( ($pasien->sesi1 == $sesi && $pasien->hari1 == $hari) || ($pasien->sesi2 == $sesi && $pasien->hari2 == $hari) || ($pasien->sesi3 == $sesi && $pasien->hari3 == $hari) )
                 <tr>
                     <th>{{ $i }}</th>
@@ -38,7 +38,8 @@
                                     class="label label-warning">Pindah ke hari {{ $pj->hari1 }} sesi ke-{{ $pj->sesi1 }}</span></a>
                         </td>
                     @else
-                        <td><span class="label label-default">False</span></td>
+                        <!-- <td><span class="label label-default">False</span></td> -->
+                        <td></td>
                     @endif
 
                     @if($pasien->isInTraveling() || $pasien->isInPatient())
@@ -78,7 +79,7 @@
             $i = 1;
             $sesi = 'Sesi 2';
         @endphp
-        @foreach ($pasienSenin as $pasien)
+        @foreach ($patients as $pasien)
             @if( ($pasien->sesi1 == $sesi && $pasien->hari1 == $hari) || ($pasien->sesi2 == $sesi && $pasien->hari2 == $hari) || ($pasien->sesi3 == $sesi && $pasien->hari3 == $hari) )
                 <tr>
                     <th>{{ $i }}</th>
@@ -97,7 +98,8 @@
                     @if($pj)
                         <td><a href="{{ route('pegawai.perpindahanJadwal.edit', $pj->id) }}"><span class="label label-warning">Pindah ke hari {{ $pj->hari1 }} sesi ke-{{ $pj->sesi1 }}</span></a></td>
                     @else
-                        <td><span class="label label-default">False</span></td>
+                        <!-- <td><span class="label label-default">False</span></td> -->
+                        <td></td>
                     @endif
 
                     @if($pasien->isInTraveling() || $pasien->isInPatient())
@@ -137,7 +139,7 @@
             $i = 1;
             $sesi = 'Sesi 3';
         @endphp
-        @foreach ($pasienSenin as $pasien)
+        @foreach ($patients as $pasien)
             @if( ($pasien->sesi1 == $sesi && $pasien->hari1 == $hari) || ($pasien->sesi2 == $sesi && $pasien->hari2 == $hari) || ($pasien->sesi3 == $sesi && $pasien->hari3 == $hari) )
                 <tr>
                     <th>{{ $i }}</th>
@@ -156,7 +158,8 @@
                     @if($pj)
                         <td><a href="{{ route('pegawai.perpindahanJadwal.edit', $pj->id) }}"><span class="label label-warning">Pindah ke hari {{ $pj->hari1 }} sesi ke-{{ $pj->sesi1 }}</span></a></td>
                     @else
-                        <td><span class="label label-default">False</span></td>
+                        <!-- <td><span class="label label-default">False</span></td> -->
+                        <td></td>
                     @endif
 
                     @if($pasien->isInTraveling() || $pasien->isInPatient())
