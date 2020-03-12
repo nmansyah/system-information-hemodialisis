@@ -34,13 +34,21 @@ class InputPerpindahJadwalController extends Controller
 
     public function fetchSession($patient_id)
     {
-        $patient = Pasien::findOrFail($patient_id);
-        return response()->json($patient, 200);
+        try {
+            $patient = Pasien::findOrFail($patient_id);
+            $sessions = [
+                $patient->hari1.' | '.$patient->sesi1,
+                $patient->hari2.' | '.$patient->sesi2,
+                $patient->hari3.' | '.$patient->sesi3
+            ];
+            return response()->json($sessions, 200);
+        } catch (\Exception $e) {
+            return response()->json(['error' => $e->getMessage()], 400);
+        }
     }
 
     public function index(Request $req)
     {
-        // dd($req->all());
         $pasien = Pasien::whereDoesntHave('pasienMeninggal')
             ->whereDoesntHave('pasienTraveling')->get();
         return view('admin/inputPerpindahanJadwal', [
@@ -52,14 +60,12 @@ class InputPerpindahJadwalController extends Controller
     {
         try {
             $pasien = Pasien::find($request->nama);
-            if (($pasien->sesi1 == $request->old_session && $pasien->hari1 == $request->old_day) ||
-                ($pasien->sesi2 == $request->old_session && $pasien->hari2 == $request->old_day) ||
-                ($pasien->sesi3 == $request->old_session && $pasien->hari3 == $request->old_day)) {
-                $perpindahan_jadwal = new Perpindahan_Jadwal;
+            $sessions = explode('|', $request->old_session);
+            $perpindahan_jadwal = new Perpindahan_Jadwal;
                 $perpindahan_jadwal->pasien_id = $request->nama;
                 $perpindahan_jadwal->tanggal = $request->tanggal;
-                $perpindahan_jadwal->old_day = $request->old_day;
-                $perpindahan_jadwal->old_session = $request->old_session;
+                $perpindahan_jadwal->old_day = $sessions[0];
+                $perpindahan_jadwal->old_session = $sessions[1];
                 $perpindahan_jadwal->hari1 = $request->hari1;
                 $perpindahan_jadwal->sesi1 = $request->sesi1;
                 if (!$perpindahan_jadwal->save()) {
@@ -68,8 +74,24 @@ class InputPerpindahJadwalController extends Controller
                 return redirect()
                     ->route('admin.data.perpindahanJadwal')
                     ->withSuccess('Jadwal Telah Dipindahkan.');
-            }
-            throw new \Exception('Data hari dan sesi sebelumnya tidak valid');
+            // if (($pasien->sesi1 == $request->old_session && $pasien->hari1 == $request->old_day) ||
+            //     ($pasien->sesi2 == $request->old_session && $pasien->hari2 == $request->old_day) ||
+            //     ($pasien->sesi3 == $request->old_session && $pasien->hari3 == $request->old_day)) {
+            //     $perpindahan_jadwal = new Perpindahan_Jadwal;
+            //     $perpindahan_jadwal->pasien_id = $request->nama;
+            //     $perpindahan_jadwal->tanggal = $request->tanggal;
+            //     $perpindahan_jadwal->old_day = $request->old_day;
+            //     $perpindahan_jadwal->old_session = $request->old_session;
+            //     $perpindahan_jadwal->hari1 = $request->hari1;
+            //     $perpindahan_jadwal->sesi1 = $request->sesi1;
+            //     if (!$perpindahan_jadwal->save()) {
+            //         throw new \Exception('Failed to save reschedule data');
+            //     }
+            //     return redirect()
+            //         ->route('admin.data.perpindahanJadwal')
+            //         ->withSuccess('Jadwal Telah Dipindahkan.');
+            // }
+            // throw new \Exception('Data hari dan sesi sebelumnya tidak valid');
         } catch (\Exception $e) {
             return redirect()->back()->with('alert', $e->getMessage());
         }
