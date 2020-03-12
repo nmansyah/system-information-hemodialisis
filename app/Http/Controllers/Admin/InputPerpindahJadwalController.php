@@ -23,6 +23,7 @@ class InputPerpindahJadwalController extends Controller
 
     public function show()
     {
+        // dd('sdf1');
         $pasien = Pasien::all();
         $perpindahan_jadwal = Perpindahan_Jadwal::all();
         return view('admin/dataPerpindahJadwal', [
@@ -31,8 +32,15 @@ class InputPerpindahJadwalController extends Controller
         ]);
     }
 
-    public function index()
+    public function fetchSession($patient_id)
     {
+        $patient = Pasien::findOrFail($patient_id);
+        return response()->json($patient, 200);
+    }
+
+    public function index(Request $req)
+    {
+        // dd($req->all());
         $pasien = Pasien::whereDoesntHave('pasienMeninggal')
             ->whereDoesntHave('pasienTraveling')->get();
         return view('admin/inputPerpindahanJadwal', [
