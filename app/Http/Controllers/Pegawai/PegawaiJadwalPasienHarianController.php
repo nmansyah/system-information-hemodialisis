@@ -108,7 +108,7 @@ class PegawaiJadwalPasienHarianController extends Controller
             'pasienKamis' => $pasienKamis,
             'pasienJumat' => $pasienJumat,
             'pasienSabtu' => $pasienSabtu,
-            'patiensts' => $patients,
+            'patients' => $patients,
             'hari' => $day
         ]);
     }

@@ -8,7 +8,7 @@
             @include('layouts.alert')
         </div>
         <div class="col-md-6 greeting">
-            <h1>Selamat Datang di Hemodialisa</h1>
+            <h1>Selamat Datang di Hemodialisis</h1>
         </div>
     </div>
 @endsection

@@ -10,9 +10,9 @@
                 <div class="clearfix"></div>
             </div>
             <div class="x_content">
-                <canvas id="hbChart" width="400" height="400"></canvas>
-                <canvas id="ureumChart" width="400" height="400"></canvas>
-                <canvas id="kreatininChart" width="400" height="400"></canvas>
+                <canvas id="hbChart" width="400" height="200"></canvas>
+                <canvas id="ureumChart" width="400" height="200"></canvas>
+                <canvas id="kreatininChart" width="400" height="200"></canvas>
                 <table class="table table-bordered" id="datatable-buttons">
                     <thead>
                     <tr>
@@ -69,7 +69,7 @@
         const tanggal =
             {!! json_encode($tanggal) !!}
         const myChart = new Chart(ctx, {
-                type: 'bar',
+                type: 'line',
                 data: {
                     labels: tanggal,
                     datasets: [{
@@ -110,7 +110,7 @@
             });
 
         const ureumChart = new Chart(ctUreum, {
-            type: 'bar',
+            type: 'line',
             data: {
                 labels: tanggal,
                 datasets: [{
@@ -151,7 +151,7 @@
         });
 
         const kreatininChart = new Chart(ctKreatinin, {
-            type: 'bar',
+            type: 'line',
             data: {
                 labels: tanggal,
                 datasets: [{

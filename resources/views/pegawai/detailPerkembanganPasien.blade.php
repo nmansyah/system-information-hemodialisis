@@ -10,9 +10,9 @@
                 <div class="clearfix"></div>
             </div>
             <div class="x_content">
-                <canvas id="hbChart" width="400" height="400"></canvas>
-                <canvas id="ureumChart" width="400" height="400"></canvas>
-                <canvas id="kreatininChart" width="400" height="400"></canvas>
+                <canvas id="hbChart" width="400" height="200"></canvas>
+                <canvas id="ureumChart" width="400" height="200"></canvas>
+                <canvas id="kreatininChart" width="400" height="200"></canvas>
                 <table class="table table-bordered" id="datatable-buttons">
                     <thead>
                     <tr>

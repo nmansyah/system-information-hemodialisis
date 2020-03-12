@@ -41,13 +41,47 @@
                         <td></td>
                     @endif
 
-                    @if($pasien->isInTraveling() || $pasien->isInPatient())
+                    @if($pasien->isInTraveling() || $pasien->isInPatient() || $pj)
                         <td>
                             <button class="btn disabled btn-sm btn-secondary" title="Tidak bisa menambah kehadiran"><i class="fa fa-ban"></i></button>
                         </td>
                     @else
                         <td>
                             <form action="{{ route('admin.attendances.store', [$pasien->id, $sesi]) }}" method="post">
+                                @csrf
+                                <button type="submit" onclick="return confirm('Tambah kehadiran?')" class="btn btn-sm btn-primary" title="Tambah kehadiran"><i class="fa fa-plus-circle"></i></button>
+                            </form>
+                        </td>
+                    @endif
+                </tr>
+                @php
+                    $i += 1;
+                @endphp
+            @endif
+        @endforeach
+
+        @foreach ($temporaryPatients as $tp)
+            @if( ($tp->sesi1 == $sesi && $tp->hari1 == $hari) )
+                <tr>
+                    <th>{{ $i }}</th>
+                    <td>{{ $tp->pasien->nama }}</td>
+                    @if($tp->pasien->isInPatient())
+                        <td><span class="label label-success">Rawat Inap {{ $tp->pasien->getUnitPatient() }}</span></td>
+                    @elseif($tp->pasien->isInTraveling())
+                        <td><span class="label label-success">Traveling</span></td>
+                    @else
+                        <td><span class="label"></span></td>
+                    @endif
+
+                <td><span class="label label-success">Pasien pindah dari hari {{ $tp->old_day }}, {{ $tp->old_session }}</span></td>
+
+                    @if($tp->pasien->isInTraveling() || $tp->pasien->isInPatient())
+                        <td>
+                            <button class="btn disabled btn-sm btn-secondary" title="Tidak bisa menambah kehadiran"><i class="fa fa-ban"></i></button>
+                        </td>
+                    @else
+                        <td>
+                            <form action="{{ route('admin.attendances.store', [$tp->pasien->id, $sesi]) }}" method="post">
                                 @csrf
                                 <button type="submit" onclick="return confirm('Tambah kehadiran?')" class="btn btn-sm btn-primary" title="Tambah kehadiran"><i class="fa fa-plus-circle"></i></button>
                             </form>
@@ -103,13 +137,47 @@
                         <td></td>
                     @endif
 
-                    @if($pasien->isInTraveling() || $pasien->isInPatient())
+                    @if($pasien->isInTraveling() || $pasien->isInPatient() || $pj)
                         <td>
                             <button class="btn btn-sm btn-secondary" title="Tidak bisa menambah kehadiran"><i class="fa fa-ban"></i></button>
                         </td>
                     @else
                         <td>
                             <form action="{{ route('admin.attendances.store', [$pasien->id, $sesi]) }}" method="post">
+                                @csrf
+                                <button type="submit" onclick="return confirm('Tambah kehadiran?')" class="btn btn-sm btn-primary" title="Tambah kehadiran"><i class="fa fa-plus-circle"></i></button>
+                            </form>
+                        </td>
+                    @endif
+                </tr>
+                @php
+                    $i += 1;
+                @endphp
+            @endif
+        @endforeach
+
+        @foreach ($temporaryPatients as $tp)
+            @if( ($tp->sesi1 == $sesi && $tp->hari1 == $hari) )
+                <tr>
+                    <th>{{ $i }}</th>
+                    <td>{{ $tp->pasien->nama }}</td>
+                    @if($tp->pasien->isInPatient())
+                        <td><span class="label label-success">Rawat Inap {{ $tp->pasien->getUnitPatient() }}</span></td>
+                    @elseif($tp->pasien->isInTraveling())
+                        <td><span class="label label-success">Traveling</span></td>
+                    @else
+                        <td><span class="label"></span></td>
+                    @endif
+
+                <td><span class="label label-success">Pasien pindah dari hari {{ $tp->old_day }}, {{ $tp->old_session }}</span></td>
+
+                    @if($tp->pasien->isInTraveling() || $tp->pasien->isInPatient())
+                        <td>
+                            <button class="btn disabled btn-sm btn-secondary" title="Tidak bisa menambah kehadiran"><i class="fa fa-ban"></i></button>
+                        </td>
+                    @else
+                        <td>
+                            <form action="{{ route('admin.attendances.store', [$tp->pasien->id, $sesi]) }}" method="post">
                                 @csrf
                                 <button type="submit" onclick="return confirm('Tambah kehadiran?')" class="btn btn-sm btn-primary" title="Tambah kehadiran"><i class="fa fa-plus-circle"></i></button>
                             </form>
@@ -165,13 +233,47 @@
                         <td></td>
                     @endif
 
-                    @if($pasien->isInTraveling() || $pasien->isInPatient())
+                    @if($pasien->isInTraveling() || $pasien->isInPatient() || $pj)
                         <td>
                             <button class="btn btn-sm btn-secondary" title="Tidak bisa menambah kehadiran"><i class="fa fa-ban"></i></button>
                         </td>
                     @else
                         <td>
                             <form action="{{ route('admin.attendances.store', [$pasien->id, $sesi]) }}" method="post">
+                                @csrf
+                                <button type="submit" onclick="return confirm('Tambah kehadiran?')" class="btn btn-sm btn-primary" title="Tambah kehadiran"><i class="fa fa-plus-circle"></i></button>
+                            </form>
+                        </td>
+                    @endif
+                </tr>
+                @php
+                    $i += 1;
+                @endphp
+            @endif
+        @endforeach
+
+        @foreach ($temporaryPatients as $tp)
+            @if( ($tp->sesi1 == $sesi && $tp->hari1 == $hari) )
+                <tr>
+                    <th>{{ $i }}</th>
+                    <td>{{ $tp->pasien->nama }}</td>
+                    @if($tp->pasien->isInPatient())
+                        <td><span class="label label-success">Rawat Inap {{ $tp->pasien->getUnitPatient() }}</span></td>
+                    @elseif($tp->pasien->isInTraveling())
+                        <td><span class="label label-success">Traveling</span></td>
+                    @else
+                        <td><span class="label"></span></td>
+                    @endif
+
+                <td><span class="label label-success">Pasien pindah dari hari {{ $tp->old_day }}, {{ $tp->old_session }}</span></td>
+
+                    @if($tp->pasien->isInTraveling() || $tp->pasien->isInPatient())
+                        <td>
+                            <button class="btn disabled btn-sm btn-secondary" title="Tidak bisa menambah kehadiran"><i class="fa fa-ban"></i></button>
+                        </td>
+                    @else
+                        <td>
+                            <form action="{{ route('admin.attendances.store', [$tp->pasien->id, $sesi]) }}" method="post">
                                 @csrf
                                 <button type="submit" onclick="return confirm('Tambah kehadiran?')" class="btn btn-sm btn-primary" title="Tambah kehadiran"><i class="fa fa-plus-circle"></i></button>
                             </form>

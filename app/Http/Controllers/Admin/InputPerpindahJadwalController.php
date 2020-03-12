@@ -72,7 +72,7 @@ class InputPerpindahJadwalController extends Controller
                     $perpindahan_jadwal->pasien_id = $request->nama;
                     $perpindahan_jadwal->tanggal = $request->tanggal;
                     $perpindahan_jadwal->old_day = str_replace(' ', '', $sessions[0]);
-                    $perpindahan_jadwal->old_session = $sessions[1];
+                    $perpindahan_jadwal->old_session = ltrim($sessions[1]);
                     $perpindahan_jadwal->hari1 = $request->hari1;
                     $perpindahan_jadwal->sesi1 = $request->sesi1;
                     if (!$perpindahan_jadwal->save()) {
