@@ -56,24 +56,33 @@ class InputPerpindahJadwalController extends Controller
         ]);
     }
 
+    public function checkCapacity($day, $old_day)
+    {
+        return $day == $old_day;
+    }
+
     public function store(Request $request)
     {
         try {
-            $pasien = Pasien::find($request->nama);
+            $modelPerpindahanJadwal = Perpindahan_Jadwal::where('hari1', $request->hari1)->get();
             $sessions = explode('|', $request->old_session);
-            $perpindahan_jadwal = new Perpindahan_Jadwal;
-                $perpindahan_jadwal->pasien_id = $request->nama;
-                $perpindahan_jadwal->tanggal = $request->tanggal;
-                $perpindahan_jadwal->old_day = $sessions[0];
-                $perpindahan_jadwal->old_session = $sessions[1];
-                $perpindahan_jadwal->hari1 = $request->hari1;
-                $perpindahan_jadwal->sesi1 = $request->sesi1;
-                if (!$perpindahan_jadwal->save()) {
-                    throw new \Exception('Failed to save reschedule data');
-                }
-                return redirect()
-                    ->route('admin.data.perpindahanJadwal')
-                    ->withSuccess('Jadwal Telah Dipindahkan.');
+            // dd($request->hari1, $sessions[0]);
+            if( count($modelPerpindahanJadwal) < 2 || $request->hari1 == str_replace(' ', '', $sessions[0]) ){
+                $perpindahan_jadwal = new Perpindahan_Jadwal;
+                    $perpindahan_jadwal->pasien_id = $request->nama;
+                    $perpindahan_jadwal->tanggal = $request->tanggal;
+                    $perpindahan_jadwal->old_day = str_replace(' ', '', $sessions[0]);
+                    $perpindahan_jadwal->old_session = $sessions[1];
+                    $perpindahan_jadwal->hari1 = $request->hari1;
+                    $perpindahan_jadwal->sesi1 = $request->sesi1;
+                    if (!$perpindahan_jadwal->save()) {
+                        throw new \Exception('Failed to save reschedule data');
+                    }
+                    return redirect()
+                        ->route('admin.data.perpindahanJadwal')
+                        ->withSuccess('Jadwal Telah Dipindahkan.');
+            }
+            throw new \Exception('Jumlah pasien pada hari '.$request->hari1.' sudah terlalu banyak');
             // if (($pasien->sesi1 == $request->old_session && $pasien->hari1 == $request->old_day) ||
             //     ($pasien->sesi2 == $request->old_session && $pasien->hari2 == $request->old_day) ||
             //     ($pasien->sesi3 == $request->old_session && $pasien->hari3 == $request->old_day)) {
