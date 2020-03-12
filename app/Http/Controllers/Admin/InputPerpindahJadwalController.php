@@ -66,7 +66,6 @@ class InputPerpindahJadwalController extends Controller
         try {
             $modelPerpindahanJadwal = Perpindahan_Jadwal::where('hari1', $request->hari1)->get();
             $sessions = explode('|', $request->old_session);
-            // dd($request->hari1, $sessions[0]);
             if( count($modelPerpindahanJadwal) < 2 || $request->hari1 == str_replace(' ', '', $sessions[0]) ){
                 $perpindahan_jadwal = new Perpindahan_Jadwal;
                     $perpindahan_jadwal->pasien_id = $request->nama;

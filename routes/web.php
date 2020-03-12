@@ -19,7 +19,7 @@ Route::get('/', function () {
 //Authentikasi
 Auth::routes();
 
-Route::get('/api/patients/{patient_id}/sessions', 'Admin\InputPerpindahJadwalController@fetchSession');
+Route::get('/api/patients/{patient_id}/sessions', 'FetchPatientSession');
 //Guest
 Route::prefix('guest')->group(function () {
     Route::get('/home', 'Guest\HomeController@index')->name('guest.home');

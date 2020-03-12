@@ -34,18 +34,18 @@
 
             <div class="item form-group">
                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="example-text-input" required="required"
-                       class="col-2 col-form-label">Hari dan Sesi Sebelumnya</label>
-                       <div class="row">
+                    class="col-2 col-form-label">Hari dan Sesi Sebelumnya</label>
+                <div class="row">
 
-                           <div class="col-8 col-md-2">
-                               <a href="#" class="btn btn-primary" @click="fetchSession">Load hari & sesi pasien</a>
-                           </div>
-                           <div class="col-8 col-md-2 old_session">
-                               <select class="custom-select form-control" name="old_session">
-                               <option v-for="session in sessions" :value="session">@{{ session }}</option>
-                               </select>
-                           </div>
-                       </div>
+                    <div class="col-8 col-md-2">
+                        <a href="#" class="btn btn-primary" @click="fetchSession">Load hari & sesi pasien</a>
+                    </div>
+                    <div class="col-8 col-md-2 old_session">
+                        <select class="custom-select form-control" name="old_session">
+                            <option v-for="session in sessions" :value="session">@{{ session }}</option>
+                        </select>
+                    </div>
+                </div>
             </div>
 
             <div class="item form-group">
@@ -112,14 +112,9 @@
                         info: null,
                         patient_id: '',
                         sessions: [],
-                        loading: true,
-                        errored: false
                     }
                 },
                 filters: {
-                    currencydecimal(value) {
-                        return value.toFixed(2)
-                    }
                 },
                 mounted() {
                     //   this.fetchSession(),

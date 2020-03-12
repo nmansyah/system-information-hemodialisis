@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Pegawai;
 
 use App\Models\Pasien;
+use App\Models\PerpindahanJadwal;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -92,6 +93,7 @@ class PegawaiJadwalPasienHarianController extends Controller
                 break;
         }
 
+        $temporaryPatients = PerpindahanJadwal::where('hari1', $day)->with('pasien')->get();
         $patients = Pasien::whereDoesntHave('pasienMeninggal')
             ->whereDoesntHave('pasienTraveling')
             ->where(function ($q) use ($day) {
@@ -109,7 +111,8 @@ class PegawaiJadwalPasienHarianController extends Controller
             'pasienJumat' => $pasienJumat,
             'pasienSabtu' => $pasienSabtu,
             'patients' => $patients,
-            'hari' => $day
+            'hari' => $day,
+            'temporaryPatients' => $temporaryPatients
         ]);
     }
 
