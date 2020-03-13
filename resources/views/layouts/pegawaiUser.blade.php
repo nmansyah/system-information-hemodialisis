@@ -97,8 +97,8 @@
                                     <span class="fa fa-chevron-down"></span>
                                 </a>
                                 <ul class="nav child_menu">
-
                                     <li><a href="{{ route('pegawai.jadwalPasienHarian.index') }}">Pasien Harian</a></li>
+                                    <li><a href="{{ route('pegawai.jadwal.pasien.mingguan.index') }}">Pasien Mingguan</a></li>
                                     <li><a href="{{ route('pegawai.status.kehadiran.index') }}">Status Kehadiran</a></li>
                                 </ul>
                             </li>

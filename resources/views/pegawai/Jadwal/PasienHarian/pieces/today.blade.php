@@ -17,7 +17,9 @@
             $sesi = 'Sesi 1';
         @endphp
         @foreach ($patients as $pasien)
-            @if( ($pasien->sesi1 == $sesi && $pasien->hari1 == $hari) || ($pasien->sesi2 == $sesi && $pasien->hari2 == $hari) || ($pasien->sesi3 == $sesi && $pasien->hari3 == $hari) )
+            @if( ($pasien->sesi1 == $sesi && $pasien->hari1 == $hari) || 
+            ($pasien->sesi2 == $sesi && $pasien->hari2 == $hari) || 
+            ($pasien->sesi3 == $sesi && $pasien->hari3 == $hari) )
                 <tr>
                     <th>{{ $i }}</th>
                     <td>{{ $pasien->nama }}</td>

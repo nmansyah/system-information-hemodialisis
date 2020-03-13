@@ -101,6 +101,7 @@
                                 <ul class="nav child_menu">
 
                                     <li><a href="{{ route('admin.jadwalPasienHarian.index') }}">Pasien Harian</a></li>
+                                    <li><a href="{{ route('admin.jadwal.pasien.mingguan.index') }}">Pasien Mingguan</a></li>
                                     <li><a href="{{ route('admin.status.kehadiran.index') }}">Status Kehadiran</a></li>
                                 </ul>
                             </li>

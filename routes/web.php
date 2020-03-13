@@ -96,6 +96,8 @@ Route::prefix('admin')->group(function () {
     ], [
         'as' => 'admin'
     ]);
+    // jadwal pasien mingguan
+    Route::get('/jadwal-mingguan', 'FetchWeeklySchedule')->name('admin.jadwal.pasien.mingguan.index');
 
     //Jadwal Perawat
     Route::get('/jadwalPerawat', 'Admin\InputJadwalPerawatController@show')->name('admin.data.jadwalPerawat');
@@ -215,6 +217,8 @@ Route::prefix('pegawai')->group(function () {
     ], [
         'as' => 'pegawai'
     ]);
+    // jadwal pasien mingguan
+    Route::get('/jadwal-mingguan', 'FetchWeeklySchedule')->name('pegawai.jadwal.pasien.mingguan.index');
 
     //status kehadiran
     Route::group(['prefix' => 'status-kehadiran'], function () {

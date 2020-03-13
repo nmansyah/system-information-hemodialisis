@@ -73,19 +73,19 @@ class AdminJadwalPasienHarianController extends Controller
 
         $now = Carbon::now()->dayOfWeek;
         switch ($now) {
-            case 2;
+            case 3;
                 $day = 'Selasa';
                 break;
-            case 3:
+            case 4:
                 $day = 'Rabu';
                 break;
-            case 4:
+            case 5:
                 $day = 'Kamis';
                 break;
-            case 5:
+            case 6:
                 $day = 'Jumat';
                 break;
-            case 6:
+            case 7:
                 $day = 'Sabtu';
                 break;
             default:
@@ -93,7 +93,10 @@ class AdminJadwalPasienHarianController extends Controller
                 break;
         }
         
-        $temporaryPatients = PerpindahanJadwal::where('hari1', $day)->with('pasien')->get();
+        $temporaryPatients = PerpindahanJadwal::where('hari1', $day)
+            ->where('is_active', true)
+            ->with('pasien')->get();
+            
         $patients = Pasien::whereDoesntHave('pasienMeninggal')
             ->whereDoesntHave('pasienTraveling')
             ->where(function ($q) use ($day) {
